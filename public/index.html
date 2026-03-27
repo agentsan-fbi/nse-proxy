@@ -42,7 +42,7 @@ body{background:var(--bg);color:var(--txt);font-family:'JetBrains Mono',monospac
 .ba{background:var(--ac);color:#000;}
 .bo{background:transparent;border:1px solid var(--bd);color:var(--txt);}
 .bo:hover{border-color:var(--ac);color:var(--ac);}
-.bg2{background:#065f46;color:var(--grn);border:1px solid #047857;}
+.bg2b{background:#065f46;color:var(--grn);border:1px solid #047857;}
 .br2{background:#7f1d1d;color:var(--red);border:1px solid #991b1b;}
 .bp2{background:#3b0764;color:var(--pur);border:1px solid #6b21a8;}
 .bsm{padding:3px 9px;font-size:10px;}
@@ -69,25 +69,25 @@ textarea.fi{resize:vertical;min-height:80px;}
 .bdg{padding:2px 7px;border-radius:20px;font-size:9px;font-weight:700;}
 .bda{background:#064e3b;color:var(--grn);}
 .bdp{background:#1e2530;color:var(--mut);}
-.si{padding:7px 12px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;}
-.si:last-child{border-bottom:none;}
-.st2{padding:2px 7px;border-radius:3px;font-size:9px;font-weight:700;min-width:38px;text-align:center;}
-.sb{background:#064e3b;color:var(--grn);}
-.ss2{background:#450a0a;color:var(--red);}
-.si2{background:#0c2240;color:#93c5fd;}
+.sgi{padding:7px 12px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;}
+.sgi:last-child{border-bottom:none;}
+.sgt{padding:2px 7px;border-radius:3px;font-size:9px;font-weight:700;min-width:38px;text-align:center;}
+.sgb{background:#064e3b;color:var(--grn);}
+.sgs{background:#450a0a;color:var(--red);}
+.sgi2{background:#0c2240;color:#93c5fd;}
 .tl{background:var(--card);border:1px solid var(--bd);border-radius:6px;margin-bottom:6px;overflow:hidden;}
 .tlm{padding:10px 12px;display:grid;grid-template-columns:auto 1fr 1fr 1fr 1fr auto;gap:10px;align-items:center;cursor:pointer;}
 .tlm:hover{background:#131820;}
 .tle{display:none;padding:12px;border-top:1px solid var(--bd);background:var(--bg3);}
 .tle.o{display:block;}
-.ft{width:100%;border-collapse:collapse;font-size:11px;}
-.ft td{padding:5px 8px;border-bottom:1px solid var(--bd);}
-.ft td:first-child{color:var(--mut);}
-.ft td:last-child{text-align:right;font-weight:700;}
-.pt,.ct2,.lt{width:100%;border-collapse:collapse;font-size:11px;}
-.pt th,.ct2 th,.lt th{padding:7px 10px;text-align:left;color:var(--mut);font-size:9px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd);background:var(--bg2);}
-.pt td,.ct2 td,.lt td{padding:7px 10px;border-bottom:1px solid var(--bd);}
-.pt tr:hover td,.ct2 tr:hover td,.lt tr:hover td{background:#131820;}
+.ftbl{width:100%;border-collapse:collapse;font-size:11px;}
+.ftbl td{padding:5px 8px;border-bottom:1px solid var(--bd);}
+.ftbl td:first-child{color:var(--mut);}
+.ftbl td:last-child{text-align:right;font-weight:700;}
+.pt,.ct2{width:100%;border-collapse:collapse;font-size:11px;}
+.pt th,.ct2 th{padding:7px 10px;text-align:left;color:var(--mut);font-size:9px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd);background:var(--bg2);}
+.pt td,.ct2 td{padding:7px 10px;border-bottom:1px solid var(--bd);}
+.pt tr:hover td,.ct2 tr:hover td{background:#131820;}
 .tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:700;}
 .tb2{background:#064e3b;color:var(--grn);}
 .ts{background:#450a0a;color:var(--red);}
@@ -116,8 +116,7 @@ textarea.fi{resize:vertical;min-height:80px;}
 .subcharts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
 .subchart{width:100%;height:90px;background:var(--bg3);border-radius:6px;position:relative;}
 .subchart canvas{position:absolute;top:0;left:0;width:100%;height:100%;}
-.info-bar{background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:8px 12px;margin-top:8px;display:flex;gap:16px;flex-wrap:wrap;font-size:11px;}
-.market-closed{background:#1a0f0a;border:1px solid #7f4013;border-radius:6px;padding:12px;text-align:center;color:var(--a2);font-size:12px;}
+.infobar{background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:8px 12px;margin-top:8px;display:flex;gap:14px;flex-wrap:wrap;font-size:11px;}
 </style>
 </head>
 <body>
@@ -127,14 +126,14 @@ textarea.fi{resize:vertical;min-height:80px;}
   <div class="fr">
     <button class="abtn go" id="aBtn" onclick="toggleAlgo()">▶ START ALGO</button>
     <span class="ast s" id="aSt">STOPPED</span>
-    <span id="aTmr" style="font-size:10px;color:var(--mut);"></span>
+    <span id="aTmr" style="font-size:10px;color:var(--mut);margin-left:4px;"></span>
   </div>
   <div class="fr" style="gap:10px;">
-    <span class="dot" id="sDot"></span>
+    <span class="dot warn" id="sDot"></span>
     <span id="sTxt" style="font-size:11px;color:var(--mut);">Connecting</span>
     <span id="tPnl" style="font-weight:700;color:var(--grn);font-size:13px;">P&L: +₹0</span>
     <button class="btn bo bsm" onclick="showSet()">⚙</button>
-    <button class="btn ba bsm" onclick="fetchAll()">↻ Refresh</button>
+    <button class="btn ba bsm" onclick="init()">↻ Refresh</button>
   </div>
 </div>
 
@@ -150,21 +149,21 @@ textarea.fi{resize:vertical;min-height:80px;}
 <!-- CHARTS -->
 <div class="pg a" id="pg-chart">
   <div class="g2" style="margin-bottom:10px;">
-    <div class="st" onclick="setCI('NIFTY')" id="nCard">
+    <div class="st" onclick="setCI('NIFTY')">
       <div class="sl">NIFTY 50</div>
       <div class="sv" id="nPr" style="color:var(--ac);">—</div>
-      <div style="font-size:10px;color:var(--mut);" id="nMt">Fetching...</div>
+      <div style="font-size:10px;color:var(--mut);" id="nMt">Loading...</div>
     </div>
-    <div class="st" onclick="setCI('BANKNIFTY')" id="bCard">
+    <div class="st" onclick="setCI('BANKNIFTY')">
       <div class="sl">BANK NIFTY</div>
       <div class="sv" id="bPr" style="color:var(--ac);">—</div>
-      <div style="font-size:10px;color:var(--mut);" id="bMt">Fetching...</div>
+      <div style="font-size:10px;color:var(--mut);" id="bMt">Loading...</div>
     </div>
   </div>
   <div class="card">
     <div class="ch">
       <div class="fr">
-        <div class="ct" id="cTitle">NIFTY Chart</div>
+        <div class="ct" id="cTitle">NIFTY — 5M Chart</div>
         <div class="fr" style="margin-left:8px;">
           <button class="tf a" onclick="setTf('5m','1d',this)">5M</button>
           <button class="tf" onclick="setTf('15m','5d',this)">15M</button>
@@ -187,19 +186,19 @@ textarea.fi{resize:vertical;min-height:80px;}
         <div class="subchart"><canvas id="rsiC"></canvas></div>
         <div class="subchart"><canvas id="macdC"></canvas></div>
       </div>
-      <div class="info-bar" id="iBar"><span style="color:var(--mut);">Loading chart data...</span></div>
+      <div class="infobar" id="iBar"><span style="color:var(--mut);">Loading chart...</span></div>
     </div>
   </div>
   <div class="card">
     <div class="ch"><div class="ct">🔔 Live Signals</div><span id="sigN" style="font-size:10px;color:var(--mut);"></span></div>
-    <div id="sigL"><div class="empty"><div class="ei">🔕</div>Start the algo to see live signals</div></div>
+    <div id="sigL"><div class="empty"><div class="ei">🔕</div>Start the algo to see signals</div></div>
   </div>
 </div>
 
 <!-- CHAIN -->
 <div class="pg" id="pg-chain">
   <div class="g2" style="margin-bottom:10px;">
-    <div class="st" onclick="setChainI('NIFTY')" id="cnCard">
+    <div class="st" onclick="setChainI('NIFTY')" id="cnCard" style="border:1px solid var(--ac);">
       <div class="sl">NIFTY 50</div><div class="sv" id="cnPr" style="color:var(--ac);">—</div>
       <div style="font-size:10px;color:var(--mut);" id="cnMt">—</div>
     </div>
@@ -214,14 +213,18 @@ textarea.fi{resize:vertical;min-height:80px;}
       <div class="fr">
         <select class="fi" id="chainExp" onchange="renderChain()" style="width:130px;padding:4px 8px;"></select>
         <select class="fi" id="chainSk" onchange="renderChain()" style="width:110px;padding:4px 8px;">
-          <option value="10">±10 Strikes</option><option value="15">±15 Strikes</option>
+          <option value="10">±10 Strikes</option>
+          <option value="15">±15 Strikes</option>
           <option value="20" selected>±20 Strikes</option>
         </select>
-        <button class="btn bo bsm" onclick="fetchAll()">↻</button>
+        <button class="btn bo bsm" onclick="fetchChain()">↻</button>
       </div>
     </div>
     <div style="overflow-x:auto;" id="chainBody">
-      <div class="market-closed">⏰ Option chain data is only available during market hours<br><strong>Mon–Fri, 9:15 AM – 3:30 PM IST</strong><br><span style="font-size:10px;color:var(--mut);margin-top:4px;display:block;">Charts (candle data) work anytime via Yahoo Finance</span></div>
+      <div style="background:#1a0f0a;border:1px solid #7f4013;border-radius:6px;padding:16px;text-align:center;color:var(--a2);font-size:12px;margin:12px;">
+        ⏰ NSE Option Chain: <strong>Mon–Fri, 9:15 AM – 3:30 PM IST</strong><br>
+        <span style="font-size:10px;color:var(--mut);margin-top:4px;display:block;">Charts work 24/7 ✓ · Click ↻ Refresh during market hours to load</span>
+      </div>
     </div>
   </div>
 </div>
@@ -234,11 +237,11 @@ textarea.fi{resize:vertical;min-height:80px;}
       <div style="font-size:10px;color:var(--mut);">Auto-trades on candle close · Overnight support · Dhan fees included</div>
     </div>
     <div class="fr">
-      <button class="btn bp2 bsm" onclick="loadPB()">📦 Load Pre-built (6)</button>
+      <button class="btn bp2 bsm" onclick="loadPB()">📦 Load Pre-built</button>
       <button class="btn ba bsm" onclick="showAS()">+ New Strategy</button>
     </div>
   </div>
-  <div id="sL"><div class="empty"><div class="ei">🧠</div>No strategies yet.<br>Click <b>Load Pre-built</b> to add 6 proven strategies instantly!</div></div>
+  <div id="sL"><div class="empty"><div class="ei">🧠</div>Click <b>Load Pre-built</b> to add 6 proven strategies instantly!</div></div>
 </div>
 
 <!-- PORTFOLIO -->
@@ -247,7 +250,7 @@ textarea.fi{resize:vertical;min-height:80px;}
     <div class="st"><div class="sl">Total Capital</div><div class="sv" id="pCap" style="color:var(--ac);">₹0</div></div>
     <div class="st"><div class="sl">Used Margin</div><div class="sv" id="pMar">₹0</div></div>
     <div class="st"><div class="sl">Available</div><div class="sv" id="pAvl" style="color:var(--grn);">₹0</div></div>
-    <div class="st"><div class="sl">Net P&L (after fees)</div><div class="sv" id="pPnl">₹0</div></div>
+    <div class="st"><div class="sl">Net P&L</div><div class="sv" id="pPnl">₹0</div></div>
   </div>
   <div class="card">
     <div class="ch"><div class="ct">Open Positions</div><button class="btn br2 bsm" onclick="closeAll()">Close All</button></div>
@@ -258,7 +261,7 @@ textarea.fi{resize:vertical;min-height:80px;}
 <!-- COMPARE -->
 <div class="pg" id="pg-cmp">
   <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:4px;">Strategy Comparison</div>
-  <div style="font-size:10px;color:var(--mut);margin-bottom:12px;">Win rate · Max drawdown · Sharpe ratio · Net return after fees</div>
+  <div style="font-size:10px;color:var(--mut);margin-bottom:12px;">Win rate · Max drawdown · Sharpe ratio · Net return after Dhan fees</div>
   <div id="cmpW"><div class="empty"><div class="ei">⚖</div>Add strategies to compare</div></div>
 </div>
 
@@ -278,7 +281,7 @@ textarea.fi{resize:vertical;min-height:80px;}
 <div class="ov" id="sOv">
   <div class="mdl" style="width:520px;">
     <div class="mt">🧠 New Strategy</div>
-    <div class="al ai">The algo engine will automatically buy/sell options when your chosen trigger fires on each candle close.</div>
+    <div class="al ai">The algo engine auto-buys/sells options when your trigger fires on each candle close.</div>
     <div class="fg"><label class="fl">Name</label><input class="fi" id="sN" placeholder="e.g. RSI Reversal"></div>
     <div class="g2">
       <div class="fg"><label class="fl">Index</label><select class="fi" id="sI"><option value="NIFTY">NIFTY 50</option><option value="BANKNIFTY">BANK NIFTY</option></select></div>
@@ -288,8 +291,8 @@ textarea.fi{resize:vertical;min-height:80px;}
       <div class="fg"><label class="fl">Take Profit %</label><input class="fi" id="sTP" type="number" value="25"></div>
       <div class="fg"><label class="fl">Stop Loss %</label><input class="fi" id="sSL" type="number" value="15"></div>
     </div>
-    <div class="fg"><label class="fl">Description / Rules (from YouTube or your idea)</label>
-      <textarea class="fi" id="sDesc" rows="3" placeholder="Describe entry/exit logic..."></textarea>
+    <div class="fg"><label class="fl">Description / Rules</label>
+      <textarea class="fi" id="sDesc" rows="3" placeholder="Describe your entry/exit logic..."></textarea>
     </div>
     <div class="fg"><label class="fl">Algo Trigger</label>
       <select class="fi" id="sLg">
@@ -304,8 +307,6 @@ textarea.fi{resize:vertical;min-height:80px;}
         <option value="hmr">Hammer candle → Buy CE</option>
         <option value="be_bull">Bullish Engulfing → Buy CE</option>
         <option value="be_bear">Bearish Engulfing → Buy PE</option>
-        <option value="oi_bull">CE OI unwinding → Buy CE</option>
-        <option value="oi_bear">PE OI unwinding → Buy PE</option>
         <option value="pcr_bull">PCR below 0.7 → Buy CE</option>
         <option value="pcr_bear">PCR above 1.3 → Buy PE</option>
       </select>
@@ -338,243 +339,271 @@ textarea.fi{resize:vertical;min-height:80px;}
   <div class="mdl">
     <div class="mt">⚙ Settings</div>
     <div class="fg"><label class="fl">Proxy Server URL</label><input class="fi" id="setUrl"></div>
-    <div class="al aw">Option chain data: Mon–Fri 9:15AM–3:30PM IST only.<br>Charts (Yahoo Finance candles): Available 24/7.</div>
-    <div class="fr"><button class="btn bo bsm" onclick="testC()">Test Connection</button><span id="cRes" style="font-size:10px;margin-left:6px;"></span></div>
+    <div class="al aw">
+      Charts fetch from Yahoo Finance directly via your browser — no server needed.<br>
+      Option chain fetches via server — available Mon–Fri 9:15AM–3:30PM IST.
+    </div>
+    <div class="fr"><button class="btn bo bsm" onclick="testC()">Test Server</button><span id="cRes" style="font-size:10px;margin-left:6px;"></span></div>
     <div class="ma"><button class="btn ba" style="flex:1;" onclick="saveSet()">Save</button><button class="btn bo" onclick="closeSet()">Cancel</button></div>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // STATE
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 const S = {
   proxy: window.location.origin,
-  strats: JSON.parse(localStorage.getItem('nse_strats')||'[]'),
+  strats: JSON.parse(localStorage.getItem('nse_v4')||'[]'),
   nD: null, bD: null, nC: null, bC: null,
   cI: 'NIFTY', chI: 'NIFTY',
   tf: '5m', rng: '1d',
   on: false, secs: 0, tmr: null,
   sigs: [], clr: '#00d4aa', eid: null,
-  ind: {rsi:true,macd:true,vwap:true,bb:true,st:true},
-  charts: {rsi:null,macd:null}
+  ind: {rsi:true, macd:true, vwap:true, bb:true, st:true},
+  charts: {rsi:null, macd:null}
 };
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 window.onload = () => {
   document.getElementById('setUrl').value = S.proxy;
   renderS(); renderCmp(); renderPort(); renderLog();
-  fetchAll();
+  init();
   setInterval(tick, 5000);
 };
 
-// ═══════════════════════════════════════════════════════════
-// FETCH — safe, never crashes
-// ═══════════════════════════════════════════════════════════
-async function fetchAll() {
+async function init() {
   setStatus('warn');
   try {
-    const [nr,br,ncr,bcr] = await Promise.allSettled([
-      fetch(S.proxy+'/api/nifty').then(r=>r.json()).catch(()=>({success:false,error:'fetch failed'})),
-      fetch(S.proxy+'/api/banknifty').then(r=>r.json()).catch(()=>({success:false,error:'fetch failed'})),
-      fetch(`${S.proxy}/api/candles/nifty?interval=${S.tf}&range=${S.rng}`).then(r=>r.json()).catch(()=>({success:false})),
-      fetch(`${S.proxy}/api/candles/banknifty?interval=${S.tf}&range=${S.rng}`).then(r=>r.json()).catch(()=>({success:false}))
-    ]);
-
-    const nj = nr.value||{}, bj = br.value||{}, ncj = ncr.value||{}, bcj = bcr.value||{};
-
-    if(nj.success && nj.data?.records?.underlyingValue) {
-      S.nD = nj.data; updMkt('NIFTY');
-    }
-    if(bj.success && bj.data?.records?.underlyingValue) {
-      S.bD = bj.data; updMkt('BANKNIFTY');
-    }
-    if(ncj.success && ncj.data?.chart?.result?.[0]) S.nC = ncj.data;
-    if(bcj.success && bcj.data?.chart?.result?.[0]) S.bC = bcj.data;
-
-    // Determine status
-    const hasNSE = S.nD || S.bD;
-    const hasCandles = S.nC || S.bC;
-    if(hasCandles) setStatus('live');
-    else if(hasNSE) setStatus('live');
-    else setStatus('error');
-
-    fillExp();
-    renderChain();
+    // Fetch candles DIRECTLY from Yahoo Finance in browser (bypasses server IP block)
+    await Promise.all([fetchYahooBrowser('NIFTY'), fetchYahooBrowser('BANKNIFTY')]);
+    // Fetch NSE chain via server (works during market hours)
+    await fetchChain();
+    setStatus('live');
     drawChart();
     if(S.on) runAlgo();
   } catch(e) {
-    console.error('fetchAll error:', e);
+    console.warn('init error:', e);
     setStatus('error');
+    drawChart(); // still try to draw with whatever we have
   }
 }
 
+// Fetch Yahoo Finance directly from browser — no server involved
+async function fetchYahooBrowser(idx) {
+  try {
+    const sym = idx === 'NIFTY' ? '%5ENSEI' : '%5ENSEBANK';
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=${S.tf}&range=${S.rng}&includePrePost=false`;
+    const r = await fetch(url);
+    const j = await r.json();
+    if(j.chart && j.chart.result && j.chart.result[0]) {
+      if(idx === 'NIFTY') S.nC = j;
+      else S.bC = j;
+      // Update price display from candle data
+      const ch = j.chart.result[0];
+      const ltp = ch.meta && ch.meta.regularMarketPrice;
+      const sym2 = ch.meta && ch.meta.symbol;
+      if(ltp) {
+        const pr = '₹' + ltp.toLocaleString('en-IN', {minimumFractionDigits:2});
+        if(idx === 'NIFTY') { document.getElementById('nPr').textContent = pr; document.getElementById('nMt').textContent = 'Live via Yahoo'; }
+        else { document.getElementById('bPr').textContent = pr; document.getElementById('bMt').textContent = 'Live via Yahoo'; }
+      }
+    }
+  } catch(e) {
+    console.warn('Yahoo browser fetch error for', idx, ':', e.message);
+  }
+}
+
+async function fetchChain() {
+  try {
+    const [nr, br] = await Promise.all([
+      fetch(S.proxy + '/api/nifty').then(r=>r.json()).catch(()=>({success:false})),
+      fetch(S.proxy + '/api/banknifty').then(r=>r.json()).catch(()=>({success:false}))
+    ]);
+    if(nr.success && nr.data && nr.data.records && nr.data.records.underlyingValue) {
+      S.nD = nr.data; updMkt('NIFTY');
+    }
+    if(br.success && br.data && br.data.records && br.data.records.underlyingValue) {
+      S.bD = br.data; updMkt('BANKNIFTY');
+    }
+    fillExp();
+    renderChain();
+  } catch(e) { console.warn('chain fetch error:', e); }
+}
+
 function setStatus(s) {
-  const d=document.getElementById('sDot'),t=document.getElementById('sTxt');
+  const d=document.getElementById('sDot'), t=document.getElementById('sTxt');
   if(s==='live'){d.className='dot live';t.textContent='Live';}
   else if(s==='error'){d.className='dot';d.style.background='var(--red)';t.textContent='Error';}
-  else{d.className='dot warn';t.textContent='Connecting';}
+  else{d.className='dot warn';t.textContent='Loading';}
 }
 
 function updMkt(idx) {
   try {
-    const d = idx==='NIFTY'?S.nD:S.bD;
-    if(!d?.records?.underlyingValue) return;
-    const ul=d.records.underlyingValue;
-    const pr='₹'+ul.toLocaleString('en-IN',{minimumFractionDigits:2});
-    const mt=(d.records.expiryDates?.length||0)+' expiries';
-    if(idx==='NIFTY'){
-      document.getElementById('nPr').textContent=pr;
-      document.getElementById('nMt').textContent=mt;
-      document.getElementById('cnPr').textContent=pr;
-      document.getElementById('cnMt').textContent=mt;
+    const d = idx==='NIFTY' ? S.nD : S.bD;
+    if(!d || !d.records) return;
+    const ul = d.records.underlyingValue;
+    const pr = '₹' + ul.toLocaleString('en-IN',{minimumFractionDigits:2});
+    const mt = (d.records.expiryDates||[]).length + ' expiries';
+    if(idx==='NIFTY') {
+      document.getElementById('nPr').textContent = pr;
+      document.getElementById('nMt').textContent = mt + ' · NSE live';
+      document.getElementById('cnPr').textContent = pr;
+      document.getElementById('cnMt').textContent = mt;
     } else {
-      document.getElementById('bPr').textContent=pr;
-      document.getElementById('bMt').textContent=mt;
-      document.getElementById('cbPr').textContent=pr;
-      document.getElementById('cbMt').textContent=mt;
+      document.getElementById('bPr').textContent = pr;
+      document.getElementById('bMt').textContent = mt + ' · NSE live';
+      document.getElementById('cbPr').textContent = pr;
+      document.getElementById('cbMt').textContent = mt;
     }
-  } catch(e) { console.warn('updMkt error:', e); }
+  } catch(e) {}
 }
 
-// ═══════════════════════════════════════════════════════════
-// CANDLE PARSING & INDICATORS
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
+// INDICATORS
+// ═══════════════════════════════════════════
 function parseC(data) {
   try {
-    const ch = data?.chart?.result?.[0]; if(!ch) return [];
-    const ts=ch.timestamp||[], q=ch.indicators?.quote?.[0]||{}, out=[];
+    const ch = data && data.chart && data.chart.result && data.chart.result[0];
+    if(!ch) return [];
+    const ts = ch.timestamp||[], q = ch.indicators && ch.indicators.quote && ch.indicators.quote[0]||{};
+    const out = [];
     for(let i=0;i<ts.length;i++) {
-      if(q.open?.[i]!=null&&q.high?.[i]!=null&&q.low?.[i]!=null&&q.close?.[i]!=null)
-        out.push({t:ts[i]*1000,o:q.open[i],h:q.high[i],l:q.low[i],c:q.close[i],v:q.volume?.[i]||0});
+      if(q.open&&q.open[i]!=null&&q.high&&q.high[i]!=null&&q.low&&q.low[i]!=null&&q.close&&q.close[i]!=null)
+        out.push({t:ts[i]*1000, o:q.open[i], h:q.high[i], l:q.low[i], c:q.close[i], v:(q.volume&&q.volume[i])||0});
     }
     return out;
   } catch(e) { return []; }
 }
 
-function rsi(cs,p=14) {
-  const cl=cs.map(c=>c.c),r=new Array(cl.length).fill(null);
+function calcRSI(cs, p=14) {
+  const cl=cs.map(c=>c.c), r=new Array(cl.length).fill(null);
   if(cl.length<p+1) return r;
   let g=0,l=0;
   for(let i=1;i<=p;i++){const d=cl[i]-cl[i-1];d>0?g+=d:l-=d;}
-  let ag=g/p,al=l/p;
+  let ag=g/p, al=l/p;
   r[p]=al===0?100:100-(100/(1+ag/al));
   for(let i=p+1;i<cl.length;i++){
-    const d=cl[i]-cl[i-1],gi=d>0?d:0,li=d<0?-d:0;
-    ag=(ag*(p-1)+gi)/p;al=(al*(p-1)+li)/p;
+    const d=cl[i]-cl[i-1], gi=d>0?d:0, li=d<0?-d:0;
+    ag=(ag*(p-1)+gi)/p; al=(al*(p-1)+li)/p;
     r[i]=al===0?100:100-(100/(1+ag/al));
   }
   return r;
 }
 
-function macd(cs,f=12,s=26,sg=9) {
+function calcMACD(cs, f=12, s=26, sg=9) {
   const cl=cs.map(c=>c.c);
   function ema(d,p){
-    const k=2/(p+1),res=new Array(d.length).fill(null);
+    const k=2/(p+1), res=new Array(d.length).fill(null);
     let sm=0,cnt=0;
     for(let i=0;i<Math.min(p,d.length);i++){if(d[i]!=null){sm+=d[i];cnt++;}}
-    if(cnt<p)return res;
+    if(cnt<p) return res;
     res[p-1]=sm/p;
     for(let i=p;i<d.length;i++) res[i]=(d[i]||0)*k+(res[i-1]||0)*(1-k);
     return res;
   }
-  const ef=ema(cl,f),es=ema(cl,s);
+  const ef=ema(cl,f), es=ema(cl,s);
   const ml=cl.map((_,i)=>ef[i]&&es[i]?ef[i]-es[i]:null);
   const sl=ema(ml.map(v=>v||0),sg);
-  return{ml,sl,hist:ml.map((v,i)=>v!=null&&sl[i]!=null?v-sl[i]:null)};
+  return {ml, sl, hist:ml.map((v,i)=>v!=null&&sl[i]!=null?v-sl[i]:null)};
 }
 
-function vwap(cs) {
-  let cv=0,ct=0;
-  return cs.map(c=>{const tp=(c.h+c.l+c.c)/3;cv+=c.v;ct+=tp*c.v;return cv?ct/cv:c.c;});
+function calcVWAP(cs) {
+  let cv=0, ct=0;
+  return cs.map(c=>{const tp=(c.h+c.l+c.c)/3; cv+=c.v; ct+=tp*c.v; return cv?ct/cv:c.c;});
 }
 
-function boll(cs,p=20,m=2) {
+function calcBoll(cs, p=20, m=2) {
   const cl=cs.map(c=>c.c);
   return cs.map((_,i)=>{
-    if(i<p)return{mid:null,up:null,dn:null};
-    const sl=cl.slice(i-p,i),mid=sl.reduce((a,b)=>a+b,0)/p;
+    if(i<p) return {mid:null,up:null,dn:null};
+    const sl=cl.slice(i-p,i), mid=sl.reduce((a,b)=>a+b,0)/p;
     const std=Math.sqrt(sl.reduce((a,b)=>a+(b-mid)**2,0)/p);
-    return{mid,up:mid+m*std,dn:mid-m*std};
+    return {mid, up:mid+m*std, dn:mid-m*std};
   });
 }
 
-function supert(cs,p=10,m=3) {
-  const res=[],atrs=[];
+function calcST(cs, p=10, m=3) {
+  const res=[], atrs=[];
   for(let i=0;i<cs.length;i++){
     const tr=i===0?cs[i].h-cs[i].l:Math.max(cs[i].h-cs[i].l,Math.abs(cs[i].h-cs[i-1].c),Math.abs(cs[i].l-cs[i-1].c));
     const aAvg=i===0?tr:(atrs[i-1]*(p-1)+tr)/p;
     atrs.push(aAvg);
     const hl2=(cs[i].h+cs[i].l)/2;
     if(i===0){res.push({val:hl2-m*aAvg,bull:true});continue;}
-    const pv=res[i-1];
-    res.push(cs[i].c>(pv.val)?{val:hl2-m*aAvg,bull:true}:{val:hl2+m*aAvg,bull:false});
+    res.push(cs[i].c>(res[i-1].val)?{val:hl2-m*aAvg,bull:true}:{val:hl2+m*aAvg,bull:false});
   }
   return res;
 }
 
-function pats(cs) {
+function calcPat(cs) {
   return cs.map((c,i)=>{
-    const body=Math.abs(c.c-c.o),range=c.h-c.l,p=[];
+    const body=Math.abs(c.c-c.o), range=c.h-c.l, p=[];
     if(range>0.01){
-      const ls=Math.min(c.o,c.c)-c.l,us=c.h-Math.max(c.o,c.c);
-      if(ls>body*2&&us<body*0.5)p.push('hmr');
-      if(body<range*0.1)p.push('doji');
+      const ls=Math.min(c.o,c.c)-c.l, us=c.h-Math.max(c.o,c.c);
+      if(ls>body*2&&us<body*0.5) p.push('hmr');
+      if(body<range*0.1) p.push('doji');
       if(i>0){
         const pr=cs[i-1];
-        if(pr.c<pr.o&&c.c>c.o&&c.o<pr.c&&c.c>pr.o)p.push('bull_eng');
-        if(pr.c>pr.o&&c.c<c.o&&c.o>pr.c&&c.c<pr.o)p.push('bear_eng');
+        if(pr.c<pr.o&&c.c>c.o&&c.o<pr.c&&c.c>pr.o) p.push('bull_eng');
+        if(pr.c>pr.o&&c.c<c.o&&c.o>pr.c&&c.c<pr.o) p.push('bear_eng');
       }
     }
     return p;
   });
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // CHART DRAWING
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function setCI(idx) { S.cI=idx; drawChart(); }
-function setTf(tf,rng,el) { S.tf=tf;S.rng=rng;document.querySelectorAll('.tf').forEach(b=>b.classList.remove('a'));el.classList.add('a');fetchAll(); }
-function togI(k) { S.ind[k]=!S.ind[k];document.getElementById('i-'+k).classList.toggle('off',!S.ind[k]);drawChart(); }
+function setTf(tf,rng,el) {
+  S.tf=tf; S.rng=rng;
+  document.querySelectorAll('.tf').forEach(b=>b.classList.remove('a'));
+  el.classList.add('a');
+  fetchYahooBrowser('NIFTY').then(()=>fetchYahooBrowser('BANKNIFTY')).then(()=>drawChart());
+}
+function togI(k) { S.ind[k]=!S.ind[k]; document.getElementById('i-'+k).classList.toggle('off',!S.ind[k]); drawChart(); }
 
 function drawChart() {
   try {
     const cs = parseC(S.cI==='NIFTY'?S.nC:S.bC);
-    document.getElementById('cTitle').textContent = S.cI+' — '+S.tf.toUpperCase()+' Chart';
+    document.getElementById('cTitle').textContent = S.cI + ' — ' + S.tf.toUpperCase() + ' Chart';
 
     if(!cs.length) {
-      document.getElementById('iBar').innerHTML='<span style="color:var(--mut);">⚠ No candle data yet — try clicking Refresh. Market data available 24/7 via Yahoo Finance.</span>';
-      // Draw empty canvas message
       const canvas=document.getElementById('cChart');
       const wrap=document.getElementById('cWrap');
       canvas.width=wrap.clientWidth||800; canvas.height=wrap.clientHeight||300;
       const ctx=canvas.getContext('2d');
       ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle='#64748b'; ctx.font='14px JetBrains Mono'; ctx.textAlign='center';
-      ctx.fillText('Click ↻ Refresh to load chart data',canvas.width/2,canvas.height/2);
+      ctx.fillStyle='#64748b'; ctx.font='13px JetBrains Mono'; ctx.textAlign='center';
+      ctx.fillText('Click ↻ Refresh to load chart · Works 24/7 via Yahoo Finance', canvas.width/2, canvas.height/2-10);
+      ctx.font='11px JetBrains Mono'; ctx.fillStyle='#3d4e60';
+      ctx.fillText('(Yahoo Finance directly from your browser — no server needed)', canvas.width/2, canvas.height/2+14);
+      document.getElementById('iBar').innerHTML='<span style="color:var(--mut);">No data — click ↻ Refresh</span>';
       return;
     }
 
-    const r=rsi(cs), {ml,sl:sg,hist}=macd(cs), vw=vwap(cs), bb=boll(cs), st=supert(cs);
+    const r=calcRSI(cs), {ml,sl:sg,hist}=calcMACD(cs), vw=calcVWAP(cs), bb=calcBoll(cs), st=calcST(cs);
     const n=cs.length-1;
-    const lR=r[n]||50, lM=ml[n]||0, lV=vw[n]||0, lBB=bb[n], lST=st[n], last=cs[n];
+    const lR=r[n]||50, lM=ml[n]||0, lV=vw[n]||0, lBB=bb[n]||{}, lST=st[n]||{}, last=cs[n];
 
     document.getElementById('iBar').innerHTML=`
       <span style="color:var(--ac);">RSI: <b style="color:${lR<30?'var(--grn)':lR>70?'var(--red)':'var(--txt)'}">${lR.toFixed(1)}</b></span>
       <span style="color:var(--pur);">MACD: <b>${lM.toFixed(2)}</b></span>
       <span style="color:#93c5fd;">VWAP: <b>₹${lV.toFixed(0)}</b></span>
-      <span style="color:var(--a2);">BB: ₹${lBB?.dn?.toFixed(0)||'—'}–₹${lBB?.up?.toFixed(0)||'—'}</span>
-      <span style="color:${lST?.bull?'var(--grn)':'var(--red)'};">ST: <b>${lST?.bull?'▲ BULL':'▼ BEAR'}</b></span>
+      <span style="color:var(--a2);">BB: ₹${lBB.dn?lBB.dn.toFixed(0):'—'}–₹${lBB.up?lBB.up.toFixed(0):'—'}</span>
+      <span style="color:${lST.bull?'var(--grn)':'var(--red)'};">ST: <b>${lST.bull?'▲ BULL':'▼ BEAR'}</b></span>
       <span style="color:var(--txt);">LTP: <b>₹${last.c.toFixed(2)}</b></span>
-      <span style="color:var(--mut);font-size:10px;">${new Date(last.t).toLocaleString('en-IN')}</span>
+      <span style="font-size:10px;color:var(--mut);">${new Date(last.t).toLocaleTimeString('en-IN')}</span>
     `;
 
-    drawCandles(cs,vw,bb,st);
+    drawCandles(cs, vw, bb, st);
 
-    if(S.charts.rsi)S.charts.rsi.destroy();
-    if(S.charts.macd)S.charts.macd.destroy();
+    if(S.charts.rsi) S.charts.rsi.destroy();
+    if(S.charts.macd) S.charts.macd.destroy();
 
     if(S.ind.rsi) {
       const ctx=document.getElementById('rsiC').getContext('2d');
@@ -593,10 +622,11 @@ function drawChart() {
         {data:sg,borderColor:'#f59e0b',borderWidth:1.5,pointRadius:0,type:'line',fill:false,tension:0.2}
       ]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},scales:{x:{display:false},y:{ticks:{color:'#64748b',maxTicksLimit:4,font:{size:9}},grid:{color:'#1e2530'}}}}});
     }
-  } catch(e) { console.error('drawChart error:', e); }
+    setStatus('live');
+  } catch(e) { console.error('drawChart:', e); }
 }
 
-function drawCandles(cs,vw,bb,st) {
+function drawCandles(cs, vw, bb, st) {
   try {
     const canvas=document.getElementById('cChart');
     const wrap=document.getElementById('cWrap');
@@ -604,81 +634,51 @@ function drawCandles(cs,vw,bb,st) {
     canvas.width=W; canvas.height=H;
     const ctx=canvas.getContext('2d');
     ctx.clearRect(0,0,W,H);
-    if(!cs.length) return;
 
     const prices=[...cs.map(c=>c.h),...cs.map(c=>c.l)];
-    if(S.ind.bb) bb.forEach(b=>{if(b.up)prices.push(b.up,b.dn);});
+    if(S.ind.bb) bb.forEach(b=>{if(b&&b.up)prices.push(b.up,b.dn);});
     const mn=Math.min(...prices), mx=Math.max(...prices);
-    if(mn===mx) return;
+    if(mn===mx||isNaN(mn)||isNaN(mx)) return;
+
     const pad={l:4,r:55,t:8,b:20};
     const pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
     const toY=p=>pad.t+ph*(1-(p-mn)/(mx-mn));
     const n=cs.length, cw=pw/n;
     const toX=i=>pad.l+i*cw+cw/2;
 
-    // Grid
     ctx.strokeStyle='#1a2130'; ctx.lineWidth=0.5;
     for(let i=0;i<=5;i++){const y=pad.t+ph*i/5;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();}
-
-    // Y labels
     ctx.fillStyle='#4a5568'; ctx.font='9px monospace'; ctx.textAlign='left';
     for(let i=0;i<=5;i++){const p=mn+(mx-mn)*(1-i/5);ctx.fillText(p.toFixed(0),W-pad.r+4,pad.t+ph*i/5+3);}
 
-    // VWAP
-    if(S.ind.vwap) {
-      ctx.strokeStyle='#3b82f6'; ctx.lineWidth=1.5; ctx.setLineDash([]);
-      ctx.beginPath();
-      cs.forEach((_,i)=>{const y=toY(vw[i]);i===0?ctx.moveTo(toX(i),y):ctx.lineTo(toX(i),y);});
-      ctx.stroke();
-    }
+    if(S.ind.vwap){ctx.strokeStyle='#3b82f6';ctx.lineWidth=1.5;ctx.setLineDash([]);ctx.beginPath();cs.forEach((_,i)=>{const y=toY(vw[i]);i===0?ctx.moveTo(toX(i),y):ctx.lineTo(toX(i),y);});ctx.stroke();}
 
-    // BB
-    if(S.ind.bb) {
-      ctx.strokeStyle='rgba(245,158,11,0.5)'; ctx.lineWidth=1;
-      ['up','dn'].forEach(k=>{
-        ctx.beginPath(); let first=true;
-        cs.forEach((_,i)=>{if(!bb[i][k])return;const y=toY(bb[i][k]);first?(ctx.moveTo(toX(i),y),first=false):ctx.lineTo(toX(i),y);});
-        ctx.stroke();
-      });
-    }
+    if(S.ind.bb){ctx.strokeStyle='rgba(245,158,11,0.5)';ctx.lineWidth=1;['up','dn'].forEach(k=>{ctx.beginPath();let first=true;cs.forEach((_,i)=>{if(!bb[i]||!bb[i][k])return;const y=toY(bb[i][k]);first?(ctx.moveTo(toX(i),y),first=false):ctx.lineTo(toX(i),y);});ctx.stroke();});}
 
-    // Supertrend
-    if(S.ind.st) {
-      cs.forEach((_,i)=>{
-        ctx.fillStyle=st[i].bull?'rgba(34,197,94,.8)':'rgba(239,68,68,.8)';
-        ctx.beginPath(); ctx.arc(toX(i),toY(st[i].val),1.5,0,Math.PI*2); ctx.fill();
-      });
-    }
+    if(S.ind.st){cs.forEach((_,i)=>{if(!st[i])return;ctx.fillStyle=st[i].bull?'rgba(34,197,94,.8)':'rgba(239,68,68,.8)';ctx.beginPath();ctx.arc(toX(i),toY(st[i].val),1.5,0,Math.PI*2);ctx.fill();});}
 
-    // Candles
     const bw=Math.max(1,cw*0.6);
     cs.forEach((c,i)=>{
       const x=toX(i), isUp=c.c>=c.o;
       ctx.strokeStyle=isUp?'#22c55e':'#ef4444';
       ctx.fillStyle=isUp?'rgba(34,197,94,.85)':'rgba(239,68,68,.85)';
       ctx.lineWidth=1;
-      ctx.beginPath(); ctx.moveTo(x,toY(c.h)); ctx.lineTo(x,toY(c.l)); ctx.stroke();
+      ctx.beginPath();ctx.moveTo(x,toY(c.h));ctx.lineTo(x,toY(c.l));ctx.stroke();
       const bt=toY(Math.max(c.o,c.c)), bot=toY(Math.min(c.o,c.c)), bh=Math.max(1,bot-bt);
-      ctx.fillRect(x-bw/2,bt,bw,bh); ctx.strokeRect(x-bw/2,bt,bw,bh);
+      ctx.fillRect(x-bw/2,bt,bw,bh);ctx.strokeRect(x-bw/2,bt,bw,bh);
     });
 
-    // X labels
     ctx.fillStyle='#4a5568'; ctx.font='9px monospace'; ctx.textAlign='center';
     const step=Math.max(1,Math.floor(n/8));
-    cs.forEach((c,i)=>{
-      if(i%step===0){
-        const t=new Date(c.t).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
-        ctx.fillText(t,toX(i),H-4);
-      }
-    });
-  } catch(e) { console.error('drawCandles error:', e); }
+    cs.forEach((c,i)=>{if(i%step===0){ctx.fillText(new Date(c.t).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),toX(i),H-4);}});
+  } catch(e) { console.error('drawCandles:', e); }
 }
 
 window.addEventListener('resize', ()=>{if(document.getElementById('pg-chart').classList.contains('a'))drawChart();});
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // OPTION CHAIN
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function setChainI(idx) {
   S.chI=idx;
   document.getElementById('chainTtl').textContent=idx+' Option Chain';
@@ -690,7 +690,7 @@ function setChainI(idx) {
 function fillExp() {
   try {
     const d=S.chI==='NIFTY'?S.nD:S.bD;
-    if(!d?.records?.expiryDates?.length) return;
+    if(!d||!d.records||!d.records.expiryDates) return;
     const exp=d.records.expiryDates, sel=document.getElementById('chainExp'), prev=sel.value;
     sel.innerHTML=exp.map(e=>`<option value="${e}"${e===prev?' selected':''}>${e}</option>`).join('');
   } catch(e) {}
@@ -699,23 +699,22 @@ function fillExp() {
 function renderChain() {
   try {
     const d=S.chI==='NIFTY'?S.nD:S.bD;
-    if(!d?.records?.underlyingValue) {
-      document.getElementById('chainBody').innerHTML='<div class="market-closed">⏰ NSE Option Chain is only available<br><strong>Mon–Fri, 9:15 AM – 3:30 PM IST</strong><br><span style="font-size:10px;color:var(--mut);margin-top:4px;display:block;">Charts work 24/7 via Yahoo Finance</span></div>';
+    if(!d||!d.records||!d.records.underlyingValue) {
+      document.getElementById('chainBody').innerHTML=`<div style="background:#1a0f0a;border:1px solid #7f4013;border-radius:6px;padding:16px;text-align:center;color:var(--a2);font-size:12px;margin:12px;">
+        ⏰ NSE Option Chain: <strong>Mon–Fri, 9:15 AM – 3:30 PM IST only</strong><br>
+        <span style="font-size:10px;color:var(--mut);margin-top:4px;display:block;">During market hours click ↻ Refresh to load · Charts work 24/7 ✓</span>
+      </div>`;
       return;
     }
     const exp=document.getElementById('chainExp').value;
     const ns=parseInt(document.getElementById('chainSk').value)||20;
     const ul=d.records.underlyingValue, gap=S.chI==='NIFTY'?50:100;
-    const allSk=d.records.data.map(r=>r.strikePrice).filter((v,i,a)=>a.indexOf(v)===i);
-    const atm=allSk.reduce((p,c)=>Math.abs(c-ul)<Math.abs(p-ul)?c:p, allSk[0]||0);
+    const allSk=[...new Set(d.records.data.map(r=>r.strikePrice))];
+    const atm=allSk.reduce((p,c)=>Math.abs(c-ul)<Math.abs(p-ul)?c:p, allSk[0]);
     const bs={};
-    d.records.data.filter(r=>r.expiryDate===exp).forEach(r=>{
-      if(!bs[r.strikePrice])bs[r.strikePrice]={};
-      if(r.CE)bs[r.strikePrice].CE=r.CE;
-      if(r.PE)bs[r.strikePrice].PE=r.PE;
-    });
+    d.records.data.filter(r=>r.expiryDate===exp).forEach(r=>{if(!bs[r.strikePrice])bs[r.strikePrice]={};if(r.CE)bs[r.strikePrice].CE=r.CE;if(r.PE)bs[r.strikePrice].PE=r.PE;});
     const sks=Object.keys(bs).map(Number).filter(s=>Math.abs(s-atm)<=ns*gap).sort((a,b)=>b-a);
-    if(!sks.length){document.getElementById('chainBody').innerHTML='<div class="empty"><div class="ei">📭</div>No chain data for this expiry</div>';return;}
+    if(!sks.length){document.getElementById('chainBody').innerHTML='<div class="empty"><div class="ei">📭</div>No data for this expiry</div>';return;}
     const th='padding:6px 8px;text-align:center;border-bottom:1px solid var(--bd);font-size:9px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;background:var(--bg2);';
     const td='padding:5px 7px;text-align:center;border-bottom:1px solid #0d1117;font-size:10px;';
     let h=`<table style="width:100%;border-collapse:collapse;"><thead><tr>
@@ -723,19 +722,18 @@ function renderChain() {
       <th style="${th}background:#0a1a14;color:var(--a2);">STRIKE</th>
       <th style="${th}">Action</th><th style="${th}">LTP</th><th style="${th}">IV</th><th style="${th}">OI</th>
     </tr></thead><tbody>`;
+    const bb2=`background:#064e3b;color:var(--grn);border:1px solid #065f46;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;`;
+    const sb2=`background:#450a0a;color:var(--red);border:1px solid #7f1d1d;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;`;
     sks.forEach(s=>{
-      const ce=bs[s].CE||{},pe=bs[s].PE||{},isA=s===atm;
+      const ce=bs[s]&&bs[s].CE||{}, pe=bs[s]&&bs[s].PE||{}, isA=s===atm;
       const rs=isA?'background:#0f1e1a;border-top:1px solid var(--ac);border-bottom:1px solid var(--ac);':'';
-      const idx=S.chI;
-      const bb2=`background:#064e3b;color:var(--grn);border:1px solid #065f46;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;`;
-      const sb2=`background:#450a0a;color:var(--red);border:1px solid #7f1d1d;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;`;
       h+=`<tr style="${rs}">
         <td style="${td}color:#86efac;">${fn(ce.openInterest)}</td>
         <td style="${td}color:#86efac;">${ce.impliedVolatility?ce.impliedVolatility.toFixed(1)+'%':'—'}</td>
         <td style="${td}color:#86efac;font-weight:700;">${ce.lastPrice?'₹'+ce.lastPrice:'—'}</td>
-        <td style="${td}">${ce.lastPrice?`<button style="${bb2}" onclick="mTrade('BUY','${idx} ${s} CE',${ce.lastPrice})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${idx} ${s} CE',${ce.lastPrice})">SELL</button>`:'—'}</td>
+        <td style="${td}">${ce.lastPrice?`<button style="${bb2}" onclick="mTrade('BUY','${S.chI} ${s} CE',${ce.lastPrice})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${S.chI} ${s} CE',${ce.lastPrice})">SELL</button>`:'—'}</td>
         <td style="${td}background:var(--bg3);color:var(--a2);font-weight:700;">${s}${isA?' ★':''}</td>
-        <td style="${td}">${pe.lastPrice?`<button style="${bb2}" onclick="mTrade('BUY','${idx} ${s} PE',${pe.lastPrice})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${idx} ${s} PE',${pe.lastPrice})">SELL</button>`:'—'}</td>
+        <td style="${td}">${pe.lastPrice?`<button style="${bb2}" onclick="mTrade('BUY','${S.chI} ${s} PE',${pe.lastPrice})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${S.chI} ${s} PE',${pe.lastPrice})">SELL</button>`:'—'}</td>
         <td style="${td}color:#fca5a5;font-weight:700;">${pe.lastPrice?'₹'+pe.lastPrice:'—'}</td>
         <td style="${td}color:#fca5a5;">${pe.impliedVolatility?pe.impliedVolatility.toFixed(1)+'%':'—'}</td>
         <td style="${td}color:#fca5a5;">${fn(pe.openInterest)}</td>
@@ -743,33 +741,33 @@ function renderChain() {
     });
     h+='</tbody></table>';
     document.getElementById('chainBody').innerHTML=h;
-  } catch(e) { console.error('renderChain error:',e); }
+  } catch(e) { console.error('renderChain:', e); }
 }
 
 function fn(n){if(!n||n===0)return'—';if(n>=100000)return(n/100000).toFixed(1)+'L';if(n>=1000)return(n/1000).toFixed(1)+'K';return n;}
 function fm(n){return'₹'+Math.abs(n).toLocaleString('en-IN',{maximumFractionDigits:0});}
 
-// ═══════════════════════════════════════════════════════════
-// DHAN FEES
-// ═══════════════════════════════════════════════════════════
-function fees(act,prem,qty){
+// ═══════════════════════════════════════════
+// DHAN FEES (2024-25)
+// ═══════════════════════════════════════════
+function calcFees(act, prem, qty) {
   const tv=prem*qty, br=Math.min(20,tv*0.0003), stt=act==='SELL'?tv*0.000625:0;
   const exc=tv*0.00053, sebi=tv*0.000001, st=act==='BUY'?tv*0.00003:0;
   const gst=(br+exc+sebi)*0.18, total=br+stt+exc+sebi+st+gst;
   return{br,stt,exc,sebi,st,gst,total,tv};
 }
 
-function feeHTML(t){
-  const bf=t.entryFees||fees('BUY',t.entryPrice||0,t.qty||0);
+function feeHTML(t) {
+  const bf=t.entryFees||calcFees('BUY',t.entryPrice||0,t.qty||0);
   const ep=t.closePrice||t.currentPrice||t.entryPrice||0;
-  const sf=t.sellFees||fees('SELL',ep,t.qty||0);
+  const sf=t.sellFees||calcFees('SELL',ep,t.qty||0);
   const tf=bf.total+sf.total, gp=(ep-(t.entryPrice||0))*(t.qty||0)*(t.action==='BUY'?1:-1), np=gp-tf;
   return`<div style="font-size:11px;color:var(--mut);margin-bottom:8px;">${t.instrument} · ${t.qty} qty · Entry: ₹${(t.entryPrice||0).toFixed(2)} · Exit: ₹${ep.toFixed(2)}</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
     <div><div style="font-size:10px;color:var(--mut);font-weight:700;margin-bottom:4px;">BUY CHARGES</div>
-    <table class="ft"><tr><td>Brokerage</td><td>₹${bf.br.toFixed(2)}</td></tr><tr><td>STT</td><td>₹${bf.stt.toFixed(2)}</td></tr><tr><td>NSE Exchange</td><td>₹${bf.exc.toFixed(2)}</td></tr><tr><td>SEBI</td><td>₹${bf.sebi.toFixed(4)}</td></tr><tr><td>Stamp Duty</td><td>₹${bf.st.toFixed(2)}</td></tr><tr><td>GST @18%</td><td>₹${bf.gst.toFixed(2)}</td></tr><tr><td><b>Total</b></td><td>₹${bf.total.toFixed(2)}</td></tr></table></div>
+    <table class="ftbl"><tr><td>Brokerage</td><td>₹${bf.br.toFixed(2)}</td></tr><tr><td>STT</td><td>₹${bf.stt.toFixed(2)}</td></tr><tr><td>NSE Exchange</td><td>₹${bf.exc.toFixed(2)}</td></tr><tr><td>SEBI</td><td>₹${bf.sebi.toFixed(4)}</td></tr><tr><td>Stamp Duty</td><td>₹${bf.st.toFixed(2)}</td></tr><tr><td>GST @18%</td><td>₹${bf.gst.toFixed(2)}</td></tr><tr><td><b>Total</b></td><td>₹${bf.total.toFixed(2)}</td></tr></table></div>
     <div><div style="font-size:10px;color:var(--mut);font-weight:700;margin-bottom:4px;">SELL CHARGES</div>
-    <table class="ft"><tr><td>Brokerage</td><td>₹${sf.br.toFixed(2)}</td></tr><tr><td>STT (0.0625%)</td><td>₹${sf.stt.toFixed(2)}</td></tr><tr><td>NSE Exchange</td><td>₹${sf.exc.toFixed(2)}</td></tr><tr><td>SEBI</td><td>₹${sf.sebi.toFixed(4)}</td></tr><tr><td>Stamp Duty</td><td>₹0.00</td></tr><tr><td>GST @18%</td><td>₹${sf.gst.toFixed(2)}</td></tr><tr><td><b>Total</b></td><td>₹${sf.total.toFixed(2)}</td></tr></table></div>
+    <table class="ftbl"><tr><td>Brokerage</td><td>₹${sf.br.toFixed(2)}</td></tr><tr><td>STT (0.0625%)</td><td>₹${sf.stt.toFixed(2)}</td></tr><tr><td>NSE Exchange</td><td>₹${sf.exc.toFixed(2)}</td></tr><tr><td>SEBI</td><td>₹${sf.sebi.toFixed(4)}</td></tr><tr><td>Stamp Duty</td><td>₹0.00</td></tr><tr><td>GST @18%</td><td>₹${sf.gst.toFixed(2)}</td></tr><tr><td><b>Total</b></td><td>₹${sf.total.toFixed(2)}</td></tr></table></div>
   </div>
   <div style="margin-top:12px;padding:10px;background:var(--bg2);border-radius:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
     <div><div style="font-size:9px;color:var(--mut);">GROSS P&L</div><div style="font-size:14px;font-weight:700;color:${gp>=0?'var(--grn)':'var(--red)'};">${gp>=0?'+':''}₹${gp.toFixed(2)}</div></div>
@@ -778,9 +776,9 @@ function feeHTML(t){
   </div>`;
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // ALGO ENGINE
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function toggleAlgo() {
   if(S.on) {
     S.on=false; clearInterval(S.tmr);
@@ -792,7 +790,7 @@ function toggleAlgo() {
     addSig('info','Algo stopped');
   } else {
     const act=S.strats.filter(s=>s.status==='active');
-    if(!act.length){alert('No active strategies! Click "Load Pre-built" in the Strategies tab first.');return;}
+    if(!act.length){alert('No active strategies! Click "Load Pre-built" in Strategies tab first.');return;}
     S.on=true; S.secs=0;
     document.getElementById('aBtn').className='abtn stop';
     document.getElementById('aBtn').textContent='⏹ STOP ALGO';
@@ -800,116 +798,114 @@ function toggleAlgo() {
     document.getElementById('aSt').textContent='RUNNING';
     S.tmr=setInterval(()=>{S.secs++;const h=Math.floor(S.secs/3600),m=Math.floor(S.secs%3600/60),s=S.secs%60;document.getElementById('aTmr').textContent=`${h}h${m}m${s}s`;},1000);
     addSig('info','Algo started · '+act.length+' strategies active');
-    fetchAll();
-    setInterval(()=>{if(S.on)fetchAll();},30000);
+    init();
+    setInterval(()=>{if(S.on)init();},30000);
   }
 }
 
 function runAlgo() {
   try {
     const cs=parseC(S.cI==='NIFTY'?S.nC:S.bC);
-    if(cs.length<30){addSig('info','Need more candle data to run...');return;}
-    const r=rsi(cs),{ml,sl:sg}=macd(cs),vw=vwap(cs),st=supert(cs),pt=pats(cs);
+    if(cs.length<30){addSig('info','Need more candle data...');return;}
+    const r=calcRSI(cs), {ml,sl:sg}=calcMACD(cs), vw=calcVWAP(cs), st=calcST(cs), pt=calcPat(cs);
     const n=cs.length-1;
-    const lR=r[n]||50,pR=r[n-1]||50, lM=ml[n]||0,pM=ml[n-1]||0, lS=sg[n]||0,pS=sg[n-1]||0;
-    const lV=vw[n],pV=vw[n-1], lST=st[n],pST=st[n-1], lP=pt[n]||[], lC=cs[n];
+    const lR=r[n]||50, pR=r[n-1]||50;
+    const lM=ml[n]||0, pM=ml[n-1]||0, lS=sg[n]||0, pS=sg[n-1]||0;
+    const lV=vw[n], pV=vw[n-1];
+    const lST=st[n]||{}, pST=st[n-1]||{};
+    const lP=pt[n]||[], lC=cs[n];
 
-    const chD=S.chI==='NIFTY'?S.nD:S.bD;
-    let pcr=1, ceOIC=0, peOIC=0;
-    if(chD?.records?.data) {
-      const exp=document.getElementById('chainExp')?.value;
-      const fl=chD.records.data.filter(r=>r.expiryDate===exp);
-      const tCe=fl.reduce((s,r)=>s+(r.CE?.openInterest||0),0);
-      const tPe=fl.reduce((s,r)=>s+(r.PE?.openInterest||0),0);
-      pcr=tCe>0?tPe/tCe:1;
-      ceOIC=fl.reduce((s,r)=>s+(r.CE?.changeinOpenInterest||0),0);
-      peOIC=fl.reduce((s,r)=>s+(r.PE?.changeinOpenInterest||0),0);
+    let pcr=1;
+    if(S.nD&&S.nD.records&&S.nD.records.data) {
+      const exp=document.getElementById('chainExp')&&document.getElementById('chainExp').value;
+      const fl=S.nD.records.data.filter(r=>r.expiryDate===exp);
+      const tCe=fl.reduce((s,r)=>s+(r.CE&&r.CE.openInterest||0),0);
+      const tPe=fl.reduce((s,r)=>s+(r.PE&&r.PE.openInterest||0),0);
+      if(tCe>0) pcr=tPe/tCe;
     }
 
     S.strats.filter(s=>s.status==='active').forEach(strat=>{
       try {
-        // Check SL/TP on open positions
         strat.positions.filter(p=>p.status==='open').forEach(pos=>{
           const pp=(pos.currentPrice-pos.entryPrice)/pos.entryPrice*100*(pos.action==='BUY'?1:-1);
-          const now=new Date(),h=now.getHours(),m=now.getMinutes();
+          const now=new Date(), h=now.getHours(), m=now.getMinutes();
           if(!strat.overnight&&((h===15&&m>=10)||h>15)){closeA(strat,pos,'Market close');return;}
-          if(pp>=(strat.tp||25))closeA(strat,pos,'Target +'+pp.toFixed(1)+'%');
-          else if(pp<=(-(strat.sl||15)))closeA(strat,pos,'SL '+pp.toFixed(1)+'%');
+          if(pp>=(strat.tp||25)) closeA(strat,pos,'Target +'+pp.toFixed(1)+'%');
+          else if(pp<=(-(strat.sl||15))) closeA(strat,pos,'SL '+pp.toFixed(1)+'%');
         });
-        if(strat.positions.filter(p=>p.status==='open').length>0)return;
+        if(strat.positions.filter(p=>p.status==='open').length>0) return;
 
-        const cD2=strat.index==='NIFTY'?S.nD:S.bD;
-        const ul=cD2?.records?.underlyingValue||0; if(!ul)return;
+        const cD=strat.index==='NIFTY'?S.nD:S.bD;
+        const ul=cD&&cD.records&&cD.records.underlyingValue||0;
+        if(!ul) return;
         const gap=strat.index==='NIFTY'?50:100;
         const atm=Math.round(ul/gap)*gap;
-        const exp2=document.getElementById('chainExp')?.value;
+        const exp=document.getElementById('chainExp')&&document.getElementById('chainExp').value;
 
-        let sig=null,opt=null;
+        let sig=null, opt=null;
         switch(strat.logic){
-          case 'rsi_os': if(pR>30&&lR<=30){sig='RSI < 30';opt='CE';}break;
-          case 'rsi_ob': if(pR<70&&lR>=70){sig='RSI > 70';opt='PE';}break;
-          case 'st_bull': if(!pST?.bull&&lST?.bull){sig='ST turned Bullish';opt='CE';}break;
-          case 'st_bear': if(pST?.bull&&!lST?.bull){sig='ST turned Bearish';opt='PE';}break;
-          case 'vwap_bull': if(lC.c>lV&&cs[n-1].c<=pV){sig='Bounced above VWAP';opt='CE';}break;
-          case 'vwap_bear': if(lC.c<lV&&cs[n-1].c>=pV){sig='Fell below VWAP';opt='PE';}break;
-          case 'macd_bull': if(pM<pS&&lM>=lS){sig='MACD bull cross';opt='CE';}break;
-          case 'macd_bear': if(pM>pS&&lM<=lS){sig='MACD bear cross';opt='PE';}break;
-          case 'hmr': if(lP.includes('hmr')&&lC.c>lC.o){sig='Hammer candle';opt='CE';}break;
-          case 'be_bull': if(lP.includes('bull_eng')){sig='Bull engulfing';opt='CE';}break;
-          case 'be_bear': if(lP.includes('bear_eng')){sig='Bear engulfing';opt='PE';}break;
-          case 'oi_bull': if(ceOIC<0&&peOIC>0){sig='CE OI unwinding';opt='CE';}break;
-          case 'oi_bear': if(peOIC<0&&ceOIC>0){sig='PE OI unwinding';opt='PE';}break;
-          case 'pcr_bull': if(pcr<0.7){sig='PCR='+pcr.toFixed(2)+' (low)';opt='CE';}break;
-          case 'pcr_bear': if(pcr>1.3){sig='PCR='+pcr.toFixed(2)+' (high)';opt='PE';}break;
+          case 'rsi_os': if(pR>30&&lR<=30){sig='RSI<30';opt='CE';}break;
+          case 'rsi_ob': if(pR<70&&lR>=70){sig='RSI>70';opt='PE';}break;
+          case 'st_bull': if(!pST.bull&&lST.bull){sig='ST→Bull';opt='CE';}break;
+          case 'st_bear': if(pST.bull&&!lST.bull){sig='ST→Bear';opt='PE';}break;
+          case 'vwap_bull': if(lC.c>lV&&cs[n-1].c<=pV){sig='VWAP bounce↑';opt='CE';}break;
+          case 'vwap_bear': if(lC.c<lV&&cs[n-1].c>=pV){sig='VWAP break↓';opt='PE';}break;
+          case 'macd_bull': if(pM<pS&&lM>=lS){sig='MACD bull';opt='CE';}break;
+          case 'macd_bear': if(pM>pS&&lM<=lS){sig='MACD bear';opt='PE';}break;
+          case 'hmr': if(lP.includes('hmr')&&lC.c>lC.o){sig='Hammer';opt='CE';}break;
+          case 'be_bull': if(lP.includes('bull_eng')){sig='Bull engulf';opt='CE';}break;
+          case 'be_bear': if(lP.includes('bear_eng')){sig='Bear engulf';opt='PE';}break;
+          case 'pcr_bull': if(pcr<0.7){sig='PCR='+pcr.toFixed(2)+'<0.7';opt='CE';}break;
+          case 'pcr_bear': if(pcr>1.3){sig='PCR='+pcr.toFixed(2)+'>1.3';opt='PE';}break;
         }
 
-        if(sig&&opt&&cD2?.records?.data) {
-          const row=cD2.records.data.find(r=>r.expiryDate===exp2&&r.strikePrice===atm);
-          const prem=opt==='CE'?(row?.CE?.lastPrice||5):(row?.PE?.lastPrice||5);
-          addSig(opt==='CE'?'buy':'sell',`${strat.name}: ${sig} → ${strat.index} ${atm} ${opt} @ ₹${prem}`);
+        if(sig&&opt&&cD&&cD.records&&cD.records.data) {
+          const row=cD.records.data.find(r=>r.expiryDate===exp&&r.strikePrice===atm);
+          const prem=opt==='CE'?(row&&row.CE&&row.CE.lastPrice||5):(row&&row.PE&&row.PE.lastPrice||5);
+          addSig(opt==='CE'?'buy':'sell', `${strat.name}: ${sig} → ${strat.index} ${atm} ${opt} @ ₹${prem}`);
           execT(strat,'BUY',`${strat.index} ${atm} ${opt}`,prem,sig);
         }
-      } catch(e) { console.warn('strategy error:', e); }
+      } catch(e){ console.warn('strategy err:', e); }
     });
-  } catch(e) { console.error('runAlgo error:', e); }
+  } catch(e){ console.error('runAlgo:', e); }
 }
 
-function execT(strat,action,inst,prem,reason) {
+function execT(strat, action, inst, prem, reason) {
   const lots=strat.lots||1, ls=inst.includes('BANKNIFTY')?15:50;
   const qty=lots*ls, cost=qty*prem, avail=strat.capital-(strat.usedMargin||0);
-  if(cost>avail){addSig('info',`${strat.name}: Insufficient funds (need ${fm(cost)}, have ${fm(avail)})`);return;}
-  const ef=fees('BUY',prem,qty);
+  if(cost>avail){addSig('info',strat.name+': Insufficient funds');return;}
+  const ef=calcFees('BUY',prem,qty);
   const t={id:Date.now()+(Math.random()*999|0),stratId:strat.id,stratName:strat.name,stratColor:strat.color,action,instrument:inst,entryPrice:prem,currentPrice:prem,qty,lots,cost,status:'open',pnl:0,netPnl:0,fees:ef.total,entryFees:ef,reason,time:new Date().toLocaleString('en-IN'),overnight:strat.overnight==='yes'};
   strat.positions.push(t); strat.trades.push({...t});
   strat.usedMargin=(strat.usedMargin||0)+cost;
   save(); renderLog(); renderPort(); renderS();
-  addSig('buy',`EXECUTED: ${action} ${inst} @ ₹${prem} [${strat.name}]`);
+  addSig('buy','EXECUTED: '+action+' '+inst+' @ ₹'+prem+' ['+strat.name+']');
 }
 
-function closeA(strat,pos,reason) {
+function closeA(strat, pos, reason) {
   try {
     pos.status='closed'; pos.closeTime=new Date().toLocaleString('en-IN');
-    const sf=fees('SELL',pos.currentPrice,pos.qty);
+    const sf=calcFees('SELL',pos.currentPrice,pos.qty);
     const gp=(pos.currentPrice-pos.entryPrice)*pos.qty*(pos.action==='BUY'?1:-1);
     pos.pnl=gp; pos.netPnl=gp-pos.fees-sf.total; pos.sellFees=sf; pos.closeReason=reason; pos.closePrice=pos.currentPrice;
     strat.usedMargin=Math.max(0,(strat.usedMargin||0)-pos.cost);
     const t=strat.trades.find(t=>t.id===pos.id);
-    if(t)Object.assign(t,{status:'closed',pnl:gp,netPnl:pos.netPnl,closeTime:pos.closeTime,closePrice:pos.currentPrice,closeReason:reason,sellFees:sf});
+    if(t) Object.assign(t,{status:'closed',pnl:gp,netPnl:pos.netPnl,closeTime:pos.closeTime,closePrice:pos.currentPrice,closeReason:reason,sellFees:sf});
     save(); renderLog(); renderPort(); renderS(); renderCmp();
-    addSig(pos.netPnl>=0?'buy':'sell',`CLOSED: ${pos.instrument} Net: ${pos.netPnl>=0?'+':''}₹${pos.netPnl.toFixed(0)} (${reason})`);
-  } catch(e) {}
+    addSig(pos.netPnl>=0?'buy':'sell','CLOSED: '+pos.instrument+' Net: '+(pos.netPnl>=0?'+':'')+'₹'+pos.netPnl.toFixed(0)+' ('+reason+')');
+  } catch(e){}
 }
 
-function mTrade(action,inst,prem) {
+function mTrade(action, inst, prem) {
   const act=S.strats.filter(s=>s.status==='active');
-  if(!act.length){alert('No active strategies! Go to Strategies tab and click Load Pre-built first.');return;}
-  if(confirm(`Manual Trade:\n${action} ${inst} @ ₹${prem}\nStrategy: ${act[0].name}\nConfirm?`))
+  if(!act.length){alert('No active strategies! Go to Strategies tab and click Load Pre-built.');return;}
+  if(confirm('Manual Trade:\n'+action+' '+inst+' @ ₹'+prem+'\nStrategy: '+act[0].name+'\nConfirm?'))
     execT(act[0],action,inst,prem,'Manual trade');
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // PNL TICK
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function tick() {
   try {
     S.strats.forEach(st=>{
@@ -918,7 +914,7 @@ function tick() {
         pos.currentPrice=Math.max(0.05,pos.currentPrice+mv);
         const diff=pos.currentPrice-pos.entryPrice;
         const gp=diff*pos.qty*(pos.action==='BUY'?1:-1);
-        const sf=fees('SELL',pos.currentPrice,pos.qty);
+        const sf=calcFees('SELL',pos.currentPrice,pos.qty);
         pos.pnl=gp; pos.netPnl=gp-pos.fees-sf.total;
         const t=st.trades.find(t=>t.id===pos.id);
         if(t){t.currentPrice=pos.currentPrice;t.pnl=gp;t.netPnl=pos.netPnl;}
@@ -928,33 +924,33 @@ function tick() {
     const tot=S.strats.reduce((s,st)=>s+sPnl(st),0);
     const el=document.getElementById('tPnl');
     el.textContent='P&L: '+(tot>=0?'+':'')+fm(tot); el.style.color=tot>=0?'var(--grn)':'var(--red)';
-  } catch(e) {}
+  } catch(e){}
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // SIGNALS
-// ═══════════════════════════════════════════════════════════
-function addSig(type,msg) {
+// ═══════════════════════════════════════════
+function addSig(type, msg) {
   S.sigs.unshift({type,msg,time:new Date().toLocaleTimeString('en-IN')});
-  if(S.sigs.length>50)S.sigs.pop();
+  if(S.sigs.length>50) S.sigs.pop();
   document.getElementById('sigN').textContent=S.sigs.length+' signals';
   document.getElementById('sigL').innerHTML=S.sigs.slice(0,20).map(s=>`
-    <div class="si"><span class="st2 ${s.type==='buy'?'sb':s.type==='sell'?'ss2':'si2'}">${s.type.toUpperCase()}</span>
+    <div class="sgi"><span class="sgt ${s.type==='buy'?'sgb':s.type==='sell'?'sgs':'sgi2'}">${s.type.toUpperCase()}</span>
     <span style="flex:1;font-size:11px;">${s.msg}</span>
     <span style="color:var(--mut);font-size:10px;white-space:nowrap;">${s.time}</span></div>`).join('');
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // PRE-BUILT STRATEGIES
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function loadPB() {
   const pb=[
-    {name:'RSI Reversal',index:'NIFTY',capital:300000,logic:'rsi_os',tp:25,sl:15,lots:1,color:'#00d4aa',overnight:'no',description:'Entry: Buy Nifty CE when RSI crosses below 30 (oversold).\nExit: +25% target or -15% SL or 3:15 PM.\nWin rate ~60–65% historically. Best on 5M–15M.'},
-    {name:'Supertrend Follow',index:'BANKNIFTY',capital:250000,logic:'st_bull',tp:30,sl:20,lots:1,color:'#f59e0b',overnight:'no',description:'Entry: Buy BankNifty CE when Supertrend turns Bullish.\nExit: ST reverses or SL/TP hit.\nWin rate ~55–60% in trending markets.'},
-    {name:'VWAP Bounce',index:'NIFTY',capital:200000,logic:'vwap_bull',tp:20,sl:12,lots:1,color:'#3b82f6',overnight:'no',description:'Entry: Buy Nifty CE on VWAP bounce.\nVWAP = dynamic support. Best after 10:30 AM.\nWin rate ~58–62% in range-bound days.'},
-    {name:'MACD Momentum',index:'BANKNIFTY',capital:300000,logic:'macd_bull',tp:35,sl:18,lots:1,color:'#a855f7',overnight:'yes',description:'Entry: MACD bullish crossover on 15M.\nOvernight holding allowed for swing.\nWin rate ~52–58% with high R:R.'},
-    {name:'OI Trap Reversal',index:'NIFTY',capital:200000,logic:'oi_bull',tp:40,sl:25,lots:1,color:'#ef4444',overnight:'no',description:'Entry: CE OI declining = shorts covering = price up.\nHigh-risk contrarian play.\nWin rate ~48–55%, R:R 2:1.'},
-    {name:'PCR Contrarian',index:'NIFTY',capital:150000,logic:'pcr_bull',tp:30,sl:20,lots:1,color:'#f97316',overnight:'no',description:'Entry: PCR < 0.7 (extreme bearishness) → contrarian CE buy.\nMean-reversion from PCR extremes.\nWin rate ~55–60%.'},
+    {name:'RSI Reversal',index:'NIFTY',capital:300000,logic:'rsi_os',tp:25,sl:15,lots:1,color:'#00d4aa',overnight:'no',description:'Entry: Nifty CE when RSI < 30 (oversold reversal).\nExit: +25% target or -15% SL or 3:15 PM.\nWin rate ~60–65% historically. Best on 5M–15M.'},
+    {name:'Supertrend Follow',index:'BANKNIFTY',capital:250000,logic:'st_bull',tp:30,sl:20,lots:1,color:'#f59e0b',overnight:'no',description:'Entry: BankNifty CE when Supertrend turns Bullish.\nExit: ST reverses or SL/TP hit.\nWin rate ~55–60% in trending markets.'},
+    {name:'VWAP Bounce',index:'NIFTY',capital:200000,logic:'vwap_bull',tp:20,sl:12,lots:1,color:'#3b82f6',overnight:'no',description:'Entry: Nifty CE on price bounce above VWAP.\nBest after 10:30 AM in range-bound sessions.\nWin rate ~58–62%.'},
+    {name:'MACD Momentum',index:'BANKNIFTY',capital:300000,logic:'macd_bull',tp:35,sl:18,lots:1,color:'#a855f7',overnight:'yes',description:'Entry: MACD bullish crossover on 15M.\nOvernight holding allowed.\nWin rate ~52–58% with high R:R.'},
+    {name:'Bearish Engulfing PE',index:'NIFTY',capital:200000,logic:'be_bear',tp:30,sl:20,lots:1,color:'#ef4444',overnight:'no',description:'Entry: Nifty PE on bearish engulfing candle.\nStrong reversal pattern near resistance.\nWin rate ~55% with proper context.'},
+    {name:'PCR Contrarian',index:'NIFTY',capital:150000,logic:'pcr_bull',tp:30,sl:20,lots:1,color:'#f97316',overnight:'no',description:'Entry: CE when PCR < 0.7 (extreme bearishness).\nMean-reversion from PCR extremes.\nWin rate ~55–60%.'},
   ];
   const ex=S.strats.map(s=>s.name); let n=0;
   pb.forEach(p=>{
@@ -964,12 +960,12 @@ function loadPB() {
     }
   });
   save(); renderS(); renderCmp();
-  alert(n>0?`✓ Added ${n} pre-built strategies!`:'All pre-built strategies already loaded!');
+  alert(n>0?'✓ Added '+n+' pre-built strategies!':'All pre-built strategies already loaded!');
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // STRATEGY UI
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function showAS(){S.eid=null;S.clr='#00d4aa';document.getElementById('sN').value='';document.getElementById('sC').value=200000;document.getElementById('sDesc').value='';document.getElementById('sOv').classList.add('show');}
 function closeSOv(){document.getElementById('sOv').classList.remove('show');}
 function pc(c,el){S.clr=c;document.querySelectorAll('#cRow div').forEach(e=>e.style.border='3px solid transparent');el.style.border='3px solid #fff';}
@@ -992,15 +988,15 @@ function sWR(st){const cl=st.trades.filter(t=>t.status==='closed');return cl.len
 
 function renderS(){
   const el=document.getElementById('sL');
-  if(!S.strats.length){el.innerHTML='<div class="empty"><div class="ei">🧠</div>No strategies yet.<br>Click <b>Load Pre-built</b> to add 6 proven strategies!</div>';return;}
+  if(!S.strats.length){el.innerHTML='<div class="empty"><div class="ei">🧠</div>No strategies yet.<br>Click <b>Load Pre-built</b>!</div>';return;}
   el.innerHTML=S.strats.map(st=>{
-    const pnl=sPnl(st),pc=pnl>=0?'var(--grn)':'var(--red)';
-    const op=st.positions.filter(p=>p.status==='open').length,wr=sWR(st),dd=sDD(st),sr=sSh(st);
+    const pnl=sPnl(st), pc=pnl>=0?'var(--grn)':'var(--red)';
+    const op=st.positions.filter(p=>p.status==='open').length, wr=sWR(st), dd=sDD(st), sr=sSh(st);
     return`<div class="sc" style="border-left:4px solid ${st.color};">
       ${st.prebuilt?'<span class="pbb">PRE-BUILT</span>':''}
       ${st.overnight==='yes'?'<span class="onb" style="position:absolute;top:10px;right:10px;">OVERNIGHT</span>':''}
       <div class="sc-h">
-        <div><div class="sc-n">${st.name}</div><div class="sc-m">${st.index} · TP:${st.tp||25}% SL:${st.sl||15}% · Cap: ${fm(st.capital)}</div></div>
+        <div><div class="sc-n">${st.name}</div><div class="sc-m">${st.index} · TP:${st.tp||25}% SL:${st.sl||15}% · ${fm(st.capital)}</div></div>
         <div class="fr"><span class="bdg ${st.status==='active'?'bda':'bdp'}">${st.status.toUpperCase()}</span>
           <button class="btn bo bxs" onclick="togS(${st.id})">${st.status==='active'?'⏸':'▶'}</button>
           <button class="btn br2 bxs" onclick="delS(${st.id})">✕</button>
@@ -1015,16 +1011,16 @@ function renderS(){
         <div class="ss"><div class="sv" style="color:${pc};">${pnl>=0?'+':''}${fm(pnl)}</div><div class="sl">Net P&L</div></div>
       </div>
       <div class="fr" style="margin-top:8px;">
-        <button class="btn bg2 bsm" style="flex:1;" onclick="setCI('${st.index}');go('chart');">📊 View Chart</button>
+        <button class="btn bg2b bsm" style="flex:1;" onclick="setCI('${st.index}');go('chart');">📊 View Chart</button>
         <button class="btn bo bsm" onclick="go('log')">📋 ${st.trades.length} Trades</button>
       </div>
     </div>`;
   }).join('');
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // PORTFOLIO
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function renderPort(){
   const all=[]; let cap=0,mar=0;
   S.strats.forEach(st=>{cap+=st.capital;mar+=st.usedMargin||0;st.positions.filter(p=>p.status==='open').forEach(p=>all.push({...p,sn:st.name,sc:st.color,sid:st.id}));});
@@ -1032,7 +1028,7 @@ function renderPort(){
   document.getElementById('pCap').textContent=fm(cap);
   document.getElementById('pMar').textContent=fm(mar);
   document.getElementById('pAvl').textContent=fm(cap-mar);
-  const pe=document.getElementById('pPnl');pe.textContent=(pnl>=0?'+':'')+fm(pnl);pe.style.color=pnl>=0?'var(--grn)':'var(--red)';
+  const pe=document.getElementById('pPnl'); pe.textContent=(pnl>=0?'+':'')+fm(pnl); pe.style.color=pnl>=0?'var(--grn)':'var(--red)';
   const el=document.getElementById('openPos');
   if(!all.length){el.innerHTML='<div class="empty"><div class="ei">📭</div>No open positions</div>';return;}
   el.innerHTML=`<table class="pt"><thead><tr><th>Strategy</th><th>Instrument</th><th>Action</th><th>Qty</th><th>Entry</th><th>CMP</th><th>Gross P&L</th><th>Fees</th><th>Net P&L</th><th>Reason</th><th></th></tr></thead><tbody>
@@ -1053,21 +1049,21 @@ function renderPort(){
 }
 
 function mClose(sid,tid){const st=S.strats.find(s=>s.id===sid);if(!st)return;const pos=st.positions.find(p=>p.id===tid);if(!pos)return;closeA(st,pos,'Manual close');}
-function closeAll(){if(!confirm('Close ALL open positions?'))return;S.strats.forEach(st=>st.positions.filter(p=>p.status==='open').forEach(pos=>closeA(st,pos,'Close all')));}
+function closeAll(){if(!confirm('Close ALL?'))return;S.strats.forEach(st=>st.positions.filter(p=>p.status==='open').forEach(pos=>closeA(st,pos,'Close all')));}
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // COMPARE
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function renderCmp(){
   const el=document.getElementById('cmpW');
   if(!S.strats.length){el.innerHTML='<div class="empty"><div class="ei">⚖</div>Add strategies to compare</div>';return;}
   const mx=Math.max(...S.strats.map(s=>Math.abs(sPnl(s))),1);
   el.innerHTML=`<div class="card"><table class="ct2"><thead><tr>
-    <th>Strategy</th><th>Capital</th><th>Net P&L</th><th>Return%</th><th>Win Rate</th><th>Max Drawdown</th><th>Sharpe</th><th>Open</th><th>Closed</th><th>Status</th>
+    <th>Strategy</th><th>Capital</th><th>Net P&L</th><th>Return%</th><th>Win Rate</th><th>Max DD</th><th>Sharpe</th><th>Open</th><th>Closed</th><th>Status</th>
   </tr></thead><tbody>
   ${S.strats.map(st=>{
     const pnl=sPnl(st),pct=((pnl/st.capital)*100).toFixed(2),wr=sWR(st),dd=sDD(st),sr=sSh(st);
-    const op=st.positions.filter(p=>p.status==='open').length,cl=st.trades.filter(t=>t.status==='closed').length;
+    const op=st.positions.filter(p=>p.status==='open').length, cl=st.trades.filter(t=>t.status==='closed').length;
     const bp=Math.min(100,Math.abs(pnl)/mx*100);
     return`<tr>
       <td><span style="color:${st.color};font-size:14px;">●</span> <b>${st.name}</b>${st.prebuilt?'<span class="pbb">PB</span>':''}<br><small style="color:var(--mut);">${st.index}</small></td>
@@ -1084,16 +1080,15 @@ function renderCmp(){
   </tbody></table></div>`;
 }
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // TRADE LOG
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function renderLog(){
-  const all=[]; S.strats.forEach(st=>st.trades.forEach(t=>all.push({...t})));
-  all.sort((a,b)=>b.id-a.id);
+  const all=[]; S.strats.forEach(st=>st.trades.forEach(t=>all.push({...t}))); all.sort((a,b)=>b.id-a.id);
   const el=document.getElementById('tLog');
   if(!all.length){el.innerHTML='<div class="empty"><div class="ei">📋</div>No trades yet</div>';return;}
   el.innerHTML=all.map(t=>{
-    const tf=(t.fees||0)+(t.sellFees?.total||0);
+    const tf=(t.fees||0)+(t.sellFees&&t.sellFees.total||0);
     return`<div class="tl">
       <div class="tlm" onclick="document.getElementById('x${t.id}').classList.toggle('o')">
         <span class="tag ${t.action==='BUY'?'tb2':'ts'}">${t.action}</span>
@@ -1101,42 +1096,40 @@ function renderLog(){
         <div style="font-size:10px;"><div>Entry: ₹${(t.entryPrice||0).toFixed(2)}</div><div>${t.closePrice?'Exit: ₹'+t.closePrice.toFixed(2):'Open'}</div></div>
         <div><div style="font-size:10px;color:var(--mut);">Gross P&L</div><div style="font-weight:700;color:${(t.pnl||0)>=0?'var(--grn)':'var(--red)'};">${(t.pnl||0)>=0?'+':''}₹${(t.pnl||0).toFixed(0)}</div></div>
         <div><div style="font-size:10px;color:var(--red);">Fees: -₹${tf.toFixed(0)}</div><div style="font-weight:700;color:${(t.netPnl||0)>=0?'var(--grn)':'var(--red)'};">Net: ${(t.netPnl||0)>=0?'+':''}₹${(t.netPnl||0).toFixed(0)}</div></div>
-        <div><span class="tag ${t.status==='open'?'to':'tc'}">${t.status.toUpperCase()}</span>${t.overnight?'<span class="tag th" style="margin-left:2px;">ON</span>':''}<div style="font-size:9px;color:var(--mut);margin-top:2px;">▼ fees</div></div>
+        <div><span class="tag ${t.status==='open'?'to':'tc'}">${t.status.toUpperCase()}</span><div style="font-size:9px;color:var(--mut);margin-top:2px;">▼ fees</div></div>
       </div>
       <div class="tle" id="x${t.id}">${feeHTML(t)}</div>
     </div>`;
   }).join('');
 }
-
 function clearLog(){if(!confirm('Clear closed trades?'))return;S.strats.forEach(st=>{st.trades=st.trades.filter(t=>t.status==='open');});save();renderLog();}
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 // SETTINGS & NAV
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
 function showSet(){document.getElementById('setOv').classList.add('show');document.getElementById('setUrl').value=S.proxy;}
 function closeSet(){document.getElementById('setOv').classList.remove('show');}
-function saveSet(){S.proxy=document.getElementById('setUrl').value.trim();closeSet();fetchAll();}
+function saveSet(){S.proxy=document.getElementById('setUrl').value.trim();closeSet();init();}
 async function testC(){
-  const r=document.getElementById('cRes');r.textContent='Testing...';r.style.color='var(--mut)';
-  try{const res=await fetch(document.getElementById('setUrl').value+'/api/status');const j=await res.json();r.textContent=j.status==='ok'?'✓ Connected v'+j.version:'⚠ Unexpected';r.style.color=j.status==='ok'?'var(--grn)':'var(--a2)';}
-  catch(e){r.textContent='✗ Failed';r.style.color='var(--red)';}
+  const r=document.getElementById('cRes'); r.textContent='Testing...'; r.style.color='var(--mut)';
+  try{const res=await fetch(document.getElementById('setUrl').value+'/api/status');const j=await res.json();r.textContent=j.status==='ok'?'✓ Server v'+j.version:'⚠ Unexpected';r.style.color=j.status==='ok'?'var(--grn)':'var(--a2)';}
+  catch(e){r.textContent='✗ Server unreachable';r.style.color='var(--red)';}
 }
 
 function go(p){
   document.querySelectorAll('.pg').forEach(e=>e.classList.remove('a'));
   document.querySelectorAll('.nt').forEach(e=>e.classList.remove('a'));
   document.getElementById('pg-'+p).classList.add('a');
-  const tabs=['chart','chain','strats','port','cmp','log'];
-  tabs.forEach((n,i)=>{if(n===p)document.querySelectorAll('.nt')[i].classList.add('a');});
-  if(p==='port')renderPort();
-  if(p==='cmp')renderCmp();
-  if(p==='log')renderLog();
-  if(p==='strats')renderS();
+  ['chart','chain','strats','port','cmp','log'].forEach((n,i)=>{if(n===p)document.querySelectorAll('.nt')[i].classList.add('a');});
+  if(p==='port') renderPort();
+  if(p==='cmp') renderCmp();
+  if(p==='log') renderLog();
+  if(p==='strats') renderS();
   if(p==='chain'){fillExp();renderChain();}
-  if(p==='chart')drawChart();
+  if(p==='chart') drawChart();
 }
 
-function save(){localStorage.setItem('nse_strats',JSON.stringify(S.strats));}
+function save(){localStorage.setItem('nse_v4',JSON.stringify(S.strats));}
 
 ['sOv','setOv'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');}));
 </script>
