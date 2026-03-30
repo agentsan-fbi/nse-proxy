@@ -30,7 +30,6 @@ body{background:var(--bg);color:var(--txt);font-family:'JetBrains Mono',monospac
 .pg{display:none;padding:14px;}
 .pg.a{display:block;}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin-bottom:12px;}
 .ch{padding:9px 13px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;background:var(--bg2);}
@@ -59,7 +58,6 @@ textarea.fi{resize:vertical;min-height:80px;}
 .tf.a{background:var(--ac);color:#000;border-color:var(--ac);}
 .ib{padding:2px 7px;border-radius:3px;font-size:9px;font-weight:700;cursor:pointer;transition:opacity .15s;}
 .ib.off{opacity:.3;}
-/* DATA SOURCE SWITCHER */
 .ds-bar{background:var(--bg2);border-bottom:1px solid var(--bd);padding:7px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .ds-label{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
 .ds-btn{padding:5px 16px;border-radius:20px;border:1px solid var(--bd);background:transparent;color:var(--mut);cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;transition:all .2s;}
@@ -67,7 +65,6 @@ textarea.fi{resize:vertical;min-height:80px;}
 .ds-btn.fyers-active{border-color:#f59e0b;color:#f59e0b;background:#1a1000;}
 .fyers-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;background:#064e3b;color:var(--grn);}
 .fyers-badge.disconnected{background:#1e2530;color:var(--mut);}
-/* STRATEGY CARDS */
 .sc{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:13px;margin-bottom:10px;position:relative;}
 .sc-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
 .sc-n{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;}
@@ -134,62 +131,58 @@ textarea.fi{resize:vertical;min-height:80px;}
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div class="tb">
   <div class="logo">NSE<span>Algo</span> <span style="font-size:9px;color:var(--mut);font-weight:400;">PAPER</span></div>
   <div class="fr">
-    <button class="abtn go" id="aBtn" onclick="toggleAlgo()">▶ START ALGO</button>
+    <button class="abtn go" id="aBtn" onclick="toggleAlgo()">&#9654; START ALGO</button>
     <span class="ast s" id="aSt">STOPPED</span>
     <span id="aTmr" style="font-size:10px;color:var(--mut);margin-left:4px;"></span>
   </div>
   <div class="fr" style="gap:10px;">
     <span class="dot warn" id="sDot"></span>
     <span id="sTxt" style="font-size:11px;color:var(--mut);">Connecting</span>
-    <span id="tPnl" style="font-weight:700;color:var(--grn);font-size:13px;">P&L: +₹0</span>
-    <button class="btn bo bsm" onclick="showSet()">⚙</button>
-    <button class="btn ba bsm" onclick="init()">↻ Refresh</button>
+    <span id="tPnl" style="font-weight:700;color:var(--grn);font-size:13px;">P&amp;L: +&#8377;0</span>
+    <button class="btn bo bsm" onclick="showSet()">&#9881;</button>
+    <button class="btn ba bsm" onclick="init()">&#8635; Refresh</button>
   </div>
 </div>
 
-<!-- DATA SOURCE SWITCHER BAR -->
 <div class="ds-bar">
   <span class="ds-label">Data Source:</span>
-  <button class="ds-btn active" id="ds-nseyahoo" onclick="setDS('nseyahoo')">⚫ NSE Direct + Yahoo Finance</button>
-  <button class="ds-btn" id="ds-fyers" onclick="setDS('fyers')">🟠 Fyers API</button>
-  <span class="fyers-badge disconnected" id="fyersBadge">● Not Connected</span>
-  <button class="btn bfy bsm" id="fyersLoginBtn" onclick="fyersLogin()" style="display:none;">Connect Fyers →</button>
+  <button class="ds-btn active" id="ds-nseyahoo" onclick="setDS('nseyahoo')">&#9679; NSE Direct + Yahoo Finance</button>
+  <button class="ds-btn" id="ds-fyers" onclick="setDS('fyers')">&#127840; Fyers API</button>
+  <span class="fyers-badge disconnected" id="fyersBadge">&#9679; Not Connected</span>
+  <button class="btn bfy bsm" id="fyersLoginBtn" onclick="fyersLogin()" style="display:none;">Connect Fyers &rarr;</button>
   <button class="btn br2 bsm" id="fyersLogoutBtn" onclick="fyersLogout()" style="display:none;">Disconnect</button>
   <span id="fyersTime" style="font-size:10px;color:var(--mut);display:none;"></span>
 </div>
 
-<!-- NAV -->
 <div class="nav">
-  <div class="nt a" onclick="go('chart')">📊 Charts</div>
-  <div class="nt" onclick="go('chain')">⛓ Option Chain</div>
-  <div class="nt" onclick="go('strats')">🧠 Strategies</div>
-  <div class="nt" onclick="go('port')">💼 Portfolio</div>
-  <div class="nt" onclick="go('cmp')">⚖ Compare</div>
-  <div class="nt" onclick="go('log')">📋 Trade Log</div>
+  <div class="nt a" onclick="go('chart')">&#128202; Charts</div>
+  <div class="nt" onclick="go('chain')">&#9939; Option Chain</div>
+  <div class="nt" onclick="go('strats')">&#129504; Strategies</div>
+  <div class="nt" onclick="go('port')">&#128188; Portfolio</div>
+  <div class="nt" onclick="go('cmp')">&#9878; Compare</div>
+  <div class="nt" onclick="go('log')">&#128203; Trade Log</div>
 </div>
 
-<!-- CHARTS PAGE -->
 <div class="pg a" id="pg-chart">
   <div class="g2" style="margin-bottom:10px;">
     <div class="stcard" onclick="setCI('NIFTY')">
       <div class="sl">NIFTY 50</div>
-      <div class="sv" id="nPr" style="color:var(--ac);">—</div>
+      <div class="sv" id="nPr" style="color:var(--ac);">&#8212;</div>
       <div style="font-size:10px;color:var(--mut);" id="nMt">Loading...</div>
     </div>
     <div class="stcard" onclick="setCI('BANKNIFTY')">
       <div class="sl">BANK NIFTY</div>
-      <div class="sv" id="bPr" style="color:var(--ac);">—</div>
+      <div class="sv" id="bPr" style="color:var(--ac);">&#8212;</div>
       <div style="font-size:10px;color:var(--mut);" id="bMt">Loading...</div>
     </div>
   </div>
   <div class="card">
     <div class="ch">
       <div class="fr">
-        <div class="ct" id="cTitle">NIFTY — 5M Chart</div>
+        <div class="ct" id="cTitle">NIFTY &mdash; 5M Chart</div>
         <div class="fr" style="margin-left:8px;">
           <button class="tf a" onclick="setTf('5m','1d','5',this)">5M</button>
           <button class="tf" onclick="setTf('15m','5d','15',this)">15M</button>
@@ -216,23 +209,22 @@ textarea.fi{resize:vertical;min-height:80px;}
     </div>
   </div>
   <div class="card">
-    <div class="ch"><div class="ct">🔔 Live Signals</div><span id="sigN" style="font-size:10px;color:var(--mut);"></span></div>
-    <div id="sigL"><div class="empty"><div class="ei">🔕</div>Start the algo to see signals</div></div>
+    <div class="ch"><div class="ct">&#128276; Live Signals</div><span id="sigN" style="font-size:10px;color:var(--mut);"></span></div>
+    <div id="sigL"><div class="empty"><div class="ei">&#128277;</div>Start the algo to see signals</div></div>
   </div>
 </div>
 
-<!-- CHAIN PAGE -->
 <div class="pg" id="pg-chain">
   <div class="g2" style="margin-bottom:10px;">
     <div class="stcard" onclick="setChainI('NIFTY')" id="cnCard" style="border:1px solid var(--ac);">
       <div class="sl">NIFTY 50</div>
-      <div class="sv" id="cnPr" style="color:var(--ac);">—</div>
-      <div style="font-size:10px;color:var(--mut);" id="cnMt">—</div>
+      <div class="sv" id="cnPr" style="color:var(--ac);">&#8212;</div>
+      <div style="font-size:10px;color:var(--mut);" id="cnMt">&#8212;</div>
     </div>
     <div class="stcard" onclick="setChainI('BANKNIFTY')" id="cbCard">
       <div class="sl">BANK NIFTY</div>
-      <div class="sv" id="cbPr" style="color:var(--ac);">—</div>
-      <div style="font-size:10px;color:var(--mut);" id="cbMt">—</div>
+      <div class="sv" id="cbPr" style="color:var(--ac);">&#8212;</div>
+      <div style="font-size:10px;color:var(--mut);" id="cbMt">&#8212;</div>
     </div>
   </div>
   <div class="card">
@@ -242,106 +234,98 @@ textarea.fi{resize:vertical;min-height:80px;}
         <span id="chainSourceBadge" style="font-size:10px;padding:2px 8px;border-radius:10px;background:var(--bg3);color:var(--mut);">NSE Direct</span>
         <select class="fi" id="chainExp" onchange="onExpChange()" style="width:140px;padding:4px 8px;"></select>
         <select class="fi" id="chainSk" onchange="renderChain()" style="width:110px;padding:4px 8px;">
-          <option value="10">±10 Strikes</option>
-          <option value="15">±15 Strikes</option>
-          <option value="20" selected>±20 Strikes</option>
+          <option value="10">&#177;10 Strikes</option>
+          <option value="15">&#177;15 Strikes</option>
+          <option value="20" selected>&#177;20 Strikes</option>
         </select>
-        <button class="btn bo bsm" onclick="fetchChainData()">↻</button>
+        <button class="btn bo bsm" onclick="fetchChainData()">&#8635;</button>
       </div>
     </div>
-    <div style="overflow-x:auto;" id="chainBody">
-      <div class="warn-box">⏰ Loading option chain...</div>
-    </div>
+    <div style="overflow-x:auto;" id="chainBody"><div class="warn-box">Loading option chain...</div></div>
   </div>
 </div>
 
-<!-- STRATEGIES PAGE -->
 <div class="pg" id="pg-strats">
   <div class="fr" style="justify-content:space-between;margin-bottom:12px;">
     <div>
       <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:700;">Strategy Builder</div>
-      <div style="font-size:10px;color:var(--mut);">Paper trading · Auto-trades on candle close · Dhan fees included</div>
+      <div style="font-size:10px;color:var(--mut);">Paper trading &middot; Auto-trades on candle close &middot; Dhan fees included</div>
     </div>
     <div class="fr">
-      <button class="btn bp2 bsm" onclick="loadPB()">📦 Load Pre-built</button>
+      <button class="btn bp2 bsm" onclick="loadPB()">&#128230; Load Pre-built</button>
       <button class="btn ba bsm" onclick="showAS()">+ New Strategy</button>
     </div>
   </div>
-  <div id="sL"><div class="empty"><div class="ei">🧠</div>Click <b>Load Pre-built</b> to add strategies!</div></div>
+  <div id="sL"><div class="empty"><div class="ei">&#129504;</div>Click <b>Load Pre-built</b> to add strategies!</div></div>
 </div>
 
-<!-- PORTFOLIO PAGE -->
 <div class="pg" id="pg-port">
   <div class="g4" style="margin-bottom:12px;">
-    <div class="stcard"><div class="sl">Total Capital</div><div class="sv" id="pCap" style="color:var(--ac);">₹0</div></div>
-    <div class="stcard"><div class="sl">Used Margin</div><div class="sv" id="pMar">₹0</div></div>
-    <div class="stcard"><div class="sl">Available</div><div class="sv" id="pAvl" style="color:var(--grn);">₹0</div></div>
-    <div class="stcard"><div class="sl">Net P&L (after fees)</div><div class="sv" id="pPnl">₹0</div></div>
+    <div class="stcard"><div class="sl">Total Capital</div><div class="sv" id="pCap" style="color:var(--ac);">&#8377;0</div></div>
+    <div class="stcard"><div class="sl">Used Margin</div><div class="sv" id="pMar">&#8377;0</div></div>
+    <div class="stcard"><div class="sl">Available</div><div class="sv" id="pAvl" style="color:var(--grn);">&#8377;0</div></div>
+    <div class="stcard"><div class="sl">Net P&amp;L (after fees)</div><div class="sv" id="pPnl">&#8377;0</div></div>
   </div>
   <div class="card">
     <div class="ch"><div class="ct">Open Positions</div><button class="btn br2 bsm" onclick="closeAll()">Close All</button></div>
-    <div id="openPos"><div class="empty"><div class="ei">📭</div>No open positions</div></div>
+    <div id="openPos"><div class="empty"><div class="ei">&#128205;</div>No open positions</div></div>
   </div>
 </div>
 
-<!-- COMPARE PAGE -->
 <div class="pg" id="pg-cmp">
   <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:4px;">Strategy Comparison</div>
-  <div style="font-size:10px;color:var(--mut);margin-bottom:12px;">Win rate · Max drawdown · Sharpe ratio · Net return after fees</div>
-  <div id="cmpW"><div class="empty"><div class="ei">⚖</div>Add strategies to compare</div></div>
+  <div style="font-size:10px;color:var(--mut);margin-bottom:12px;">Win rate &middot; Max drawdown &middot; Sharpe ratio &middot; Net return after fees</div>
+  <div id="cmpW"><div class="empty"><div class="ei">&#9878;</div>Add strategies to compare</div></div>
 </div>
 
-<!-- LOG PAGE -->
 <div class="pg" id="pg-log">
   <div class="fr" style="justify-content:space-between;margin-bottom:10px;">
     <div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:700;">Trade Log</div>
     <div class="fr">
-      <span style="font-size:10px;color:var(--mut);">▼ Click trade for fee breakdown</span>
+      <span style="font-size:10px;color:var(--mut);">&#9660; Click trade for fee breakdown</span>
       <button class="btn bo bsm" onclick="clearLog()">Clear Closed</button>
     </div>
   </div>
-  <div id="tLog"><div class="empty"><div class="ei">📋</div>No trades yet</div></div>
+  <div id="tLog"><div class="empty"><div class="ei">&#128203;</div>No trades yet</div></div>
 </div>
 
 <!-- ADD STRATEGY MODAL -->
 <div class="ov" id="sOv">
   <div class="mdl" style="width:520px;">
-    <div class="mt">🧠 New Strategy</div>
+    <div class="mt">New Strategy</div>
     <div class="al ai">The algo engine auto-buys/sells options (paper trading) when your trigger fires on each candle close.</div>
     <div class="fg"><label class="fl">Name</label><input class="fi" id="sN" placeholder="e.g. RSI Reversal"></div>
     <div class="g2">
       <div class="fg"><label class="fl">Index</label><select class="fi" id="sI"><option value="NIFTY">NIFTY 50</option><option value="BANKNIFTY">BANK NIFTY</option></select></div>
-      <div class="fg"><label class="fl">Capital (₹)</label><input class="fi" id="sC" type="number" value="200000"></div>
+      <div class="fg"><label class="fl">Capital (Rs.)</label><input class="fi" id="sC" type="number" value="200000"></div>
     </div>
     <div class="g2">
       <div class="fg"><label class="fl">Take Profit %</label><input class="fi" id="sTP" type="number" value="25"></div>
       <div class="fg"><label class="fl">Stop Loss %</label><input class="fi" id="sSL" type="number" value="15"></div>
     </div>
-    <div class="fg"><label class="fl">Description / Rules</label>
-      <textarea class="fi" id="sDesc" rows="3" placeholder="Describe your entry/exit logic..."></textarea>
-    </div>
+    <div class="fg"><label class="fl">Description / Rules</label><textarea class="fi" id="sDesc" rows="3" placeholder="Describe your entry/exit logic..."></textarea></div>
     <div class="fg"><label class="fl">Algo Trigger</label>
       <select class="fi" id="sLg">
-        <option value="rsi_os">RSI below 30 → Buy CE</option>
-        <option value="rsi_ob">RSI above 70 → Buy PE</option>
-        <option value="st_bull">Supertrend turns Bullish → Buy CE</option>
-        <option value="st_bear">Supertrend turns Bearish → Buy PE</option>
-        <option value="vwap_bull">Price bounces above VWAP → Buy CE</option>
-        <option value="vwap_bear">Price falls below VWAP → Buy PE</option>
-        <option value="macd_bull">MACD bullish crossover → Buy CE</option>
-        <option value="macd_bear">MACD bearish crossover → Buy PE</option>
-        <option value="hmr">Hammer candle → Buy CE</option>
-        <option value="be_bull">Bullish Engulfing → Buy CE</option>
-        <option value="be_bear">Bearish Engulfing → Buy PE</option>
-        <option value="pcr_bull">PCR below 0.7 → Buy CE</option>
-        <option value="pcr_bear">PCR above 1.3 → Buy PE</option>
+        <option value="rsi_os">RSI below 30 - Buy CE</option>
+        <option value="rsi_ob">RSI above 70 - Buy PE</option>
+        <option value="st_bull">Supertrend turns Bullish - Buy CE</option>
+        <option value="st_bear">Supertrend turns Bearish - Buy PE</option>
+        <option value="vwap_bull">Price bounces above VWAP - Buy CE</option>
+        <option value="vwap_bear">Price falls below VWAP - Buy PE</option>
+        <option value="macd_bull">MACD bullish crossover - Buy CE</option>
+        <option value="macd_bear">MACD bearish crossover - Buy PE</option>
+        <option value="hmr">Hammer candle - Buy CE</option>
+        <option value="be_bull">Bullish Engulfing - Buy CE</option>
+        <option value="be_bear">Bearish Engulfing - Buy PE</option>
+        <option value="pcr_bull">PCR below 0.7 - Buy CE</option>
+        <option value="pcr_bear">PCR above 1.3 - Buy PE</option>
+        <option value="f30_bull">First 30 Min - Bullish Breakout - Buy CE</option>
+        <option value="f30_bear">First 30 Min - Bearish Breakdown - Buy PE</option>
       </select>
     </div>
     <div class="g2">
       <div class="fg"><label class="fl">Lots</label><input class="fi" id="sLots" type="number" value="1" min="1"></div>
-      <div class="fg"><label class="fl">Overnight</label>
-        <select class="fi" id="sOn"><option value="no">No — Exit by 3:15 PM</option><option value="yes">Yes — Hold until SL/TP</option></select>
-      </div>
+      <div class="fg"><label class="fl">Overnight</label><select class="fi" id="sOn"><option value="no">No - Exit by 3:15 PM</option><option value="yes">Yes - Hold until SL/TP</option></select></div>
     </div>
     <div class="fg"><label class="fl">Color</label>
       <div class="fr" id="cRow">
@@ -354,7 +338,7 @@ textarea.fi{resize:vertical;min-height:80px;}
       </div>
     </div>
     <div class="ma">
-      <button class="btn ba" style="flex:1;" onclick="saveS()">✓ Create Strategy</button>
+      <button class="btn ba" style="flex:1;" onclick="saveS()">Create Strategy</button>
       <button class="btn bo" onclick="closeSOv()">Cancel</button>
     </div>
   </div>
@@ -363,14 +347,14 @@ textarea.fi{resize:vertical;min-height:80px;}
 <!-- SETTINGS MODAL -->
 <div class="ov" id="setOv">
   <div class="mdl">
-    <div class="mt">⚙ Settings</div>
+    <div class="mt">Settings</div>
     <div class="fg"><label class="fl">Proxy Server URL</label><input class="fi" id="setUrl"></div>
     <div class="al aw">All data routes through your Render proxy server.</div>
     <div class="fr"><button class="btn bo bsm" onclick="testC()">Test Server</button><span id="cRes" style="font-size:10px;margin-left:6px;"></span></div>
     <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--bd);">
-      <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:10px;">🟠 Fyers API Status</div>
+      <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:10px;">Fyers API Status</div>
       <div id="setFyersStatus" style="font-size:11px;color:var(--mut);margin-bottom:10px;">Checking...</div>
-      <div class="al ae" style="font-size:10px;">⚠ SEBI Rules from April 1, 2026: You must re-login to Fyers daily. Refresh tokens are discontinued. This is for paper trading only.</div>
+      <div class="al ae" style="font-size:10px;">SEBI Rules from April 1 2026: Re-login to Fyers daily. Refresh tokens discontinued. Paper trading only.</div>
       <div class="fr">
         <button class="btn bfy bsm" onclick="fyersLogin()">Connect / Reconnect Fyers</button>
         <button class="btn br2 bsm" onclick="fyersLogout()">Disconnect</button>
@@ -380,1138 +364,134 @@ textarea.fi{resize:vertical;min-height:80px;}
   </div>
 </div>
 
+<!-- OPTION MINI-CHART MODAL -->
+<div class="ov" id="optChartOv" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="mdl" style="width:700px;max-width:95vw;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <div class="mt" id="optChartTitle" style="margin-bottom:0;">Option Chart</div>
+      <button class="btn bo bsm" onclick="document.getElementById('optChartOv').classList.remove('show')">Close</button>
+    </div>
+    <div id="optChartLoading" style="text-align:center;padding:30px;color:var(--mut);">Loading chart...</div>
+    <div id="optChartWrap" style="width:100%;height:250px;background:var(--bg3);border-radius:6px;position:relative;display:none;">
+      <canvas id="optChartCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;"></canvas>
+    </div>
+    <div class="infobar" id="optChartInfo" style="margin-top:8px;display:none;"></div>
+    <div class="al ai" style="margin-top:10px;font-size:10px;">Fyers API - 5M option price history (last 5 days). Click any strike cell in the option chain to view its chart.</div>
+  </div>
+</div>
+
 <script>
-// ═══════════════════════════════════════════════════════
-// STATE
-// ═══════════════════════════════════════════════════════
-const S = {
-  proxy: window.location.origin,
-  strats: JSON.parse(localStorage.getItem('nse_v6') || '[]'),
-  // Chart candle data (Yahoo format)
-  nC: null, bC: null,
-  // NSE option chain data
-  nD: null, bD: null,
-  // Fyers option chain data + expiries
-  fyersChain: { nifty: null, banknifty: null },
-  fyersExpiries: { nifty: [], banknifty: [] },  // [{date, expiry}]
-  selectedExpiry: { nifty: '', banknifty: '' },  // timestamp string
-  cI: 'NIFTY', chI: 'NIFTY',
-  tf: '5m', rng: '1d', fyersRes: '5',
-  // 2 data sources: 'nseyahoo' | 'fyers'
-  dataSource: localStorage.getItem('ds_v6') || 'nseyahoo',
-  fyersConnected: false,
-  on: false, secs: 0, tmr: null,
-  sigs: [], clr: '#00d4aa', eid: null,
-  ind: { rsi: true, macd: true, vwap: true, bb: true, st: true },
-  charts: { rsi: null, macd: null }
-};
+const S={proxy:window.location.origin,strats:JSON.parse(localStorage.getItem('nse_v6')||'[]'),nC:null,bC:null,nD:null,bD:null,fyersChain:{nifty:null,banknifty:null},fyersExpiries:{nifty:[],banknifty:[]},selectedExpiry:{nifty:'',banknifty:''},cI:'NIFTY',chI:'NIFTY',tf:'5m',rng:'1d',fyersRes:'5',dataSource:localStorage.getItem('ds_v6')||'nseyahoo',fyersConnected:false,on:false,secs:0,tmr:null,sigs:[],clr:'#00d4aa',eid:null,ind:{rsi:true,macd:true,vwap:true,bb:true,st:true},charts:{rsi:null,macd:null}};
+if(S.dataSource==='nse'||S.dataSource==='yahoo'){S.dataSource='nseyahoo';localStorage.setItem('ds_v6','nseyahoo');}
 
-// Migration: map old 'nse'/'yahoo' to 'nseyahoo'
-if (S.dataSource === 'nse' || S.dataSource === 'yahoo') {
-  S.dataSource = 'nseyahoo';
-  localStorage.setItem('ds_v6', 'nseyahoo');
-}
+window.onload=async()=>{document.getElementById('setUrl').value=S.proxy;renderS();renderCmp();renderPort();renderLog();await checkFyersStatus();updateDSUI();await init();setInterval(tick,5000);setInterval(checkFyersStatus,60000);window.addEventListener('message',(e)=>{if(e.data==='fyers_auth_success'){checkFyersStatus().then(()=>{if(S.fyersConnected){addSig('buy','Fyers connected!');if(S.dataSource==='fyers')init();}});}});};
 
-// ═══════════════════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════════════════
-window.onload = async () => {
-  document.getElementById('setUrl').value = S.proxy;
-  renderS(); renderCmp(); renderPort(); renderLog();
-  await checkFyersStatus();
-  updateDSUI();
-  await init();
-  setInterval(tick, 5000);
-  setInterval(checkFyersStatus, 60000);
-  // Listen for Fyers auth success from popup
-  window.addEventListener('message', (e) => {
-    if (e.data === 'fyers_auth_success') {
-      checkFyersStatus().then(() => {
-        if (S.fyersConnected) {
-          addSig('buy', '✓ Fyers connected!');
-          if (S.dataSource === 'fyers') init();
-        }
-      });
-    }
-  });
-};
+async function apiFetch(path){const r=await fetch(S.proxy+path);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
 
-async function apiFetch(path) {
-  const r = await fetch(S.proxy + path);
-  if (!r.ok) throw new Error('HTTP ' + r.status);
-  return r.json();
-}
+async function init(){setStatus('warn');try{if(S.dataSource==='fyers'&&S.fyersConnected){await loadFyersData();}else{await loadNSEYahooData();}drawChart();if(S.on)runAlgo();}catch(e){console.error('init:',e);setStatus('error');drawChart();}}
 
-async function init() {
-  setStatus('warn');
-  try {
-    if (S.dataSource === 'fyers' && S.fyersConnected) {
-      await loadFyersData();
-    } else {
-      await loadNSEYahooData();
-    }
-    drawChart();
-    if (S.on) runAlgo();
-  } catch(e) {
-    console.error('init error:', e);
-    setStatus('error');
-    drawChart();
-  }
-}
+async function reloadCandles(){setStatus('warn');document.getElementById('iBar').innerHTML='<span style="color:var(--mut);">Loading chart data...</span>';try{if(S.dataSource==='fyers'&&S.fyersConnected){await Promise.all([loadFyersCandles('NIFTY'),loadFyersCandles('BANKNIFTY')]);}else{const[ncr,bcr]=await Promise.allSettled([apiFetch('/api/candles/nifty?interval='+S.tf+'&range='+S.rng),apiFetch('/api/candles/banknifty?interval='+S.tf+'&range='+S.rng)]);if(ncr.status==='fulfilled'&&ncr.value.success&&ncr.value.data)S.nC=ncr.value.data;if(bcr.status==='fulfilled'&&bcr.value.success&&bcr.value.data)S.bC=bcr.value.data;}drawChart();setStatus('live');}catch(e){console.error('reloadCandles:',e);setStatus('error');}}
 
-// ─── NSE + Yahoo combined data load
-async function loadNSEYahooData() {
-  // Always load candles from Yahoo (reliable, works 24/7)
-  const [ncr, bcr] = await Promise.allSettled([
-    apiFetch('/api/candles/nifty?interval=' + S.tf + '&range=' + S.rng),
-    apiFetch('/api/candles/banknifty?interval=' + S.tf + '&range=' + S.rng)
-  ]);
+async function loadNSEYahooData(){const[ncr,bcr]=await Promise.allSettled([apiFetch('/api/candles/nifty?interval='+S.tf+'&range='+S.rng),apiFetch('/api/candles/banknifty?interval='+S.tf+'&range='+S.rng)]);if(ncr.status==='fulfilled'&&ncr.value.success&&ncr.value.data){S.nC=ncr.value.data;const ch=S.nC.chart?.result?.[0];if(ch?.meta?.regularMarketPrice){const pr='&#8377;'+ch.meta.regularMarketPrice.toLocaleString('en-IN',{minimumFractionDigits:2});document.getElementById('nPr').textContent=pr;document.getElementById('nMt').textContent='Yahoo Finance';document.getElementById('cnPr').textContent=pr;}}if(bcr.status==='fulfilled'&&bcr.value.success&&bcr.value.data){S.bC=bcr.value.data;const ch=S.bC.chart?.result?.[0];if(ch?.meta?.regularMarketPrice){const pr='&#8377;'+ch.meta.regularMarketPrice.toLocaleString('en-IN',{minimumFractionDigits:2});document.getElementById('bPr').textContent=pr;document.getElementById('bMt').textContent='Yahoo Finance';document.getElementById('cbPr').textContent=pr;}}const[nr,br]=await Promise.allSettled([apiFetch('/api/nifty'),apiFetch('/api/banknifty')]);if(nr.status==='fulfilled'&&nr.value.success){S.nD=nr.value.data;updMktNSE('NIFTY');}if(br.status==='fulfilled'&&br.value.success){S.bD=br.value.data;updMktNSE('BANKNIFTY');}setStatus(S.nC||S.bC?'live':'error');document.getElementById('chainSourceBadge').textContent='NSE Direct';fillExpNSE();renderChain();}
 
-  if (ncr.status === 'fulfilled' && ncr.value.success && ncr.value.data) {
-    S.nC = ncr.value.data;
-    const ch = S.nC.chart?.result?.[0];
-    if (ch?.meta?.regularMarketPrice) {
-      const pr = '₹' + ch.meta.regularMarketPrice.toLocaleString('en-IN', { minimumFractionDigits: 2 });
-      document.getElementById('nPr').textContent = pr;
-      document.getElementById('nMt').textContent = 'Yahoo Finance';
-      document.getElementById('cnPr').textContent = pr;
-    }
-  }
-  if (bcr.status === 'fulfilled' && bcr.value.success && bcr.value.data) {
-    S.bC = bcr.value.data;
-    const ch = S.bC.chart?.result?.[0];
-    if (ch?.meta?.regularMarketPrice) {
-      const pr = '₹' + ch.meta.regularMarketPrice.toLocaleString('en-IN', { minimumFractionDigits: 2 });
-      document.getElementById('bPr').textContent = pr;
-      document.getElementById('bMt').textContent = 'Yahoo Finance';
-      document.getElementById('cbPr').textContent = pr;
-    }
-  }
+function updMktNSE(idx){try{const d=idx==='NIFTY'?S.nD:S.bD;if(!d?.records?.underlyingValue)return;const ul=d.records.underlyingValue,pr='&#8377;'+ul.toLocaleString('en-IN',{minimumFractionDigits:2}),mt=(d.records.expiryDates||[]).length+' expiries';if(idx==='NIFTY'){document.getElementById('nPr').textContent=pr;document.getElementById('nMt').textContent=mt+' NSE';document.getElementById('cnPr').textContent=pr;document.getElementById('cnMt').textContent=mt;}else{document.getElementById('bPr').textContent=pr;document.getElementById('bMt').textContent=mt+' NSE';document.getElementById('cbPr').textContent=pr;document.getElementById('cbMt').textContent=mt;}}catch(e){}}
 
-  // Try to load NSE option chain (works only during market hours)
-  const [nr, br] = await Promise.allSettled([
-    apiFetch('/api/nifty'),
-    apiFetch('/api/banknifty')
-  ]);
-  if (nr.status === 'fulfilled' && nr.value.success) {
-    S.nD = nr.value.data;
-    updMktNSE('NIFTY');
-  }
-  if (br.status === 'fulfilled' && br.value.success) {
-    S.bD = br.value.data;
-    updMktNSE('BANKNIFTY');
-  }
+async function loadFyersData(){try{const qr=await apiFetch('/api/fyers/quotes?symbols=NSE:NIFTY50-INDEX,NSE:NIFTYBANK-INDEX');if(qr.success&&qr.data?.d){qr.data.d.forEach(q=>{const ltp=q.v?.lp;if(!ltp)return;const pr='&#8377;'+ltp.toLocaleString('en-IN',{minimumFractionDigits:2});if(q.n?.includes('NIFTY50')){document.getElementById('nPr').textContent=pr;document.getElementById('nMt').textContent='Fyers Live';document.getElementById('cnPr').textContent=pr;}if(q.n?.includes('NIFTYBANK')){document.getElementById('bPr').textContent=pr;document.getElementById('bMt').textContent='Fyers Live';document.getElementById('cbPr').textContent=pr;}});}else if(qr.tokenExpired){S.fyersConnected=false;updateDSUI();setStatus('error');return;}}catch(e){console.warn('quotes:',e);}await Promise.all([loadFyersCandles('NIFTY'),loadFyersCandles('BANKNIFTY')]);await fetchFyersChain(S.chI);document.getElementById('chainSourceBadge').textContent='Fyers API';setStatus('live');}
 
-  setStatus(S.nC || S.bC ? 'live' : 'error');
-  document.getElementById('chainSourceBadge').textContent = 'NSE Direct';
-  fillExpNSE();
-  renderChain();
-}
+async function loadFyersCandles(idx){const sym=idx==='NIFTY'?'NSE:NIFTY50-INDEX':'NSE:NIFTYBANK-INDEX';const resMap={'5m':'5','15m':'15','30m':'30','60m':'60','1d':'1D'};const res=resMap[S.tf]||S.fyersRes;const now=Math.floor(Date.now()/1000);const rangeMap={'1d':86400,'5d':86400*5,'1mo':86400*30,'3mo':86400*90};const from=now-(rangeMap[S.rng]||86400);try{const r=await apiFetch('/api/fyers/history?symbol='+encodeURIComponent(sym)+'&resolution='+encodeURIComponent(res)+'&date_from='+from+'&date_to='+now);if(r.tokenExpired){S.fyersConnected=false;updateDSUI();return;}if(r.success&&r.data?.candles?.length>0){const candles=r.data.candles,lastC=candles[candles.length-1];const fakeYahoo={chart:{result:[{meta:{symbol:sym,regularMarketPrice:lastC[4]},timestamp:candles.map(c=>c[0]),indicators:{quote:[{open:candles.map(c=>c[1]),high:candles.map(c=>c[2]),low:candles.map(c=>c[3]),close:candles.map(c=>c[4]),volume:candles.map(c=>c[5])}]}}]}};if(idx==='NIFTY'){S.nC=fakeYahoo;document.getElementById('nPr').textContent='&#8377;'+lastC[4].toLocaleString('en-IN',{minimumFractionDigits:2});document.getElementById('nMt').textContent='Fyers '+candles.length+' candles';}else{S.bC=fakeYahoo;document.getElementById('bPr').textContent='&#8377;'+lastC[4].toLocaleString('en-IN',{minimumFractionDigits:2});document.getElementById('bMt').textContent='Fyers '+candles.length+' candles';}}}catch(e){console.error('loadFyersCandles:',e);}}
 
-function updMktNSE(idx) {
-  try {
-    const d = idx === 'NIFTY' ? S.nD : S.bD;
-    if (!d?.records?.underlyingValue) return;
-    const ul = d.records.underlyingValue;
-    const pr = '₹' + ul.toLocaleString('en-IN', { minimumFractionDigits: 2 });
-    const mt = (d.records.expiryDates || []).length + ' expiries · NSE';
-    if (idx === 'NIFTY') {
-      document.getElementById('nPr').textContent = pr;
-      document.getElementById('nMt').textContent = mt;
-      document.getElementById('cnPr').textContent = pr;
-      document.getElementById('cnMt').textContent = (d.records.expiryDates || []).length + ' expiries';
-    } else {
-      document.getElementById('bPr').textContent = pr;
-      document.getElementById('bMt').textContent = mt;
-      document.getElementById('cbPr').textContent = pr;
-      document.getElementById('cbMt').textContent = (d.records.expiryDates || []).length + ' expiries';
-    }
-  } catch(e) {}
-}
+async function fetchFyersChain(idx){const sym=idx==='NIFTY'?'NSE:NIFTY50-INDEX':'NSE:NIFTYBANK-INDEX';const strikes=document.getElementById('chainSk')?.value||'20';const ts=S.selectedExpiry[idx.toLowerCase()]||'';try{const r=await apiFetch('/api/fyers/option-chain?symbol='+encodeURIComponent(sym)+'&strikes='+strikes+(ts?'&timestamp='+encodeURIComponent(ts):''));if(r.tokenExpired){S.fyersConnected=false;updateDSUI();return;}if(r.success&&r.data?.data){const chainData=r.data.data;if(idx==='NIFTY'){S.fyersChain.nifty=chainData;S.fyersExpiries.nifty=chainData.expiryData||[];}else{S.fyersChain.banknifty=chainData;S.fyersExpiries.banknifty=chainData.expiryData||[];}fillExpFyers(idx);renderFyersChain(idx,chainData);}else{document.getElementById('chainBody').innerHTML='<div class="warn-box">'+(r.error||'No data from Fyers')+'<br><span style="font-size:10px;color:var(--mut);">Market may be closed. Try 9:15 AM to 3:30 PM IST</span></div>';}}catch(e){document.getElementById('chainBody').innerHTML='<div class="warn-box">'+e.message+'</div>';}}
 
-// ─── Fyers data load
-async function loadFyersData() {
-  // 1. Get quotes (LTP)
-  try {
-    const qr = await apiFetch('/api/fyers/quotes?symbols=NSE:NIFTY50-INDEX,NSE:NIFTYBANK-INDEX');
-    if (qr.success && qr.data?.d) {
-      qr.data.d.forEach(q => {
-        const ltp = q.v?.lp;
-        if (!ltp) return;
-        const pr = '₹' + ltp.toLocaleString('en-IN', { minimumFractionDigits: 2 });
-        if (q.n?.includes('NIFTY50')) {
-          document.getElementById('nPr').textContent = pr;
-          document.getElementById('nMt').textContent = '🟠 Fyers · Live';
-          document.getElementById('cnPr').textContent = pr;
-        }
-        if (q.n?.includes('NIFTYBANK')) {
-          document.getElementById('bPr').textContent = pr;
-          document.getElementById('bMt').textContent = '🟠 Fyers · Live';
-          document.getElementById('cbPr').textContent = pr;
-        }
-      });
-    } else if (qr.tokenExpired) {
-      S.fyersConnected = false; updateDSUI(); setStatus('error'); return;
-    }
-  } catch(e) { console.warn('Fyers quotes:', e); }
+function fillExpFyers(idx){const expiries=idx==='NIFTY'?S.fyersExpiries.nifty:S.fyersExpiries.banknifty;const sel=document.getElementById('chainExp');if(!expiries?.length)return;const cur=S.selectedExpiry[idx.toLowerCase()];sel.innerHTML=expiries.map(e=>'<option value="'+e.expiry+'"'+(e.expiry===cur?' selected':'')+'>'+e.date+'</option>').join('');if(!cur&&expiries.length>0){S.selectedExpiry[idx.toLowerCase()]=expiries[0].expiry;sel.value=expiries[0].expiry;}}
 
-  // 2. Load candles for current chart index
-  await loadFyersCandles(S.cI);
+function fillExpNSE(){try{const d=S.chI==='NIFTY'?S.nD:S.bD;if(!d?.records?.expiryDates)return;const sel=document.getElementById('chainExp'),prev=sel.value;sel.innerHTML=d.records.expiryDates.map(e=>'<option value="'+e+'"'+(e===prev?' selected':'')+'>'+e+'</option>').join('');}catch(e){}}
 
-  // 3. Load option chain
-  await fetchFyersChain(S.chI);
+function onExpChange(){if(S.dataSource==='fyers'&&S.fyersConnected){S.selectedExpiry[S.chI.toLowerCase()]=document.getElementById('chainExp').value;fetchFyersChain(S.chI);}else{renderChain();}}
 
-  document.getElementById('chainSourceBadge').textContent = '🟠 Fyers API';
-  setStatus('live');
-}
+function renderFyersChain(idx,chainData){try{const optList=chainData.optionsChain||[];if(!optList.length){document.getElementById('chainBody').innerHTML='<div class="empty"><div class="ei">No Data</div>No option data. Market may be closed.</div>';return;}const firstItem=optList[0];if(firstItem?.fp){const pr='&#8377;'+firstItem.fp.toLocaleString('en-IN',{minimumFractionDigits:2});if(idx==='NIFTY'){document.getElementById('cnPr').textContent=pr;document.getElementById('cnMt').textContent='Fyers F='+pr;}else{document.getElementById('cbPr').textContent=pr;document.getElementById('cbMt').textContent='Fyers F='+pr;}}const byStrike={};optList.forEach(o=>{const s=o.strike_price;if(!byStrike[s])byStrike[s]={};if(o.option_type==='CE')byStrike[s].CE=o;if(o.option_type==='PE')byStrike[s].PE=o;});const strikes=Object.keys(byStrike).map(Number).sort((a,b)=>b-a);if(!strikes.length){document.getElementById('chainBody').innerHTML='<div class="empty">No strikes found</div>';return;}const ul=firstItem?.fp||strikes[Math.floor(strikes.length/2)];const atm=strikes.reduce((p,c)=>Math.abs(c-ul)<Math.abs(p-ul)?c:p,strikes[0]);const totalCallOi=chainData.callOi||0,totalPutOi=chainData.putOi||0;const pcr=totalCallOi>0?(totalPutOi/totalCallOi).toFixed(2):'N/A';const vix=chainData.indiavixData?.ltp;const th='padding:6px 8px;text-align:center;border-bottom:1px solid var(--bd);font-size:9px;color:var(--mut);text-transform:uppercase;background:var(--bg2);';const td='padding:5px 7px;text-align:center;border-bottom:1px solid #0d1117;font-size:10px;';const bb2='background:#064e3b;color:var(--grn);border:1px solid #065f46;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;';const sb2='background:#450a0a;color:var(--red);border:1px solid #7f1d1d;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;';let h='<div style="padding:8px 12px;background:var(--bg2);border-bottom:1px solid var(--bd);display:flex;gap:20px;font-size:11px;flex-wrap:wrap;"><span>Call OI: <b style="color:#86efac;">'+fn(totalCallOi)+'</b></span><span>Put OI: <b style="color:#fca5a5;">'+fn(totalPutOi)+'</b></span><span>PCR: <b style="color:'+(parseFloat(pcr)>1?'var(--grn)':'var(--red)')+';">'+pcr+'</b></span>'+(vix?'<span>VIX: <b style="color:var(--a2);">'+vix.toFixed(2)+'</b></span>':'')+'<span style="color:var(--mut);font-size:10px;">* = ATM | Click strike for chart</span></div>';h+='<table style="width:100%;border-collapse:collapse;"><thead><tr><th style="'+th+'">OI</th><th style="'+th+'">Vol</th><th style="'+th+'">LTP</th><th style="'+th+'">Action</th><th style="'+th+'background:#0a1a14;color:var(--a2);">STRIKE</th><th style="'+th+'">Action</th><th style="'+th+'">LTP</th><th style="'+th+'">Vol</th><th style="'+th+'">OI</th></tr></thead><tbody>';strikes.forEach(s=>{const ce=byStrike[s]?.CE||{},pe=byStrike[s]?.PE||{},isATM=s===atm;const rowStyle=isATM?'background:#0f1e1a;border-top:1px solid var(--ac);border-bottom:1px solid var(--ac);':'';const ceSym=ce.symbol||'';h+='<tr style="'+rowStyle+'"><td style="'+td+'color:#86efac;">'+fn(ce.oi)+'</td><td style="'+td+'color:#86efac;">'+fn(ce.volume)+'</td><td style="'+td+'color:#86efac;font-weight:700;">'+(ce.ltp?'&#8377;'+ce.ltp.toFixed(2):'&#8212;')+'</td><td style="'+td+'">'+(ce.ltp?'<button style="'+bb2+'" onclick="mTrade(\'BUY\',\''+idx+' '+s+' CE\','+ce.ltp+')">BUY</button> <button style="'+sb2+'" onclick="mTrade(\'SELL\',\''+idx+' '+s+' CE\','+ce.ltp+')">SELL</button>':'&#8212;')+'</td><td style="'+td+'background:var(--bg3);color:var(--a2);font-weight:700;cursor:pointer;" onclick="showOptionChart(\''+ceSym+'\',\''+idx+' '+s+'\')">'+s+(isATM?' *':'')+'<div style="font-size:8px;color:var(--mut);">chart</div></td><td style="'+td+'">'+(pe.ltp?'<button style="'+bb2+'" onclick="mTrade(\'BUY\',\''+idx+' '+s+' PE\','+pe.ltp+')">BUY</button> <button style="'+sb2+'" onclick="mTrade(\'SELL\',\''+idx+' '+s+' PE\','+pe.ltp+')">SELL</button>':'&#8212;')+'</td><td style="'+td+'color:#fca5a5;font-weight:700;">'+(pe.ltp?'&#8377;'+pe.ltp.toFixed(2):'&#8212;')+'</td><td style="'+td+'color:#fca5a5;">'+fn(pe.volume)+'</td><td style="'+td+'color:#fca5a5;">'+fn(pe.oi)+'</td></tr>';});h+='</tbody></table>';document.getElementById('chainBody').innerHTML=h;}catch(e){console.error('renderFyersChain:',e);document.getElementById('chainBody').innerHTML='<div class="warn-box">Render error: '+e.message+'</div>';}}
 
-// ─── Fyers candle data → convert to Yahoo-compatible format for drawing
-async function loadFyersCandles(idx) {
-  const sym = idx === 'NIFTY' ? 'NSE:NIFTY50-INDEX' : 'NSE:NIFTYBANK-INDEX';
-  // Fyers resolution mapping
-  const resMap = { '5m':'5', '15m':'15', '30m':'30', '60m':'60', '1d':'1D' };
-  const res = resMap[S.tf] || S.fyersRes;
-  // Date range in unix seconds
-  const now = Math.floor(Date.now() / 1000);
-  const rangeMap = { '1d': 86400, '5d': 86400*5, '1mo': 86400*30, '3mo': 86400*90 };
-  const from = now - (rangeMap[S.rng] || 86400);
+let optChart=null;
+async function showOptionChart(symbol,label){if(!symbol){alert('Symbol not available for this strike.');return;}if(S.dataSource!=='fyers'||!S.fyersConnected){alert('Option charts require Fyers API connection.');return;}document.getElementById('optChartOv').classList.add('show');document.getElementById('optChartTitle').textContent=label+' - Option Chart';document.getElementById('optChartLoading').style.display='block';document.getElementById('optChartLoading').textContent='Loading chart...';document.getElementById('optChartWrap').style.display='none';document.getElementById('optChartInfo').style.display='none';if(optChart){optChart.destroy();optChart=null;}try{const now=Math.floor(Date.now()/1000),from=now-86400*5;const r=await apiFetch('/api/fyers/history?symbol='+encodeURIComponent(symbol)+'&resolution=5&date_from='+from+'&date_to='+now);if(!r.success||!r.data?.candles?.length)throw new Error(r.error||'No data');const candles=r.data.candles;const labels=candles.map(c=>new Date(c[0]*1000).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}));const closes=candles.map(c=>c[4]),highs=candles.map(c=>c[2]),lows=candles.map(c=>c[3]);const last=closes[closes.length-1],first=closes[0],pct=((last-first)/first*100).toFixed(2);document.getElementById('optChartLoading').style.display='none';document.getElementById('optChartWrap').style.display='block';document.getElementById('optChartInfo').style.display='flex';document.getElementById('optChartInfo').innerHTML='<span>LTP: <b style="color:var(--ac);">&#8377;'+last.toFixed(2)+'</b></span><span>High: <b style="color:var(--grn);">&#8377;'+Math.max(...highs).toFixed(2)+'</b></span><span>Low: <b style="color:var(--red);">&#8377;'+Math.min(...lows).toFixed(2)+'</b></span><span>Change: <b style="color:'+(parseFloat(pct)>=0?'var(--grn)':'var(--red)')+';">'+(parseFloat(pct)>=0?'+':'')+pct+'%</b></span><span style="color:var(--mut);font-size:10px;">'+candles.length+' candles 5M</span>';const wrap=document.getElementById('optChartWrap'),canvas=document.getElementById('optChartCanvas');canvas.width=wrap.clientWidth;canvas.height=wrap.clientHeight;const isUp=parseFloat(pct)>=0;optChart=new Chart(canvas.getContext('2d'),{type:'line',data:{labels,datasets:[{data:closes,borderColor:isUp?'#22c55e':'#ef4444',borderWidth:1.5,pointRadius:0,fill:true,backgroundColor:isUp?'rgba(34,197,94,0.08)':'rgba(239,68,68,0.08)',tension:0.2}]},options:{responsive:false,animation:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#64748b',maxTicksLimit:8,font:{size:9}},grid:{color:'#1e2530'}},y:{ticks:{color:'#64748b',maxTicksLimit:5,font:{size:9}},grid:{color:'#1e2530'}}}}});}catch(e){document.getElementById('optChartLoading').textContent='Error: '+e.message+' (option charts work during/after market hours only)';}}
 
-  try {
-    const r = await apiFetch(
-      `/api/fyers/history?symbol=${encodeURIComponent(sym)}&resolution=${encodeURIComponent(res)}&date_from=${from}&date_to=${now}`
-    );
-    if (r.tokenExpired) { S.fyersConnected = false; updateDSUI(); return; }
-    if (r.success && r.data?.candles && r.data.candles.length > 0) {
-      // Candle format: [timestamp, open, high, low, close, volume]
-      const candles = r.data.candles;
-      const lastCandle = candles[candles.length - 1];
-      // Convert to Yahoo chart format (our parseC function expects this)
-      const fakeYahoo = {
-        chart: {
-          result: [{
-            meta: {
-              symbol: sym,
-              regularMarketPrice: lastCandle[4]  // last close
-            },
-            timestamp: candles.map(c => c[0]),
-            indicators: {
-              quote: [{
-                open:   candles.map(c => c[1]),
-                high:   candles.map(c => c[2]),
-                low:    candles.map(c => c[3]),
-                close:  candles.map(c => c[4]),
-                volume: candles.map(c => c[5])
-              }]
-            }
-          }]
-        }
-      };
-      if (idx === 'NIFTY') {
-        S.nC = fakeYahoo;
-        document.getElementById('nPr').textContent = '₹' + lastCandle[4].toLocaleString('en-IN', { minimumFractionDigits: 2 });
-        document.getElementById('nMt').textContent = '🟠 Fyers · ' + candles.length + ' candles';
-      } else {
-        S.bC = fakeYahoo;
-        document.getElementById('bPr').textContent = '₹' + lastCandle[4].toLocaleString('en-IN', { minimumFractionDigits: 2 });
-        document.getElementById('bMt').textContent = '🟠 Fyers · ' + candles.length + ' candles';
-      }
-      console.log('Fyers candles loaded:', idx, candles.length, 'candles');
-    } else {
-      console.warn('Fyers candles empty or error:', r.error);
-    }
-  } catch(e) { console.error('loadFyersCandles:', e); }
-}
+function renderChain(){if(S.dataSource==='fyers'&&S.fyersConnected)return;try{const d=S.chI==='NIFTY'?S.nD:S.bD;if(!d?.records?.underlyingValue){document.getElementById('chainBody').innerHTML='<div class="warn-box">NSE Option Chain is only available Mon to Fri 9:15 AM to 3:30 PM IST<br><span style="font-size:10px;color:var(--mut);">Switch to Fyers API for 24/7 option chain access</span></div>';return;}const exp=document.getElementById('chainExp').value,ns=parseInt(document.getElementById('chainSk').value)||20;const ul=d.records.underlyingValue,gap=S.chI==='NIFTY'?50:100;const allSk=[...new Set(d.records.data.map(r=>r.strikePrice))];const atm=allSk.reduce((p,c)=>Math.abs(c-ul)<Math.abs(p-ul)?c:p,allSk[0]);const bs={};d.records.data.filter(r=>r.expiryDate===exp).forEach(r=>{if(!bs[r.strikePrice])bs[r.strikePrice]={};if(r.CE)bs[r.strikePrice].CE=r.CE;if(r.PE)bs[r.strikePrice].PE=r.PE;});const sks=Object.keys(bs).map(Number).filter(s=>Math.abs(s-atm)<=ns*gap).sort((a,b)=>b-a);if(!sks.length){document.getElementById('chainBody').innerHTML='<div class="empty">No data for this expiry</div>';return;}const th='padding:6px 8px;text-align:center;border-bottom:1px solid var(--bd);font-size:9px;color:var(--mut);text-transform:uppercase;background:var(--bg2);';const td='padding:5px 7px;text-align:center;border-bottom:1px solid #0d1117;font-size:10px;';const bb2='background:#064e3b;color:var(--grn);border:1px solid #065f46;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;';const sb2='background:#450a0a;color:var(--red);border:1px solid #7f1d1d;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;';let h='<table style="width:100%;border-collapse:collapse;"><thead><tr><th style="'+th+'">OI</th><th style="'+th+'">IV</th><th style="'+th+'">LTP</th><th style="'+th+'">Action</th><th style="'+th+'background:#0a1a14;color:var(--a2);">STRIKE</th><th style="'+th+'">Action</th><th style="'+th+'">LTP</th><th style="'+th+'">IV</th><th style="'+th+'">OI</th></tr></thead><tbody>';sks.forEach(s=>{const ce=bs[s]?.CE||{},pe=bs[s]?.PE||{},isA=s===atm;const rs=isA?'background:#0f1e1a;border-top:1px solid var(--ac);border-bottom:1px solid var(--ac);':'';h+='<tr style="'+rs+'"><td style="'+td+'color:#86efac;">'+fn(ce.openInterest)+'</td><td style="'+td+'color:#86efac;">'+(ce.impliedVolatility?ce.impliedVolatility.toFixed(1)+'%':'&#8212;')+'</td><td style="'+td+'color:#86efac;font-weight:700;">'+(ce.lastPrice?'&#8377;'+ce.lastPrice:'&#8212;')+'</td><td style="'+td+'">'+(ce.lastPrice?'<button style="'+bb2+'" onclick="mTrade(\'BUY\',\''+S.chI+' '+s+' CE\','+ce.lastPrice+')">BUY</button> <button style="'+sb2+'" onclick="mTrade(\'SELL\',\''+S.chI+' '+s+' CE\','+ce.lastPrice+')">SELL</button>':'&#8212;')+'</td><td style="'+td+'background:var(--bg3);color:var(--a2);font-weight:700;">'+s+(isA?' *':'')+'</td><td style="'+td+'">'+(pe.lastPrice?'<button style="'+bb2+'" onclick="mTrade(\'BUY\',\''+S.chI+' '+s+' PE\','+pe.lastPrice+')">BUY</button> <button style="'+sb2+'" onclick="mTrade(\'SELL\',\''+S.chI+' '+s+' PE\','+pe.lastPrice+')">SELL</button>':'&#8212;')+'</td><td style="'+td+'color:#fca5a5;font-weight:700;">'+(pe.lastPrice?'&#8377;'+pe.lastPrice:'&#8212;')+'</td><td style="'+td+'color:#fca5a5;">'+(pe.impliedVolatility?pe.impliedVolatility.toFixed(1)+'%':'&#8212;')+'</td><td style="'+td+'color:#fca5a5;">'+fn(pe.openInterest)+'</td></tr>';});h+='</tbody></table>';document.getElementById('chainBody').innerHTML=h;}catch(e){console.error('renderChain:',e);}}
 
-// ─── Fyers option chain fetch
-async function fetchFyersChain(idx) {
-  const sym = idx === 'NIFTY' ? 'NSE:NIFTY50-INDEX' : 'NSE:NIFTYBANK-INDEX';
-  const strikes = document.getElementById('chainSk')?.value || '20';
-  // Use selected expiry timestamp if available
-  const ts = S.selectedExpiry[idx.toLowerCase()] || '';
+function setStatus(s){const d=document.getElementById('sDot'),t=document.getElementById('sTxt');if(s==='live'){d.className='dot live';t.textContent='Live';}else if(s==='error'){d.className='dot';d.style.background='var(--red)';t.textContent='Error';}else{d.className='dot warn';t.textContent='Loading';}}
+function fn(n){if(!n||n===0)return'&#8212;';if(n>=10000000)return(n/10000000).toFixed(1)+'Cr';if(n>=100000)return(n/100000).toFixed(1)+'L';if(n>=1000)return(n/1000).toFixed(1)+'K';return String(n);}
+function fm(n){return'&#8377;'+Math.abs(n).toLocaleString('en-IN',{maximumFractionDigits:0});}
 
-  try {
-    const r = await apiFetch(
-      `/api/fyers/option-chain?symbol=${encodeURIComponent(sym)}&strikes=${strikes}` +
-      (ts ? `&timestamp=${encodeURIComponent(ts)}` : '')
-    );
-    if (r.tokenExpired) { S.fyersConnected = false; updateDSUI(); return; }
+function setDS(ds){S.dataSource=ds;localStorage.setItem('ds_v6',ds);updateDSUI();init();}
+function updateDSUI(){document.querySelectorAll('.ds-btn').forEach(b=>b.classList.remove('active','fyers-active'));const isFyers=S.dataSource==='fyers';document.getElementById('ds-'+S.dataSource)?.classList.add(isFyers?'fyers-active':'active');document.getElementById('fyersLoginBtn').style.display=(isFyers&&!S.fyersConnected)?'block':'none';document.getElementById('fyersLogoutBtn').style.display=(isFyers&&S.fyersConnected)?'block':'none';document.getElementById('fyersTime').style.display=(isFyers&&S.fyersConnected)?'block':'none';}
 
-    if (r.success && r.data?.data) {
-      const chainData = r.data.data;  // { optionsChain, expiryData, callOi, putOi, indiavixData }
+async function checkFyersStatus(){try{const r=await apiFetch('/api/fyers/status');S.fyersConnected=r.connected;const badge=document.getElementById('fyersBadge'),timeEl=document.getElementById('fyersTime');if(r.connected){badge.textContent='Fyers Connected';badge.className='fyers-badge';if(r.tokenTime)timeEl.textContent='Since: '+r.tokenTime;document.getElementById('setFyersStatus').textContent='Connected App: '+r.appId+(r.tokenTime?' Since: '+r.tokenTime:'');}else{badge.textContent='Not Connected';badge.className='fyers-badge disconnected';document.getElementById('setFyersStatus').textContent='Not connected.';}updateDSUI();}catch(e){console.warn(e);}}
+async function fyersLogin(){try{const r=await apiFetch('/api/fyers/auth-url');if(!r.success)throw new Error(r.error||'No URL');window.open(r.url,'FyersLogin','width=520,height=720,scrollbars=yes');addSig('info','Fyers login window opened');let checks=0;const poll=setInterval(async()=>{checks++;await checkFyersStatus();if(S.fyersConnected||checks>40){clearInterval(poll);if(S.fyersConnected){addSig('buy','Fyers connected! Loading data...');if(S.dataSource==='fyers')await init();}}},3000);}catch(e){alert('Fyers login error: '+e.message);}}
+async function fyersLogout(){try{await fetch(S.proxy+'/api/fyers/logout',{method:'POST'});S.fyersConnected=false;await checkFyersStatus();if(S.dataSource==='fyers')setDS('nseyahoo');}catch(e){}}
 
-      if (idx === 'NIFTY') {
-        S.fyersChain.nifty = chainData;
-        S.fyersExpiries.nifty = chainData.expiryData || [];
-      } else {
-        S.fyersChain.banknifty = chainData;
-        S.fyersExpiries.banknifty = chainData.expiryData || [];
-      }
+function setChainI(idx){S.chI=idx;document.getElementById('chainTtl').textContent=idx==='NIFTY'?'NIFTY 50 Option Chain':'BANK NIFTY Option Chain';document.getElementById('cnCard').style.border=idx==='NIFTY'?'1px solid var(--ac)':'1px solid var(--bd)';document.getElementById('cbCard').style.border=idx==='BANKNIFTY'?'1px solid var(--ac)':'1px solid var(--bd)';fetchChainData();}
+async function fetchChainData(){if(S.dataSource==='fyers'&&S.fyersConnected){await fetchFyersChain(S.chI);return;}const[nr,br]=await Promise.allSettled([apiFetch('/api/nifty'),apiFetch('/api/banknifty')]);if(nr.status==='fulfilled'&&nr.value.success){S.nD=nr.value.data;updMktNSE('NIFTY');}if(br.status==='fulfilled'&&br.value.success){S.bD=br.value.data;updMktNSE('BANKNIFTY');}fillExpNSE();renderChain();}
 
-      // Populate expiry dropdown from Fyers data
-      fillExpFyers(idx);
-      // Render the chain table
-      renderFyersChain(idx, chainData);
-    } else {
-      console.warn('Fyers chain error:', r.error, r.data);
-      document.getElementById('chainBody').innerHTML =
-        `<div class="warn-box">⚠ ${r.error || 'No data from Fyers'}<br><span style="font-size:10px;color:var(--mut);">Market may be closed. Try during market hours (9:15 AM – 3:30 PM IST)</span></div>`;
-    }
-  } catch(e) {
-    console.error('fetchFyersChain:', e);
-    document.getElementById('chainBody').innerHTML =
-      `<div class="warn-box">⚠ Fyers option chain error: ${e.message}</div>`;
-  }
-}
+function parseC(data){try{const ch=data?.chart?.result?.[0];if(!ch)return[];const ts=ch.timestamp||[],q=ch.indicators?.quote?.[0]||{},out=[];for(let i=0;i<ts.length;i++){if(q.open?.[i]!=null&&q.high?.[i]!=null&&q.low?.[i]!=null&&q.close?.[i]!=null)out.push({t:ts[i]*1000,o:q.open[i],h:q.high[i],l:q.low[i],c:q.close[i],v:q.volume?.[i]||0});}return out;}catch(e){return[];}}
+function calcRSI(cs,p=14){const cl=cs.map(c=>c.c),r=new Array(cl.length).fill(null);if(cl.length<p+1)return r;let g=0,l=0;for(let i=1;i<=p;i++){const d=cl[i]-cl[i-1];d>0?g+=d:l-=d;}let ag=g/p,al=l/p;r[p]=al===0?100:100-(100/(1+ag/al));for(let i=p+1;i<cl.length;i++){const d=cl[i]-cl[i-1],gi=d>0?d:0,li=d<0?-d:0;ag=(ag*(p-1)+gi)/p;al=(al*(p-1)+li)/p;r[i]=al===0?100:100-(100/(1+ag/al));}return r;}
+function calcMACD(cs,f=12,s=26,sg=9){const cl=cs.map(c=>c.c);function ema(d,p){const k=2/(p+1),res=new Array(d.length).fill(null);let sm=0,cnt=0;for(let i=0;i<Math.min(p,d.length);i++){if(d[i]!=null){sm+=d[i];cnt++;}}if(cnt<p)return res;res[p-1]=sm/p;for(let i=p;i<d.length;i++)res[i]=(d[i]||0)*k+(res[i-1]||0)*(1-k);return res;}const ef=ema(cl,f),es=ema(cl,s),ml=cl.map((_,i)=>ef[i]&&es[i]?ef[i]-es[i]:null),sl=ema(ml.map(v=>v||0),sg);return{ml,sl,hist:ml.map((v,i)=>v!=null&&sl[i]!=null?v-sl[i]:null)};}
+function calcVWAP(cs){let cv=0,ct=0;return cs.map(c=>{const tp=(c.h+c.l+c.c)/3;cv+=c.v;ct+=tp*c.v;return cv?ct/cv:c.c;});}
+function calcBoll(cs,p=20,m=2){const cl=cs.map(c=>c.c);return cs.map((_,i)=>{if(i<p)return{mid:null,up:null,dn:null};const sl=cl.slice(i-p,i),mid=sl.reduce((a,b)=>a+b,0)/p,std=Math.sqrt(sl.reduce((a,b)=>a+(b-mid)**2,0)/p);return{mid,up:mid+m*std,dn:mid-m*std};});}
+function calcST(cs,p=10,m=3){const res=[],atrs=[];for(let i=0;i<cs.length;i++){const tr=i===0?cs[i].h-cs[i].l:Math.max(cs[i].h-cs[i].l,Math.abs(cs[i].h-cs[i-1].c),Math.abs(cs[i].l-cs[i-1].c)),aAvg=i===0?tr:(atrs[i-1]*(p-1)+tr)/p;atrs.push(aAvg);const hl2=(cs[i].h+cs[i].l)/2;if(i===0){res.push({val:hl2-m*aAvg,bull:true});continue;}res.push(cs[i].c>res[i-1].val?{val:hl2-m*aAvg,bull:true}:{val:hl2+m*aAvg,bull:false});}return res;}
+function calcPat(cs){return cs.map((c,i)=>{const body=Math.abs(c.c-c.o),range=c.h-c.l,p=[];if(range>0.01){const ls=Math.min(c.o,c.c)-c.l,us=c.h-Math.max(c.o,c.c);if(ls>body*2&&us<body*0.5)p.push('hmr');if(body<range*0.1)p.push('doji');if(i>0){const pr=cs[i-1];if(pr.c<pr.o&&c.c>c.o&&c.o<pr.c&&c.c>pr.o)p.push('bull_eng');if(pr.c>pr.o&&c.c<c.o&&c.o>pr.c&&c.c<pr.o)p.push('bear_eng');}}return p;});}
 
-// ─── Fill expiry dropdown from Fyers data
-function fillExpFyers(idx) {
-  const expiries = idx === 'NIFTY' ? S.fyersExpiries.nifty : S.fyersExpiries.banknifty;
-  const sel = document.getElementById('chainExp');
-  if (!expiries || !expiries.length) return;
+async function setCI(idx){S.cI=idx;if(S.dataSource==='fyers'&&S.fyersConnected)await loadFyersCandles(idx);drawChart();}
+function setTf(tf,rng,fyRes,el){S.tf=tf;S.rng=rng;S.fyersRes=fyRes;document.querySelectorAll('.tf').forEach(b=>b.classList.remove('a'));el.classList.add('a');reloadCandles();}
+function togI(k){S.ind[k]=!S.ind[k];document.getElementById('i-'+k).classList.toggle('off',!S.ind[k]);drawChart();}
 
-  const currentTs = S.selectedExpiry[idx.toLowerCase()];
-  sel.innerHTML = expiries.map(e =>
-    `<option value="${e.expiry}" ${e.expiry === currentTs ? 'selected' : ''}>${e.date}</option>`
-  ).join('');
-
-  // Set default if not already set
-  if (!currentTs && expiries.length > 0) {
-    S.selectedExpiry[idx.toLowerCase()] = expiries[0].expiry;
-    sel.value = expiries[0].expiry;
-  }
-}
-
-// ─── Fill expiry dropdown from NSE data
-function fillExpNSE() {
-  try {
-    const d = S.chI === 'NIFTY' ? S.nD : S.bD;
-    if (!d?.records?.expiryDates) return;
-    const exp = d.records.expiryDates;
-    const sel = document.getElementById('chainExp');
-    const prev = sel.value;
-    sel.innerHTML = exp.map(e => `<option value="${e}"${e === prev ? ' selected' : ''}>${e}</option>`).join('');
-  } catch(e) {}
-}
-
-// ─── When expiry changes
-function onExpChange() {
-  if (S.dataSource === 'fyers' && S.fyersConnected) {
-    const idx = S.chI;
-    S.selectedExpiry[idx.toLowerCase()] = document.getElementById('chainExp').value;
-    fetchFyersChain(idx);
-  } else {
-    renderChain();
-  }
-}
-
-// ─── Render Fyers option chain table
-function renderFyersChain(idx, chainData) {
-  try {
-    // optionsChain is an array of option objects with option_type CE/PE
-    const optList = chainData.optionsChain || [];
-
-    if (!optList.length) {
-      document.getElementById('chainBody').innerHTML =
-        '<div class="empty"><div class="ei">📭</div>No option data available. Market may be closed or outside trading hours.</div>';
-      return;
-    }
-
-    // Update underlying price from future price
-    const firstItem = optList[0];
-    if (firstItem?.fp) {
-      const pr = '₹' + firstItem.fp.toLocaleString('en-IN', { minimumFractionDigits: 2 });
-      if (idx === 'NIFTY') {
-        document.getElementById('cnPr').textContent = pr;
-        document.getElementById('cnMt').textContent = '🟠 Fyers · F=' + pr;
-      } else {
-        document.getElementById('cbPr').textContent = pr;
-        document.getElementById('cbMt').textContent = '🟠 Fyers · F=' + pr;
-      }
-    }
-
-    // Group by strike_price
-    const byStrike = {};
-    optList.forEach(o => {
-      const s = o.strike_price;
-      if (!byStrike[s]) byStrike[s] = {};
-      if (o.option_type === 'CE') byStrike[s].CE = o;
-      if (o.option_type === 'PE') byStrike[s].PE = o;
-    });
-
-    const strikes = Object.keys(byStrike).map(Number).sort((a, b) => b - a);
-    if (!strikes.length) {
-      document.getElementById('chainBody').innerHTML = '<div class="empty"><div class="ei">📭</div>No strikes found</div>';
-      return;
-    }
-
-    // Find ATM (closest to future price)
-    const ul = firstItem?.fp || (strikes[Math.floor(strikes.length / 2)]);
-    const atm = strikes.reduce((p, c) => Math.abs(c - ul) < Math.abs(p - ul) ? c : p, strikes[0]);
-
-    const th = 'padding:6px 8px;text-align:center;border-bottom:1px solid var(--bd);font-size:9px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;background:var(--bg2);';
-    const td = 'padding:5px 7px;text-align:center;border-bottom:1px solid #0d1117;font-size:10px;';
-    const bb2 = 'background:#064e3b;color:var(--grn);border:1px solid #065f46;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;';
-    const sb2 = 'background:#450a0a;color:var(--red);border:1px solid #7f1d1d;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;';
-
-    // Total OI info
-    const totalCallOi = chainData.callOi || 0;
-    const totalPutOi  = chainData.putOi  || 0;
-    const pcr = totalCallOi > 0 ? (totalPutOi / totalCallOi).toFixed(2) : '—';
-    const vix = chainData.indiavixData?.ltp;
-
-    let h = `<div style="padding:8px 12px;background:var(--bg2);border-bottom:1px solid var(--bd);display:flex;gap:20px;font-size:11px;">
-      <span>Total Call OI: <b style="color:#86efac;">${fn(totalCallOi)}</b></span>
-      <span>Total Put OI: <b style="color:#fca5a5;">${fn(totalPutOi)}</b></span>
-      <span>PCR: <b style="color:${parseFloat(pcr)>1?'var(--grn)':'var(--red)'};">${pcr}</b></span>
-      ${vix ? `<span>India VIX: <b style="color:var(--a2);">${vix.toFixed(2)}</b></span>` : ''}
-      <span style="color:var(--mut);font-size:10px;">★ = ATM strike · Source: Fyers API v3</span>
-    </div>`;
-
-    h += `<table style="width:100%;border-collapse:collapse;"><thead><tr>
-      <th style="${th}">OI</th><th style="${th}">Vol</th><th style="${th}">LTP</th><th style="${th}">Action</th>
-      <th style="${th}background:#0a1a14;color:var(--a2);">STRIKE</th>
-      <th style="${th}">Action</th><th style="${th}">LTP</th><th style="${th}">Vol</th><th style="${th}">OI</th>
-    </tr></thead><tbody>`;
-
-    strikes.forEach(s => {
-      const ce = byStrike[s]?.CE || {};
-      const pe = byStrike[s]?.PE || {};
-      const isATM = s === atm;
-      const rowStyle = isATM ? 'background:#0f1e1a;border-top:1px solid var(--ac);border-bottom:1px solid var(--ac);' : '';
-
-      h += `<tr style="${rowStyle}">
-        <td style="${td}color:#86efac;">${fn(ce.oi)}</td>
-        <td style="${td}color:#86efac;">${fn(ce.volume)}</td>
-        <td style="${td}color:#86efac;font-weight:700;">${ce.ltp ? '₹' + ce.ltp.toFixed(2) : '—'}</td>
-        <td style="${td}">${ce.ltp
-          ? `<button style="${bb2}" onclick="mTrade('BUY','${idx} ${s} CE',${ce.ltp})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${idx} ${s} CE',${ce.ltp})">SELL</button>`
-          : '—'
-        }</td>
-        <td style="${td}background:var(--bg3);color:var(--a2);font-weight:700;">${s}${isATM ? ' ★' : ''}</td>
-        <td style="${td}">${pe.ltp
-          ? `<button style="${bb2}" onclick="mTrade('BUY','${idx} ${s} PE',${pe.ltp})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${idx} ${s} PE',${pe.ltp})">SELL</button>`
-          : '—'
-        }</td>
-        <td style="${td}color:#fca5a5;font-weight:700;">${pe.ltp ? '₹' + pe.ltp.toFixed(2) : '—'}</td>
-        <td style="${td}color:#fca5a5;">${fn(pe.volume)}</td>
-        <td style="${td}color:#fca5a5;">${fn(pe.oi)}</td>
-      </tr>`;
-    });
-    h += '</tbody></table>';
-    document.getElementById('chainBody').innerHTML = h;
-  } catch(e) {
-    console.error('renderFyersChain:', e);
-    document.getElementById('chainBody').innerHTML = `<div class="warn-box">⚠ Render error: ${e.message}</div>`;
-  }
-}
-
-// ─── Render NSE option chain
-function renderChain() {
-  if (S.dataSource === 'fyers' && S.fyersConnected) return;
-  try {
-    const d = S.chI === 'NIFTY' ? S.nD : S.bD;
-    if (!d?.records?.underlyingValue) {
-      document.getElementById('chainBody').innerHTML = `<div class="warn-box">
-        ⏰ NSE Option Chain is only available <strong>Mon–Fri, 9:15 AM – 3:30 PM IST</strong><br>
-        <span style="font-size:10px;color:var(--mut);margin-top:4px;display:block;">Switch to <b>🟠 Fyers API</b> to view option chain outside market hours</span>
-      </div>`;
-      return;
-    }
-    const exp = document.getElementById('chainExp').value;
-    const ns = parseInt(document.getElementById('chainSk').value) || 20;
-    const ul = d.records.underlyingValue;
-    const gap = S.chI === 'NIFTY' ? 50 : 100;
-    const allSk = [...new Set(d.records.data.map(r => r.strikePrice))];
-    const atm = allSk.reduce((p, c) => Math.abs(c - ul) < Math.abs(p - ul) ? c : p, allSk[0]);
-    const bs = {};
-    d.records.data.filter(r => r.expiryDate === exp).forEach(r => {
-      if (!bs[r.strikePrice]) bs[r.strikePrice] = {};
-      if (r.CE) bs[r.strikePrice].CE = r.CE;
-      if (r.PE) bs[r.strikePrice].PE = r.PE;
-    });
-    const sks = Object.keys(bs).map(Number).filter(s => Math.abs(s - atm) <= ns * gap).sort((a, b) => b - a);
-    if (!sks.length) {
-      document.getElementById('chainBody').innerHTML = '<div class="empty"><div class="ei">📭</div>No data for this expiry</div>';
-      return;
-    }
-    const th = 'padding:6px 8px;text-align:center;border-bottom:1px solid var(--bd);font-size:9px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;background:var(--bg2);';
-    const td = 'padding:5px 7px;text-align:center;border-bottom:1px solid #0d1117;font-size:10px;';
-    const bb2 = 'background:#064e3b;color:var(--grn);border:1px solid #065f46;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;';
-    const sb2 = 'background:#450a0a;color:var(--red);border:1px solid #7f1d1d;padding:2px 5px;border-radius:2px;cursor:pointer;font-size:9px;font-family:monospace;';
-    let h = `<table style="width:100%;border-collapse:collapse;"><thead><tr>
-      <th style="${th}">OI</th><th style="${th}">IV</th><th style="${th}">LTP</th><th style="${th}">Action</th>
-      <th style="${th}background:#0a1a14;color:var(--a2);">STRIKE</th>
-      <th style="${th}">Action</th><th style="${th}">LTP</th><th style="${th}">IV</th><th style="${th}">OI</th>
-    </tr></thead><tbody>`;
-    sks.forEach(s => {
-      const ce = bs[s]?.CE || {}, pe = bs[s]?.PE || {};
-      const isA = s === atm;
-      const rs = isA ? 'background:#0f1e1a;border-top:1px solid var(--ac);border-bottom:1px solid var(--ac);' : '';
-      h += `<tr style="${rs}">
-        <td style="${td}color:#86efac;">${fn(ce.openInterest)}</td>
-        <td style="${td}color:#86efac;">${ce.impliedVolatility ? ce.impliedVolatility.toFixed(1) + '%' : '—'}</td>
-        <td style="${td}color:#86efac;font-weight:700;">${ce.lastPrice ? '₹' + ce.lastPrice : '—'}</td>
-        <td style="${td}">${ce.lastPrice ? `<button style="${bb2}" onclick="mTrade('BUY','${S.chI} ${s} CE',${ce.lastPrice})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${S.chI} ${s} CE',${ce.lastPrice})">SELL</button>` : '—'}</td>
-        <td style="${td}background:var(--bg3);color:var(--a2);font-weight:700;">${s}${isA ? ' ★' : ''}</td>
-        <td style="${td}">${pe.lastPrice ? `<button style="${bb2}" onclick="mTrade('BUY','${S.chI} ${s} PE',${pe.lastPrice})">BUY</button> <button style="${sb2}" onclick="mTrade('SELL','${S.chI} ${s} PE',${pe.lastPrice})">SELL</button>` : '—'}</td>
-        <td style="${td}color:#fca5a5;font-weight:700;">${pe.lastPrice ? '₹' + pe.lastPrice : '—'}</td>
-        <td style="${td}color:#fca5a5;">${pe.impliedVolatility ? pe.impliedVolatility.toFixed(1) + '%' : '—'}</td>
-        <td style="${td}color:#fca5a5;">${fn(pe.openInterest)}</td>
-      </tr>`;
-    });
-    h += '</tbody></table>';
-    document.getElementById('chainBody').innerHTML = h;
-  } catch(e) { console.error('renderChain:', e); }
-}
-
-function setStatus(s) {
-  const d = document.getElementById('sDot'), t = document.getElementById('sTxt');
-  if (s === 'live') { d.className = 'dot live'; t.textContent = 'Live'; }
-  else if (s === 'error') { d.className = 'dot'; d.style.background = 'var(--red)'; t.textContent = 'Error'; }
-  else { d.className = 'dot warn'; t.textContent = 'Loading'; }
-}
-
-function fn(n) {
-  if (!n || n === 0) return '—';
-  if (n >= 10000000) return (n / 10000000).toFixed(1) + 'Cr';
-  if (n >= 100000) return (n / 100000).toFixed(1) + 'L';
-  if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
-  return String(n);
-}
-function fm(n) { return '₹' + Math.abs(n).toLocaleString('en-IN', { maximumFractionDigits: 0 }); }
-
-// ═══════════════════════════════════════════════════════
-// DATA SOURCE UI
-// ═══════════════════════════════════════════════════════
-function setDS(ds) {
-  S.dataSource = ds;
-  localStorage.setItem('ds_v6', ds);
-  updateDSUI();
-  init();
-}
-
-function updateDSUI() {
-  document.querySelectorAll('.ds-btn').forEach(b => b.classList.remove('active', 'fyers-active'));
-  const isFyers = S.dataSource === 'fyers';
-  document.getElementById('ds-' + S.dataSource)?.classList.add(isFyers ? 'fyers-active' : 'active');
-  document.getElementById('fyersLoginBtn').style.display  = (isFyers && !S.fyersConnected) ? 'block' : 'none';
-  document.getElementById('fyersLogoutBtn').style.display = (isFyers && S.fyersConnected)  ? 'block' : 'none';
-  document.getElementById('fyersTime').style.display      = (isFyers && S.fyersConnected)  ? 'block' : 'none';
-}
-
-// ═══════════════════════════════════════════════════════
-// FYERS AUTH
-// ═══════════════════════════════════════════════════════
-async function checkFyersStatus() {
-  try {
-    const r = await apiFetch('/api/fyers/status');
-    S.fyersConnected = r.connected;
-    const badge = document.getElementById('fyersBadge');
-    const timeEl = document.getElementById('fyersTime');
-    if (r.connected) {
-      badge.textContent = '● Fyers Connected';
-      badge.className = 'fyers-badge';
-      if (r.tokenTime) timeEl.textContent = 'Since: ' + r.tokenTime;
-      document.getElementById('setFyersStatus').textContent = '✓ Connected · App: ' + r.appId + (r.tokenTime ? ' · Since: ' + r.tokenTime : '');
-    } else {
-      badge.textContent = '● Not Connected';
-      badge.className = 'fyers-badge disconnected';
-      document.getElementById('setFyersStatus').textContent = 'Not connected. Click "Connect Fyers" to login.';
-    }
-    updateDSUI();
-  } catch(e) { console.warn('checkFyersStatus:', e); }
-}
-
-async function fyersLogin() {
-  try {
-    const r = await apiFetch('/api/fyers/auth-url');
-    if (!r.success) throw new Error(r.error || 'Could not get login URL');
-    // Open Fyers login in popup — sized for their OAuth page
-    const popup = window.open(r.url, 'FyersLogin', 'width=520,height=720,scrollbars=yes');
-    addSig('info', 'Fyers login window opened — complete 2FA login there');
-    // Poll for token (also relies on postMessage from callback page)
-    let checks = 0;
-    const poll = setInterval(async () => {
-      checks++;
-      await checkFyersStatus();
-      if (S.fyersConnected || checks > 40) {
-        clearInterval(poll);
-        if (S.fyersConnected) {
-          addSig('buy', '✓ Fyers connected! Loading data...');
-          if (S.dataSource === 'fyers') await init();
-        }
-      }
-    }, 3000);
-  } catch(e) { alert('Fyers login error: ' + e.message); }
-}
-
-async function fyersLogout() {
-  try {
-    await fetch(S.proxy + '/api/fyers/logout', { method: 'POST' });
-    S.fyersConnected = false;
-    await checkFyersStatus();
-    if (S.dataSource === 'fyers') setDS('nseyahoo');
-    addSig('info', 'Fyers disconnected. Re-login daily as required by SEBI rules.');
-  } catch(e) { console.error(e); }
-}
-
-// ═══════════════════════════════════════════════════════
-// CHAIN PAGE
-// ═══════════════════════════════════════════════════════
-function setChainI(idx) {
-  S.chI = idx;
-  document.getElementById('chainTtl').textContent = idx === 'NIFTY' ? 'NIFTY 50 Option Chain' : 'BANK NIFTY Option Chain';
-  document.getElementById('cnCard').style.border = idx === 'NIFTY' ? '1px solid var(--ac)' : '1px solid var(--bd)';
-  document.getElementById('cbCard').style.border = idx === 'BANKNIFTY' ? '1px solid var(--ac)' : '1px solid var(--bd)';
-  fetchChainData();
-}
-
-async function fetchChainData() {
-  if (S.dataSource === 'fyers' && S.fyersConnected) {
-    await fetchFyersChain(S.chI);
-  } else {
-    const [nr, br] = await Promise.allSettled([apiFetch('/api/nifty'), apiFetch('/api/banknifty')]);
-    if (nr.status === 'fulfilled' && nr.value.success) { S.nD = nr.value.data; updMktNSE('NIFTY'); }
-    if (br.status === 'fulfilled' && br.value.success) { S.bD = br.value.data; updMktNSE('BANKNIFTY'); }
-    fillExpNSE(); renderChain();
-  }
-}
-
-// ═══════════════════════════════════════════════════════
-// INDICATORS
-// ═══════════════════════════════════════════════════════
-function parseC(data) {
-  try {
-    const ch = data?.chart?.result?.[0];
-    if (!ch) return [];
-    const ts = ch.timestamp || [], q = ch.indicators?.quote?.[0] || {}, out = [];
-    for (let i = 0; i < ts.length; i++) {
-      if (q.open?.[i] != null && q.high?.[i] != null && q.low?.[i] != null && q.close?.[i] != null)
-        out.push({ t: ts[i] * 1000, o: q.open[i], h: q.high[i], l: q.low[i], c: q.close[i], v: q.volume?.[i] || 0 });
-    }
-    return out;
-  } catch(e) { return []; }
-}
-function calcRSI(cs, p = 14) {
-  const cl = cs.map(c => c.c), r = new Array(cl.length).fill(null);
-  if (cl.length < p + 1) return r;
-  let g = 0, l = 0;
-  for (let i = 1; i <= p; i++) { const d = cl[i] - cl[i-1]; d > 0 ? g += d : l -= d; }
-  let ag = g/p, al = l/p;
-  r[p] = al === 0 ? 100 : 100 - (100/(1 + ag/al));
-  for (let i = p+1; i < cl.length; i++) {
-    const d = cl[i]-cl[i-1], gi = d>0?d:0, li = d<0?-d:0;
-    ag = (ag*(p-1)+gi)/p; al = (al*(p-1)+li)/p;
-    r[i] = al === 0 ? 100 : 100 - (100/(1+ag/al));
-  }
-  return r;
-}
-function calcMACD(cs, f=12, s=26, sg=9) {
-  const cl = cs.map(c => c.c);
-  function ema(d, p) {
-    const k=2/(p+1), res=new Array(d.length).fill(null);
-    let sm=0, cnt=0;
-    for (let i=0; i<Math.min(p,d.length); i++) { if (d[i]!=null){sm+=d[i];cnt++;} }
-    if (cnt<p) return res;
-    res[p-1]=sm/p;
-    for (let i=p; i<d.length; i++) res[i]=(d[i]||0)*k+(res[i-1]||0)*(1-k);
-    return res;
-  }
-  const ef=ema(cl,f), es=ema(cl,s);
-  const ml=cl.map((_,i)=>ef[i]&&es[i]?ef[i]-es[i]:null);
-  const sl=ema(ml.map(v=>v||0),sg);
-  return { ml, sl, hist: ml.map((v,i)=>v!=null&&sl[i]!=null?v-sl[i]:null) };
-}
-function calcVWAP(cs) { let cv=0, ct=0; return cs.map(c => { const tp=(c.h+c.l+c.c)/3; cv+=c.v; ct+=tp*c.v; return cv?ct/cv:c.c; }); }
-function calcBoll(cs, p=20, m=2) {
-  const cl=cs.map(c=>c.c);
-  return cs.map((_,i) => {
-    if (i<p) return {mid:null,up:null,dn:null};
-    const sl=cl.slice(i-p,i), mid=sl.reduce((a,b)=>a+b,0)/p, std=Math.sqrt(sl.reduce((a,b)=>a+(b-mid)**2,0)/p);
-    return {mid,up:mid+m*std,dn:mid-m*std};
-  });
-}
-function calcST(cs, p=10, m=3) {
-  const res=[], atrs=[];
-  for (let i=0; i<cs.length; i++) {
-    const tr=i===0?cs[i].h-cs[i].l:Math.max(cs[i].h-cs[i].l,Math.abs(cs[i].h-cs[i-1].c),Math.abs(cs[i].l-cs[i-1].c));
-    const aAvg=i===0?tr:(atrs[i-1]*(p-1)+tr)/p;
-    atrs.push(aAvg);
-    const hl2=(cs[i].h+cs[i].l)/2;
-    if (i===0){res.push({val:hl2-m*aAvg,bull:true});continue;}
-    res.push(cs[i].c>res[i-1].val?{val:hl2-m*aAvg,bull:true}:{val:hl2+m*aAvg,bull:false});
-  }
-  return res;
-}
-function calcPat(cs) {
-  return cs.map((c,i) => {
-    const body=Math.abs(c.c-c.o), range=c.h-c.l, p=[];
-    if (range>0.01) {
-      const ls=Math.min(c.o,c.c)-c.l, us=c.h-Math.max(c.o,c.c);
-      if (ls>body*2&&us<body*0.5) p.push('hmr');
-      if (body<range*0.1) p.push('doji');
-      if (i>0) {
-        const pr=cs[i-1];
-        if (pr.c<pr.o&&c.c>c.o&&c.o<pr.c&&c.c>pr.o) p.push('bull_eng');
-        if (pr.c>pr.o&&c.c<c.o&&c.o>pr.c&&c.c<pr.o) p.push('bear_eng');
-      }
-    }
-    return p;
-  });
-}
-
-// ═══════════════════════════════════════════════════════
-// CHART
-// ═══════════════════════════════════════════════════════
-async function setCI(idx) {
-  S.cI = idx;
-  if (S.dataSource === 'fyers' && S.fyersConnected) {
-    await loadFyersCandles(idx);
-  }
-  drawChart();
-}
-
-function setTf(tf, rng, fyRes, el) {
-  S.tf = tf; S.rng = rng; S.fyersRes = fyRes;
-  document.querySelectorAll('.tf').forEach(b => b.classList.remove('a'));
-  el.classList.add('a');
-  init();
-}
-
-function togI(k) {
-  S.ind[k] = !S.ind[k];
-  document.getElementById('i-' + k).classList.toggle('off', !S.ind[k]);
-  drawChart();
-}
-
-function drawChart() {
-  try {
-    const cs = parseC(S.cI === 'NIFTY' ? S.nC : S.bC);
-    const srcLabel = S.dataSource === 'fyers' ? ' (Fyers)' : ' (Yahoo)';
-    document.getElementById('cTitle').textContent = S.cI + ' — ' + S.tf.toUpperCase() + ' Chart' + srcLabel;
-
-    if (!cs.length) {
-      const canvas = document.getElementById('cChart'), wrap = document.getElementById('cWrap');
-      canvas.width = wrap.clientWidth || 800; canvas.height = wrap.clientHeight || 300;
-      const ctx = canvas.getContext('2d');
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle = '#4a5568'; ctx.font = '13px JetBrains Mono'; ctx.textAlign = 'center';
-      ctx.fillText('Click ↻ Refresh to load chart data', canvas.width/2, canvas.height/2);
-      document.getElementById('iBar').innerHTML = '<span style="color:var(--mut);">No data — click ↻ Refresh</span>';
-      return;
-    }
-
-    const r=calcRSI(cs), {ml,sl:sg,hist}=calcMACD(cs), vw=calcVWAP(cs), bb=calcBoll(cs), st=calcST(cs);
-    const n=cs.length-1, lR=r[n]||50, lM=ml[n]||0, lV=vw[n]||0, lBB=bb[n]||{}, lST=st[n]||{}, last=cs[n];
-    document.getElementById('iBar').innerHTML = `
-      <span style="color:var(--ac);">RSI: <b style="color:${lR<30?'var(--grn)':lR>70?'var(--red)':'var(--txt)'}">${lR.toFixed(1)}</b></span>
-      <span style="color:var(--pur);">MACD: <b>${lM.toFixed(2)}</b></span>
-      <span style="color:#93c5fd;">VWAP: <b>₹${lV.toFixed(0)}</b></span>
-      <span style="color:var(--a2);">BB: ₹${lBB.dn?lBB.dn.toFixed(0):'—'}–₹${lBB.up?lBB.up.toFixed(0):'—'}</span>
-      <span style="color:${lST.bull?'var(--grn)':'var(--red)'};">ST: <b>${lST.bull?'▲ BULL':'▼ BEAR'}</b></span>
-      <span style="color:var(--txt);">LTP: <b>₹${last.c.toFixed(2)}</b></span>
-      <span style="font-size:10px;color:var(--mut);">${new Date(last.t).toLocaleTimeString('en-IN')}</span>`;
-
-    drawCandles(cs, vw, bb, st);
-
-    if (S.charts.rsi) S.charts.rsi.destroy();
-    if (S.charts.macd) S.charts.macd.destroy();
-
-    if (S.ind.rsi) {
-      const ctx = document.getElementById('rsiC').getContext('2d');
-      S.charts.rsi = new Chart(ctx, {
-        type:'line', data:{labels:cs.map((_,i)=>i),datasets:[
-          {data:r,borderColor:'#00d4aa',borderWidth:1.5,pointRadius:0,fill:false,tension:0.2},
-          {data:new Array(cs.length).fill(70),borderColor:'rgba(239,68,68,.5)',borderWidth:1,pointRadius:0,fill:false},
-          {data:new Array(cs.length).fill(30),borderColor:'rgba(34,197,94,.5)',borderWidth:1,pointRadius:0,fill:false}
-        ]},
-        options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},
-          scales:{x:{display:false},y:{min:0,max:100,ticks:{color:'#64748b',maxTicksLimit:4,font:{size:9}},grid:{color:'#1e2530'}}}}
-      });
-    }
-    if (S.ind.macd) {
-      const ctx = document.getElementById('macdC').getContext('2d');
-      S.charts.macd = new Chart(ctx, {
-        type:'bar', data:{labels:cs.map((_,i)=>i),datasets:[
-          {data:hist,backgroundColor:hist.map(v=>(v||0)>=0?'rgba(34,197,94,.6)':'rgba(239,68,68,.6)'),type:'bar',barPercentage:1,categoryPercentage:1},
-          {data:ml,borderColor:'#00d4aa',borderWidth:1.5,pointRadius:0,type:'line',fill:false,tension:0.2},
-          {data:sg,borderColor:'#f59e0b',borderWidth:1.5,pointRadius:0,type:'line',fill:false,tension:0.2}
-        ]},
-        options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},
-          scales:{x:{display:false},y:{ticks:{color:'#64748b',maxTicksLimit:4,font:{size:9}},grid:{color:'#1e2530'}}}}
-      });
-    }
-    setStatus('live');
-  } catch(e) { console.error('drawChart:', e); }
-}
-
-function drawCandles(cs, vw, bb, st) {
-  try {
-    const canvas=document.getElementById('cChart'), wrap=document.getElementById('cWrap');
-    const W=wrap.clientWidth||800, H=wrap.clientHeight||300;
-    canvas.width=W; canvas.height=H;
-    const ctx=canvas.getContext('2d');
-    ctx.clearRect(0,0,W,H);
-    const prices=[...cs.map(c=>c.h),...cs.map(c=>c.l)];
-    if (S.ind.bb) bb.forEach(b=>{if(b?.up){prices.push(b.up,b.dn);}});
-    const mn=Math.min(...prices), mx=Math.max(...prices);
-    if (mn===mx||isNaN(mn)||isNaN(mx)) return;
-    const pad={l:4,r:55,t:8,b:20}, pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
-    const toY=p=>pad.t+ph*(1-(p-mn)/(mx-mn));
-    const n=cs.length, cw=pw/n, toX=i=>pad.l+i*cw+cw/2;
-    // Grid
-    ctx.strokeStyle='#1a2130'; ctx.lineWidth=0.5;
-    for (let i=0;i<=5;i++){const y=pad.t+ph*i/5;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();}
-    ctx.fillStyle='#4a5568'; ctx.font='9px monospace'; ctx.textAlign='left';
-    for (let i=0;i<=5;i++){const p=mn+(mx-mn)*(1-i/5);ctx.fillText(p.toFixed(0),W-pad.r+4,pad.t+ph*i/5+3);}
-    // VWAP
-    if (S.ind.vwap){ctx.strokeStyle='#3b82f6';ctx.lineWidth=1.5;ctx.setLineDash([]);ctx.beginPath();cs.forEach((_,i)=>{const y=toY(vw[i]);i===0?ctx.moveTo(toX(i),y):ctx.lineTo(toX(i),y);});ctx.stroke();}
-    // Bollinger
-    if (S.ind.bb){ctx.strokeStyle='rgba(245,158,11,0.5)';ctx.lineWidth=1;['up','dn'].forEach(k=>{ctx.beginPath();let first=true;cs.forEach((_,i)=>{if(!bb[i]?.[k])return;const y=toY(bb[i][k]);first?(ctx.moveTo(toX(i),y),first=false):ctx.lineTo(toX(i),y);});ctx.stroke();});}
-    // Supertrend dots
-    if (S.ind.st){cs.forEach((_,i)=>{if(!st[i])return;ctx.fillStyle=st[i].bull?'rgba(34,197,94,.8)':'rgba(239,68,68,.8)';ctx.beginPath();ctx.arc(toX(i),toY(st[i].val),1.5,0,Math.PI*2);ctx.fill();});}
-    // Candles
-    const bw=Math.max(1,cw*0.6);
-    cs.forEach((c,i)=>{
-      const x=toX(i), isUp=c.c>=c.o;
-      ctx.strokeStyle=isUp?'#22c55e':'#ef4444';
-      ctx.fillStyle=isUp?'rgba(34,197,94,.85)':'rgba(239,68,68,.85)';
-      ctx.lineWidth=1;
-      ctx.beginPath();ctx.moveTo(x,toY(c.h));ctx.lineTo(x,toY(c.l));ctx.stroke();
-      const bt=toY(Math.max(c.o,c.c)), bot=toY(Math.min(c.o,c.c)), bh=Math.max(1,bot-bt);
-      ctx.fillRect(x-bw/2,bt,bw,bh);ctx.strokeRect(x-bw/2,bt,bw,bh);
-    });
-    // Time labels
-    ctx.fillStyle='#4a5568'; ctx.font='9px monospace'; ctx.textAlign='center';
-    const step=Math.max(1,Math.floor(n/8));
-    cs.forEach((c,i)=>{if(i%step===0)ctx.fillText(new Date(c.t).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),toX(i),H-4);});
-  } catch(e){console.error('drawCandles:',e);}
-}
+function drawChart(){try{const cs=parseC(S.cI==='NIFTY'?S.nC:S.bC);const srcLabel=S.dataSource==='fyers'?' (Fyers)':' (Yahoo)';document.getElementById('cTitle').textContent=S.cI+' '+S.tf.toUpperCase()+' Chart'+srcLabel;if(!cs.length){const canvas=document.getElementById('cChart'),wrap=document.getElementById('cWrap');canvas.width=wrap.clientWidth||800;canvas.height=wrap.clientHeight||300;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#4a5568';ctx.font='13px JetBrains Mono';ctx.textAlign='center';ctx.fillText('Click Refresh to load chart data',canvas.width/2,canvas.height/2);document.getElementById('iBar').innerHTML='<span style="color:var(--mut);">No data - click Refresh</span>';return;}const r=calcRSI(cs),{ml,sl:sg,hist}=calcMACD(cs),vw=calcVWAP(cs),bb=calcBoll(cs),st=calcST(cs);const n=cs.length-1,lR=r[n]||50,lM=ml[n]||0,lV=vw[n]||0,lBB=bb[n]||{},lST=st[n]||{},last=cs[n];document.getElementById('iBar').innerHTML='<span style="color:var(--ac);">RSI: <b style="color:'+(lR<30?'var(--grn)':lR>70?'var(--red)':'var(--txt)')+'">'+lR.toFixed(1)+'</b></span><span style="color:var(--pur);">MACD: <b>'+lM.toFixed(2)+'</b></span><span style="color:#93c5fd;">VWAP: <b>&#8377;'+lV.toFixed(0)+'</b></span><span style="color:var(--a2);">BB: &#8377;'+(lBB.dn?lBB.dn.toFixed(0):'--')+'&#8211;&#8377;'+(lBB.up?lBB.up.toFixed(0):'--')+'</span><span style="color:'+(lST.bull?'var(--grn)':'var(--red)')+';">ST: <b>'+(lST.bull?'BULL':'BEAR')+'</b></span><span style="color:var(--txt);">LTP: <b>&#8377;'+last.c.toFixed(2)+'</b></span><span style="font-size:10px;color:var(--mut);">'+new Date(last.t).toLocaleTimeString('en-IN')+'</span>';drawCandles(cs,vw,bb,st);if(S.charts.rsi)S.charts.rsi.destroy();if(S.charts.macd)S.charts.macd.destroy();if(S.ind.rsi){const ctx=document.getElementById('rsiC').getContext('2d');S.charts.rsi=new Chart(ctx,{type:'line',data:{labels:cs.map((_,i)=>i),datasets:[{data:r,borderColor:'#00d4aa',borderWidth:1.5,pointRadius:0,fill:false,tension:0.2},{data:new Array(cs.length).fill(70),borderColor:'rgba(239,68,68,.5)',borderWidth:1,pointRadius:0,fill:false},{data:new Array(cs.length).fill(30),borderColor:'rgba(34,197,94,.5)',borderWidth:1,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},scales:{x:{display:false},y:{min:0,max:100,ticks:{color:'#64748b',maxTicksLimit:4,font:{size:9}},grid:{color:'#1e2530'}}}}});}if(S.ind.macd){const ctx=document.getElementById('macdC').getContext('2d');S.charts.macd=new Chart(ctx,{type:'bar',data:{labels:cs.map((_,i)=>i),datasets:[{data:hist,backgroundColor:hist.map(v=>(v||0)>=0?'rgba(34,197,94,.6)':'rgba(239,68,68,.6)'),type:'bar',barPercentage:1,categoryPercentage:1},{data:ml,borderColor:'#00d4aa',borderWidth:1.5,pointRadius:0,type:'line',fill:false,tension:0.2},{data:sg,borderColor:'#f59e0b',borderWidth:1.5,pointRadius:0,type:'line',fill:false,tension:0.2}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},scales:{x:{display:false},y:{ticks:{color:'#64748b',maxTicksLimit:4,font:{size:9}},grid:{color:'#1e2530'}}}}});}setStatus('live');}catch(e){console.error('drawChart:',e);}}
+function drawCandles(cs,vw,bb,st){try{const canvas=document.getElementById('cChart'),wrap=document.getElementById('cWrap'),W=wrap.clientWidth||800,H=wrap.clientHeight||300;canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,W,H);const prices=[...cs.map(c=>c.h),...cs.map(c=>c.l)];if(S.ind.bb)bb.forEach(b=>{if(b?.up){prices.push(b.up,b.dn);}});const mn=Math.min(...prices),mx=Math.max(...prices);if(mn===mx||isNaN(mn)||isNaN(mx))return;const pad={l:4,r:55,t:8,b:20},pw=W-pad.l-pad.r,ph=H-pad.t-pad.b,toY=p=>pad.t+ph*(1-(p-mn)/(mx-mn)),n=cs.length,cw=pw/n,toX=i=>pad.l+i*cw+cw/2;ctx.strokeStyle='#1a2130';ctx.lineWidth=0.5;for(let i=0;i<=5;i++){const y=pad.t+ph*i/5;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();}ctx.fillStyle='#4a5568';ctx.font='9px monospace';ctx.textAlign='left';for(let i=0;i<=5;i++){const p=mn+(mx-mn)*(1-i/5);ctx.fillText(p.toFixed(0),W-pad.r+4,pad.t+ph*i/5+3);}if(S.ind.vwap){ctx.strokeStyle='#3b82f6';ctx.lineWidth=1.5;ctx.setLineDash([]);ctx.beginPath();cs.forEach((_,i)=>{const y=toY(vw[i]);i===0?ctx.moveTo(toX(i),y):ctx.lineTo(toX(i),y);});ctx.stroke();}if(S.ind.bb){ctx.strokeStyle='rgba(245,158,11,0.5)';ctx.lineWidth=1;['up','dn'].forEach(k=>{ctx.beginPath();let first=true;cs.forEach((_,i)=>{if(!bb[i]?.[k])return;const y=toY(bb[i][k]);first?(ctx.moveTo(toX(i),y),first=false):ctx.lineTo(toX(i),y);});ctx.stroke();});}if(S.ind.st){cs.forEach((_,i)=>{if(!st[i])return;ctx.fillStyle=st[i].bull?'rgba(34,197,94,.8)':'rgba(239,68,68,.8)';ctx.beginPath();ctx.arc(toX(i),toY(st[i].val),1.5,0,Math.PI*2);ctx.fill();});}const bw=Math.max(1,cw*0.6);cs.forEach((c,i)=>{const x=toX(i),isUp=c.c>=c.o;ctx.strokeStyle=isUp?'#22c55e':'#ef4444';ctx.fillStyle=isUp?'rgba(34,197,94,.85)':'rgba(239,68,68,.85)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,toY(c.h));ctx.lineTo(x,toY(c.l));ctx.stroke();const bt=toY(Math.max(c.o,c.c)),bot=toY(Math.min(c.o,c.c)),bh=Math.max(1,bot-bt);ctx.fillRect(x-bw/2,bt,bw,bh);ctx.strokeRect(x-bw/2,bt,bw,bh);});ctx.fillStyle='#4a5568';ctx.font='9px monospace';ctx.textAlign='center';const step=Math.max(1,Math.floor(n/8));cs.forEach((c,i)=>{if(i%step===0)ctx.fillText(new Date(c.t).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),toX(i),H-4);});}catch(e){console.error('drawCandles:',e);}}
 window.addEventListener('resize',()=>{if(document.getElementById('pg-chart').classList.contains('a'))drawChart();});
 
-// ═══════════════════════════════════════════════════════
-// DHAN/ZERODHA-STYLE FEES (for paper trading P&L accuracy)
-// ═══════════════════════════════════════════════════════
-function calcFees(act, prem, qty) {
-  const tv=prem*qty, br=Math.min(20,tv*0.0003), stt=act==='SELL'?tv*0.000625:0;
-  const exc=tv*0.00053, sebi=tv*0.000001, st=act==='BUY'?tv*0.00003:0;
-  const gst=(br+exc+sebi)*0.18, total=br+stt+exc+sebi+st+gst;
-  return {br,stt,exc,sebi,st,gst,total};
-}
-function feeHTML(t) {
-  const bf=t.entryFees||calcFees('BUY',t.entryPrice||0,t.qty||0);
-  const ep=t.closePrice||t.currentPrice||t.entryPrice||0;
-  const sf=t.sellFees||calcFees('SELL',ep,t.qty||0);
-  const tf=bf.total+sf.total;
-  const gp=(ep-(t.entryPrice||0))*(t.qty||0)*(t.action==='BUY'?1:-1);
-  const np=gp-tf;
-  return `<div style="font-size:11px;color:var(--mut);margin-bottom:8px;">${t.instrument} · ${t.qty} qty · Entry: ₹${(t.entryPrice||0).toFixed(2)} · Exit: ₹${ep.toFixed(2)}</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-    <div><div style="font-size:10px;color:var(--mut);font-weight:700;margin-bottom:4px;">BUY CHARGES</div>
-      <table class="ftbl"><tr><td>Brokerage</td><td>₹${bf.br.toFixed(2)}</td></tr><tr><td>STT</td><td>₹${bf.stt.toFixed(2)}</td></tr><tr><td>NSE Exchange</td><td>₹${bf.exc.toFixed(2)}</td></tr><tr><td>SEBI</td><td>₹${bf.sebi.toFixed(4)}</td></tr><tr><td>Stamp Duty</td><td>₹${bf.st.toFixed(2)}</td></tr><tr><td>GST @18%</td><td>₹${bf.gst.toFixed(2)}</td></tr><tr><td><b>Total</b></td><td>₹${bf.total.toFixed(2)}</td></tr></table></div>
-    <div><div style="font-size:10px;color:var(--mut);font-weight:700;margin-bottom:4px;">SELL CHARGES</div>
-      <table class="ftbl"><tr><td>Brokerage</td><td>₹${sf.br.toFixed(2)}</td></tr><tr><td>STT (0.0625%)</td><td>₹${sf.stt.toFixed(2)}</td></tr><tr><td>NSE Exchange</td><td>₹${sf.exc.toFixed(2)}</td></tr><tr><td>SEBI</td><td>₹${sf.sebi.toFixed(4)}</td></tr><tr><td>Stamp Duty</td><td>₹0.00</td></tr><tr><td>GST @18%</td><td>₹${sf.gst.toFixed(2)}</td></tr><tr><td><b>Total</b></td><td>₹${sf.total.toFixed(2)}</td></tr></table></div>
-  </div>
-  <div style="margin-top:12px;padding:10px;background:var(--bg2);border-radius:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
-    <div><div style="font-size:9px;color:var(--mut);">GROSS P&L</div><div style="font-size:14px;font-weight:700;color:${gp>=0?'var(--grn)':'var(--red)'};">${gp>=0?'+':''}₹${gp.toFixed(2)}</div></div>
-    <div><div style="font-size:9px;color:var(--red);">TOTAL FEES</div><div style="font-size:14px;font-weight:700;color:var(--red);">-₹${tf.toFixed(2)}</div></div>
-    <div><div style="font-size:9px;color:var(--a2);">NET P&L</div><div style="font-size:14px;font-weight:700;color:${np>=0?'var(--grn)':'var(--red)'};">${np>=0?'+':''}₹${np.toFixed(2)}</div></div>
-  </div>`;
-}
+function calcFees(act,prem,qty){const tv=prem*qty,br=Math.min(20,tv*0.0003),stt=act==='SELL'?tv*0.000625:0,exc=tv*0.00053,sebi=tv*0.000001,st=act==='BUY'?tv*0.00003:0,gst=(br+exc+sebi)*0.18,total=br+stt+exc+sebi+st+gst;return{br,stt,exc,sebi,st,gst,total};}
+function feeHTML(t){const bf=t.entryFees||calcFees('BUY',t.entryPrice||0,t.qty||0),ep=t.closePrice||t.currentPrice||t.entryPrice||0,sf=t.sellFees||calcFees('SELL',ep,t.qty||0),tf=bf.total+sf.total,gp=(ep-(t.entryPrice||0))*(t.qty||0)*(t.action==='BUY'?1:-1),np=gp-tf;return'<div style="font-size:11px;color:var(--mut);margin-bottom:8px;">'+t.instrument+' '+t.qty+' qty Entry: &#8377;'+(t.entryPrice||0).toFixed(2)+' Exit: &#8377;'+ep.toFixed(2)+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div><div style="font-size:10px;color:var(--mut);font-weight:700;margin-bottom:4px;">BUY CHARGES</div><table class="ftbl"><tr><td>Brokerage</td><td>&#8377;'+bf.br.toFixed(2)+'</td></tr><tr><td>STT</td><td>&#8377;'+bf.stt.toFixed(2)+'</td></tr><tr><td>NSE Exch</td><td>&#8377;'+bf.exc.toFixed(2)+'</td></tr><tr><td>SEBI</td><td>&#8377;'+bf.sebi.toFixed(4)+'</td></tr><tr><td>Stamp</td><td>&#8377;'+bf.st.toFixed(2)+'</td></tr><tr><td>GST 18%</td><td>&#8377;'+bf.gst.toFixed(2)+'</td></tr><tr><td><b>Total</b></td><td>&#8377;'+bf.total.toFixed(2)+'</td></tr></table></div><div><div style="font-size:10px;color:var(--mut);font-weight:700;margin-bottom:4px;">SELL CHARGES</div><table class="ftbl"><tr><td>Brokerage</td><td>&#8377;'+sf.br.toFixed(2)+'</td></tr><tr><td>STT 0.0625%</td><td>&#8377;'+sf.stt.toFixed(2)+'</td></tr><tr><td>NSE Exch</td><td>&#8377;'+sf.exc.toFixed(2)+'</td></tr><tr><td>SEBI</td><td>&#8377;'+sf.sebi.toFixed(4)+'</td></tr><tr><td>Stamp</td><td>&#8377;0.00</td></tr><tr><td>GST 18%</td><td>&#8377;'+sf.gst.toFixed(2)+'</td></tr><tr><td><b>Total</b></td><td>&#8377;'+sf.total.toFixed(2)+'</td></tr></table></div></div><div style="margin-top:12px;padding:10px;background:var(--bg2);border-radius:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;"><div><div style="font-size:9px;color:var(--mut);">GROSS P&amp;L</div><div style="font-size:14px;font-weight:700;color:'+(gp>=0?'var(--grn)':'var(--red)')+';">'+(gp>=0?'+':'')+'&#8377;'+gp.toFixed(2)+'</div></div><div><div style="font-size:9px;color:var(--red);">TOTAL FEES</div><div style="font-size:14px;font-weight:700;color:var(--red);">-&#8377;'+tf.toFixed(2)+'</div></div><div><div style="font-size:9px;color:var(--a2);">NET P&amp;L</div><div style="font-size:14px;font-weight:700;color:'+(np>=0?'var(--grn)':'var(--red)')+';">'+(np>=0?'+':'')+'&#8377;'+np.toFixed(2)+'</div></div></div>';}
 
-// ═══════════════════════════════════════════════════════
-// ALGO ENGINE (paper trading)
-// ═══════════════════════════════════════════════════════
-function toggleAlgo() {
-  if (S.on) {
-    S.on=false; clearInterval(S.tmr);
-    document.getElementById('aBtn').className='abtn go';
-    document.getElementById('aBtn').textContent='▶ START ALGO';
-    document.getElementById('aSt').className='ast s';
-    document.getElementById('aSt').textContent='STOPPED';
-    document.getElementById('aTmr').textContent='';
-    addSig('info','Algo stopped');
-  } else {
-    const act=S.strats.filter(s=>s.status==='active');
-    if (!act.length){alert('No active strategies! Click "Load Pre-built" in Strategies tab first.');return;}
-    S.on=true; S.secs=0;
-    document.getElementById('aBtn').className='abtn stop';
-    document.getElementById('aBtn').textContent='⏹ STOP ALGO';
-    document.getElementById('aSt').className='ast r';
-    document.getElementById('aSt').textContent='RUNNING';
-    S.tmr=setInterval(()=>{S.secs++;const h=Math.floor(S.secs/3600),m=Math.floor(S.secs%3600/60),s=S.secs%60;document.getElementById('aTmr').textContent=`${h}h${m}m${s}s`;},1000);
-    addSig('info','Algo started · '+act.length+' strategies active');
-    init();
-    setInterval(()=>{if(S.on)init();},30000);
-  }
-}
+function toggleAlgo(){if(S.on){S.on=false;clearInterval(S.tmr);document.getElementById('aBtn').className='abtn go';document.getElementById('aBtn').textContent='START ALGO';document.getElementById('aSt').className='ast s';document.getElementById('aSt').textContent='STOPPED';document.getElementById('aTmr').textContent='';addSig('info','Algo stopped');}else{const act=S.strats.filter(s=>s.status==='active');if(!act.length){alert('No active strategies! Click Load Pre-built in Strategies tab first.');return;}S.on=true;S.secs=0;document.getElementById('aBtn').className='abtn stop';document.getElementById('aBtn').textContent='STOP ALGO';document.getElementById('aSt').className='ast r';document.getElementById('aSt').textContent='RUNNING';S.tmr=setInterval(()=>{S.secs++;const h=Math.floor(S.secs/3600),m=Math.floor(S.secs%3600/60),s=S.secs%60;document.getElementById('aTmr').textContent=h+'h'+m+'m'+s+'s';},1000);addSig('info','Algo started '+act.length+' strategies active');init();setInterval(()=>{if(S.on)init();},30000);}}
 
-function runAlgo() {
-  try {
-    const cs=parseC(S.cI==='NIFTY'?S.nC:S.bC);
-    if (cs.length<30){addSig('info','Need more candle data...');return;}
-    const r=calcRSI(cs), {ml,sl:sg}=calcMACD(cs), vw=calcVWAP(cs), st=calcST(cs), pt=calcPat(cs);
-    const n=cs.length-1, lR=r[n]||50, pR=r[n-1]||50, lM=ml[n]||0, pM=ml[n-1]||0;
-    const lS=sg[n]||0, pS=sg[n-1]||0, lV=vw[n], pV=vw[n-1], lST=st[n]||{}, pST=st[n-1]||{};
-    const lP=pt[n]||[], lC=cs[n];
-    // PCR from NSE data
-    let pcr=1;
-    if (S.nD?.records?.data) {
-      const exp=document.getElementById('chainExp')?.value;
-      const fl=S.nD.records.data.filter(r=>r.expiryDate===exp);
-      const tCe=fl.reduce((s,r)=>s+(r.CE?.openInterest||0),0);
-      const tPe=fl.reduce((s,r)=>s+(r.PE?.openInterest||0),0);
-      if (tCe>0) pcr=tPe/tCe;
-    }
-    S.strats.filter(s=>s.status==='active').forEach(strat=>{
-      try {
-        // Check existing positions
-        strat.positions.filter(p=>p.status==='open').forEach(pos=>{
-          const pp=(pos.currentPrice-pos.entryPrice)/pos.entryPrice*100*(pos.action==='BUY'?1:-1);
-          const now=new Date(), h=now.getHours(), m=now.getMinutes();
-          if (!strat.overnight&&((h===15&&m>=10)||h>15)){closeA(strat,pos,'Market close');return;}
-          if (pp>=(strat.tp||25)) closeA(strat,pos,'Target +'+pp.toFixed(1)+'%');
-          else if (pp<=(-(strat.sl||15))) closeA(strat,pos,'SL '+pp.toFixed(1)+'%');
-        });
-        if (strat.positions.filter(p=>p.status==='open').length>0) return;
-        // Get underlying
-        const cD=strat.index==='NIFTY'?S.nD:S.bD;
-        const ul=cD?.records?.underlyingValue||0;
-        if (!ul) return;
-        const gap=strat.index==='NIFTY'?50:100;
-        const atm=Math.round(ul/gap)*gap;
-        const exp=document.getElementById('chainExp')?.value;
-        let sig=null, opt=null;
-        switch(strat.logic){
-          case 'rsi_os':   if(pR>30&&lR<=30){sig='RSI<30';opt='CE';}break;
-          case 'rsi_ob':   if(pR<70&&lR>=70){sig='RSI>70';opt='PE';}break;
-          case 'st_bull':  if(!pST.bull&&lST.bull){sig='ST→Bull';opt='CE';}break;
-          case 'st_bear':  if(pST.bull&&!lST.bull){sig='ST→Bear';opt='PE';}break;
-          case 'vwap_bull':if(lC.c>lV&&cs[n-1].c<=pV){sig='VWAP↑';opt='CE';}break;
-          case 'vwap_bear':if(lC.c<lV&&cs[n-1].c>=pV){sig='VWAP↓';opt='PE';}break;
-          case 'macd_bull':if(pM<pS&&lM>=lS){sig='MACD bull';opt='CE';}break;
-          case 'macd_bear':if(pM>pS&&lM<=lS){sig='MACD bear';opt='PE';}break;
-          case 'hmr':      if(lP.includes('hmr')&&lC.c>lC.o){sig='Hammer';opt='CE';}break;
-          case 'be_bull':  if(lP.includes('bull_eng')){sig='Bull engulf';opt='CE';}break;
-          case 'be_bear':  if(lP.includes('bear_eng')){sig='Bear engulf';opt='PE';}break;
-          case 'pcr_bull': if(pcr<0.7){sig='PCR<0.7';opt='CE';}break;
-          case 'pcr_bear': if(pcr>1.3){sig='PCR>1.3';opt='PE';}break;
-        }
-        if (sig&&opt&&cD?.records?.data) {
-          const row=cD.records.data.find(r=>r.expiryDate===exp&&r.strikePrice===atm);
-          const prem=opt==='CE'?(row?.CE?.lastPrice||5):(row?.PE?.lastPrice||5);
-          addSig(opt==='CE'?'buy':'sell',`${strat.name}: ${sig} → ${strat.index} ${atm} ${opt} @ ₹${prem}`);
-          execT(strat,'BUY',`${strat.index} ${atm} ${opt}`,prem,sig);
-        }
-      } catch(e){console.warn('strat err:',e);}
-    });
-  } catch(e){console.error('runAlgo:',e);}
-}
+function runAlgo(){try{const cs=parseC(S.cI==='NIFTY'?S.nC:S.bC);if(cs.length<30){addSig('info','Need more candle data...');return;}const r=calcRSI(cs),{ml,sl:sg}=calcMACD(cs),vw=calcVWAP(cs),st=calcST(cs),pt=calcPat(cs);const n=cs.length-1,lR=r[n]||50,pR=r[n-1]||50,lM=ml[n]||0,pM=ml[n-1]||0,lS=sg[n]||0,pS=sg[n-1]||0,lV=vw[n],pV=vw[n-1],lST=st[n]||{},pST=st[n-1]||{},lP=pt[n]||[],lC=cs[n];let pcr=1;if(S.nD?.records?.data){const exp=document.getElementById('chainExp')?.value,fl=S.nD.records.data.filter(r=>r.expiryDate===exp),tCe=fl.reduce((s,r)=>s+(r.CE?.openInterest||0),0),tPe=fl.reduce((s,r)=>s+(r.PE?.openInterest||0),0);if(tCe>0)pcr=tPe/tCe;}S.strats.filter(s=>s.status==='active').forEach(strat=>{try{strat.positions.filter(p=>p.status==='open').forEach(pos=>{const pp=(pos.currentPrice-pos.entryPrice)/pos.entryPrice*100*(pos.action==='BUY'?1:-1),now=new Date(),h=now.getHours(),m=now.getMinutes();if(!strat.overnight&&((h===15&&m>=10)||h>15)){closeA(strat,pos,'Market close');return;}if(pp>=(strat.tp||25))closeA(strat,pos,'Target +'+pp.toFixed(1)+'%');else if(pp<=(-(strat.sl||15)))closeA(strat,pos,'SL '+pp.toFixed(1)+'%');});if(strat.positions.filter(p=>p.status==='open').length>0)return;const cD=strat.index==='NIFTY'?S.nD:S.bD,ul=cD?.records?.underlyingValue||0;if(!ul)return;const gap=strat.index==='NIFTY'?50:100,atm=Math.round(ul/gap)*gap,exp=document.getElementById('chainExp')?.value;let sig=null,opt=null;switch(strat.logic){case 'rsi_os':if(pR>30&&lR<=30){sig='RSI<30';opt='CE';}break;case 'rsi_ob':if(pR<70&&lR>=70){sig='RSI>70';opt='PE';}break;case 'st_bull':if(!pST.bull&&lST.bull){sig='ST Bull';opt='CE';}break;case 'st_bear':if(pST.bull&&!lST.bull){sig='ST Bear';opt='PE';}break;case 'vwap_bull':if(lC.c>lV&&cs[n-1].c<=pV){sig='VWAP up';opt='CE';}break;case 'vwap_bear':if(lC.c<lV&&cs[n-1].c>=pV){sig='VWAP dn';opt='PE';}break;case 'macd_bull':if(pM<pS&&lM>=lS){sig='MACD bull';opt='CE';}break;case 'macd_bear':if(pM>pS&&lM<=lS){sig='MACD bear';opt='PE';}break;case 'hmr':if(lP.includes('hmr')&&lC.c>lC.o){sig='Hammer';opt='CE';}break;case 'be_bull':if(lP.includes('bull_eng')){sig='Bull engulf';opt='CE';}break;case 'be_bear':if(lP.includes('bear_eng')){sig='Bear engulf';opt='PE';}break;case 'pcr_bull':if(pcr<0.7){sig='PCR<0.7';opt='CE';}break;case 'pcr_bear':if(pcr>1.3){sig='PCR>1.3';opt='PE';}break;case 'f30_bull':{const now2=new Date(),hh=now2.getHours(),mm=now2.getMinutes();const inWindow=(hh===9&&mm>=45)||(hh===10)||(hh===11&&mm<=30);if(!inWindow)break;if(cs.length<10)break;const rangeCandls=cs.filter(c=>{const d=new Date(c.t),h2=d.getHours(),m2=d.getMinutes();return(h2===9&&m2>=15&&m2<45);});if(rangeCandls.length<3)break;const rangeHigh=Math.max(...rangeCandls.map(c=>c.h)),rangeLow=Math.min(...rangeCandls.map(c=>c.l));const prev2=cs[n-1];const bodySize=Math.abs(lC.c-lC.o),wickSize=(lC.h-Math.max(lC.o,lC.c))+(Math.min(lC.o,lC.c)-lC.l);const isBigCandle=bodySize>0&&wickSize<bodySize&&bodySize>(rangeHigh-rangeLow)*0.15;const prevNearRange=Math.abs(prev2.c-rangeHigh)<(rangeHigh-rangeLow)*0.3;if(prev2.c>rangeHigh&&prevNearRange&&lC.c>prev2.c&&isBigCandle){sig='F30 Bull Breakout';opt='CE';}break;}case 'f30_bear':{const now2=new Date(),hh=now2.getHours(),mm=now2.getMinutes();const inWindow=(hh===9&&mm>=45)||(hh===10)||(hh===11&&mm<=30);if(!inWindow)break;if(cs.length<10)break;const rangeCandls=cs.filter(c=>{const d=new Date(c.t),h2=d.getHours(),m2=d.getMinutes();return(h2===9&&m2>=15&&m2<45);});if(rangeCandls.length<3)break;const rangeHigh=Math.max(...rangeCandls.map(c=>c.h)),rangeLow=Math.min(...rangeCandls.map(c=>c.l));const prev2=cs[n-1];const bodySize=Math.abs(lC.c-lC.o),wickSize=(lC.h-Math.max(lC.o,lC.c))+(Math.min(lC.o,lC.c)-lC.l);const isBigCandle=bodySize>0&&wickSize<bodySize&&bodySize>(rangeHigh-rangeLow)*0.15;const prevNearRange=Math.abs(prev2.c-rangeLow)<(rangeHigh-rangeLow)*0.3;if(prev2.c<rangeLow&&prevNearRange&&lC.c<prev2.c&&isBigCandle){sig='F30 Bear Breakdown';opt='PE';}break;}}if(sig&&opt&&cD?.records?.data){const row=cD.records.data.find(r=>r.expiryDate===exp&&r.strikePrice===atm),prem=opt==='CE'?(row?.CE?.lastPrice||5):(row?.PE?.lastPrice||5);addSig(opt==='CE'?'buy':'sell',strat.name+': '+sig+' '+strat.index+' '+atm+' '+opt+' Rs.'+prem);execT(strat,'BUY',strat.index+' '+atm+' '+opt,prem,sig);}}catch(e){console.warn('strat err:',e);}});}catch(e){console.error('runAlgo:',e);}}
 
-function execT(strat, action, inst, prem, reason) {
-  const lots=strat.lots||1, ls=inst.includes('BANKNIFTY')?15:50;
-  const qty=lots*ls, cost=qty*prem, avail=strat.capital-(strat.usedMargin||0);
-  if (cost>avail){addSig('info',strat.name+': Insufficient funds');return;}
-  const ef=calcFees('BUY',prem,qty);
-  const t={id:Date.now()+(Math.random()*999|0),stratId:strat.id,stratName:strat.name,stratColor:strat.color,action,instrument:inst,entryPrice:prem,currentPrice:prem,qty,lots,cost,status:'open',pnl:0,netPnl:0,fees:ef.total,entryFees:ef,reason,time:new Date().toLocaleString('en-IN'),overnight:strat.overnight==='yes'};
-  strat.positions.push(t); strat.trades.push({...t});
-  strat.usedMargin=(strat.usedMargin||0)+cost;
-  save(); renderLog(); renderPort(); renderS();
-  addSig('buy','EXECUTED: '+action+' '+inst+' @ ₹'+prem+' ['+strat.name+']');
-}
+function execT(strat,action,inst,prem,reason){const lots=strat.lots||1,ls=inst.includes('BANKNIFTY')?15:50,qty=lots*ls,cost=qty*prem,avail=strat.capital-(strat.usedMargin||0);if(cost>avail){addSig('info',strat.name+': Insufficient funds');return;}const ef=calcFees('BUY',prem,qty);const t={id:Date.now()+(Math.random()*999|0),stratId:strat.id,stratName:strat.name,stratColor:strat.color,action,instrument:inst,entryPrice:prem,currentPrice:prem,qty,lots,cost,status:'open',pnl:0,netPnl:0,fees:ef.total,entryFees:ef,reason,time:new Date().toLocaleString('en-IN'),overnight:strat.overnight==='yes'};strat.positions.push(t);strat.trades.push({...t});strat.usedMargin=(strat.usedMargin||0)+cost;save();renderLog();renderPort();renderS();addSig('buy','EXECUTED: '+action+' '+inst+' Rs.'+prem+' ['+strat.name+']');}
+function closeA(strat,pos,reason){try{pos.status='closed';pos.closeTime=new Date().toLocaleString('en-IN');const sf=calcFees('SELL',pos.currentPrice,pos.qty),gp=(pos.currentPrice-pos.entryPrice)*pos.qty*(pos.action==='BUY'?1:-1);pos.pnl=gp;pos.netPnl=gp-pos.fees-sf.total;pos.sellFees=sf;pos.closeReason=reason;pos.closePrice=pos.currentPrice;strat.usedMargin=Math.max(0,(strat.usedMargin||0)-pos.cost);const t=strat.trades.find(t=>t.id===pos.id);if(t)Object.assign(t,{status:'closed',pnl:gp,netPnl:pos.netPnl,closeTime:pos.closeTime,closePrice:pos.currentPrice,closeReason:reason,sellFees:sf});save();renderLog();renderPort();renderS();renderCmp();addSig(pos.netPnl>=0?'buy':'sell','CLOSED: '+pos.instrument+' Net: '+(pos.netPnl>=0?'+':'')+'Rs.'+pos.netPnl.toFixed(0)+' ('+reason+')');}catch(e){}}
+function mTrade(action,inst,prem){const act=S.strats.filter(s=>s.status==='active');if(!act.length){alert('No active strategies! Go to Strategies tab first.');return;}if(confirm('Paper Trade:\n'+action+' '+inst+' @ Rs.'+prem+'\nStrategy: '+act[0].name+'\n\nPAPER TRADING ONLY - no real orders.'))execT(act[0],action,inst,prem,'Manual trade');}
 
-function closeA(strat, pos, reason) {
-  try {
-    pos.status='closed'; pos.closeTime=new Date().toLocaleString('en-IN');
-    const sf=calcFees('SELL',pos.currentPrice,pos.qty);
-    const gp=(pos.currentPrice-pos.entryPrice)*pos.qty*(pos.action==='BUY'?1:-1);
-    pos.pnl=gp; pos.netPnl=gp-pos.fees-sf.total; pos.sellFees=sf; pos.closeReason=reason; pos.closePrice=pos.currentPrice;
-    strat.usedMargin=Math.max(0,(strat.usedMargin||0)-pos.cost);
-    const t=strat.trades.find(t=>t.id===pos.id);
-    if (t) Object.assign(t,{status:'closed',pnl:gp,netPnl:pos.netPnl,closeTime:pos.closeTime,closePrice:pos.currentPrice,closeReason:reason,sellFees:sf});
-    save(); renderLog(); renderPort(); renderS(); renderCmp();
-    addSig(pos.netPnl>=0?'buy':'sell','CLOSED: '+pos.instrument+' Net: '+(pos.netPnl>=0?'+':'')+'₹'+pos.netPnl.toFixed(0)+' ('+reason+')');
-  } catch(e){}
-}
+function tick(){try{S.strats.forEach(st=>{st.positions.filter(p=>p.status==='open').forEach(pos=>{const mv=(Math.random()-.47)*pos.entryPrice*0.005;pos.currentPrice=Math.max(0.05,pos.currentPrice+mv);const diff=pos.currentPrice-pos.entryPrice,gp=diff*pos.qty*(pos.action==='BUY'?1:-1),sf=calcFees('SELL',pos.currentPrice,pos.qty);pos.pnl=gp;pos.netPnl=gp-pos.fees-sf.total;const t=st.trades.find(t=>t.id===pos.id);if(t){t.currentPrice=pos.currentPrice;t.pnl=gp;t.netPnl=pos.netPnl;}});});save();const tot=S.strats.reduce((s,st)=>s+sPnl(st),0),el=document.getElementById('tPnl');el.textContent='P&L: '+(tot>=0?'+':'')+fm(tot);el.style.color=tot>=0?'var(--grn)':'var(--red)';}catch(e){}}
 
-function mTrade(action, inst, prem) {
-  const act=S.strats.filter(s=>s.status==='active');
-  if (!act.length){alert('No active strategies! Go to Strategies tab first.');return;}
-  if (confirm('Paper Trade:\n'+action+' '+inst+' @ ₹'+prem+'\nStrategy: '+act[0].name+'\n\nThis is PAPER TRADING only — no real orders placed.'))
-    execT(act[0],action,inst,prem,'Manual trade');
-}
+function addSig(type,msg){S.sigs.unshift({type,msg,time:new Date().toLocaleTimeString('en-IN')});if(S.sigs.length>50)S.sigs.pop();document.getElementById('sigN').textContent=S.sigs.length+' signals';document.getElementById('sigL').innerHTML=S.sigs.slice(0,20).map(s=>'<div class="sgi"><span class="sgt '+(s.type==='buy'?'sgb':s.type==='sell'?'sgs':'sgi2')+'">'+s.type.toUpperCase()+'</span><span style="flex:1;font-size:11px;">'+s.msg+'</span><span style="color:var(--mut);font-size:10px;white-space:nowrap;">'+s.time+'</span></div>').join('');}
 
-// ═══════════════════════════════════════════════════════
-// PNL TICK (simulated price movement for paper trading)
-// ═══════════════════════════════════════════════════════
-function tick() {
-  try {
-    S.strats.forEach(st=>{
-      st.positions.filter(p=>p.status==='open').forEach(pos=>{
-        const mv=(Math.random()-.47)*pos.entryPrice*0.005;
-        pos.currentPrice=Math.max(0.05,pos.currentPrice+mv);
-        const diff=pos.currentPrice-pos.entryPrice;
-        const gp=diff*pos.qty*(pos.action==='BUY'?1:-1);
-        const sf=calcFees('SELL',pos.currentPrice,pos.qty);
-        pos.pnl=gp; pos.netPnl=gp-pos.fees-sf.total;
-        const t=st.trades.find(t=>t.id===pos.id);
-        if (t){t.currentPrice=pos.currentPrice;t.pnl=gp;t.netPnl=pos.netPnl;}
-      });
-    });
-    save();
-    const tot=S.strats.reduce((s,st)=>s+sPnl(st),0);
-    const el=document.getElementById('tPnl');
-    el.textContent='P&L: '+(tot>=0?'+':'')+fm(tot);
-    el.style.color=tot>=0?'var(--grn)':'var(--red)';
-  } catch(e){}
-}
+function loadPB(){const pb=[{name:'RSI Reversal',index:'NIFTY',capital:300000,logic:'rsi_os',tp:25,sl:15,lots:1,color:'#00d4aa',overnight:'no',description:'Entry: Nifty CE when RSI crosses below 30.\nExit: +25% target or -15% SL or 3:15 PM.\nWin rate ~60-65%. Best on 5M-15M.'},{name:'Supertrend Follow',index:'BANKNIFTY',capital:250000,logic:'st_bull',tp:30,sl:20,lots:1,color:'#f59e0b',overnight:'no',description:'Entry: BankNifty CE when Supertrend turns Bullish.\nWin rate ~55-60% in trending markets.'},{name:'VWAP Bounce',index:'NIFTY',capital:200000,logic:'vwap_bull',tp:20,sl:12,lots:1,color:'#3b82f6',overnight:'no',description:'Entry: Nifty CE on bounce above VWAP.\nBest after 10:30 AM. Win rate ~58-62%.'},{name:'MACD Momentum',index:'BANKNIFTY',capital:300000,logic:'macd_bull',tp:35,sl:18,lots:1,color:'#a855f7',overnight:'yes',description:'Entry: MACD bullish crossover on 15M.\nOvernight holding allowed. Win rate ~52-58%.'},{name:'Bearish Engulfing PE',index:'NIFTY',capital:200000,logic:'be_bear',tp:30,sl:20,lots:1,color:'#ef4444',overnight:'no',description:'Entry: Nifty PE on bearish engulfing candle.\nWin rate ~55%.'},{name:'PCR Contrarian',index:'NIFTY',capital:150000,logic:'pcr_bull',tp:30,sl:20,lots:1,color:'#f97316',overnight:'no',description:'Entry: CE when PCR below 0.7 (extreme bearishness).\nWin rate ~55-60%.'},{name:'F30 Bull Scalp',index:'NIFTY',capital:300000,logic:'f30_bull',tp:40,sl:20,lots:1,color:'#22c55e',overnight:'no',description:'First 30 Min Scalping (9:15-9:45 range).\nEntry: CE on breakout above 30-min high with pullback + big candle (small wicks).\nExecution window: 9:45 AM to 11:30 AM ONLY.\nMax 2 trades/day. RR target 1:2.\nWin rate ~60-67% (backtest 2021-2023).'},{name:'F30 Bear Scalp',index:'NIFTY',capital:300000,logic:'f30_bear',tp:40,sl:20,lots:1,color:'#ef4444',overnight:'no',description:'First 30 Min Scalping Bearish side.\nEntry: PE on breakdown below 30-min low with pullback + big candle confirmation.\nExecution window: 9:45 AM to 11:30 AM ONLY.\nMax 2 trades/day. RR target 1:2.'}];const ex=S.strats.map(s=>s.name);let n=0;pb.forEach(p=>{if(!ex.includes(p.name)){S.strats.push({...p,id:Date.now()+(Math.random()*9999|0),status:'active',positions:[],trades:[],usedMargin:0,createdAt:new Date().toLocaleDateString('en-IN'),prebuilt:true});n++;}});save();renderS();renderCmp();alert(n>0?'Added '+n+' pre-built strategies!':'All pre-built strategies already loaded!');}
 
-// ═══════════════════════════════════════════════════════
-// SIGNALS
-// ═══════════════════════════════════════════════════════
-function addSig(type, msg) {
-  S.sigs.unshift({type,msg,time:new Date().toLocaleTimeString('en-IN')});
-  if (S.sigs.length>50) S.sigs.pop();
-  document.getElementById('sigN').textContent=S.sigs.length+' signals';
-  document.getElementById('sigL').innerHTML=S.sigs.slice(0,20).map(s=>
-    `<div class="sgi"><span class="sgt ${s.type==='buy'?'sgb':s.type==='sell'?'sgs':'sgi2'}">${s.type.toUpperCase()}</span>
-    <span style="flex:1;font-size:11px;">${s.msg}</span>
-    <span style="color:var(--mut);font-size:10px;white-space:nowrap;">${s.time}</span></div>`
-  ).join('');
-}
-
-// ═══════════════════════════════════════════════════════
-// PRE-BUILT STRATEGIES
-// ═══════════════════════════════════════════════════════
-function loadPB() {
-  const pb=[
-    {name:'RSI Reversal',index:'NIFTY',capital:300000,logic:'rsi_os',tp:25,sl:15,lots:1,color:'#00d4aa',overnight:'no',description:'Entry: Nifty CE when RSI crosses below 30.\nExit: +25% target or -15% SL or 3:15 PM.\nWin rate ~60–65%. Best on 5M–15M.'},
-    {name:'Supertrend Follow',index:'BANKNIFTY',capital:250000,logic:'st_bull',tp:30,sl:20,lots:1,color:'#f59e0b',overnight:'no',description:'Entry: BankNifty CE when Supertrend turns Bullish.\nWin rate ~55–60% in trending markets.'},
-    {name:'VWAP Bounce',index:'NIFTY',capital:200000,logic:'vwap_bull',tp:20,sl:12,lots:1,color:'#3b82f6',overnight:'no',description:'Entry: Nifty CE on bounce above VWAP.\nBest after 10:30 AM. Win rate ~58–62%.'},
-    {name:'MACD Momentum',index:'BANKNIFTY',capital:300000,logic:'macd_bull',tp:35,sl:18,lots:1,color:'#a855f7',overnight:'yes',description:'Entry: MACD bullish crossover on 15M.\nOvernight holding allowed. Win rate ~52–58%.'},
-    {name:'Bearish Engulfing PE',index:'NIFTY',capital:200000,logic:'be_bear',tp:30,sl:20,lots:1,color:'#ef4444',overnight:'no',description:'Entry: Nifty PE on bearish engulfing candle.\nWin rate ~55%.'},
-    {name:'PCR Contrarian',index:'NIFTY',capital:150000,logic:'pcr_bull',tp:30,sl:20,lots:1,color:'#f97316',overnight:'no',description:'Entry: CE when PCR < 0.7 (extreme bearishness).\nWin rate ~55–60%.'}
-  ];
-  const ex=S.strats.map(s=>s.name); let n=0;
-  pb.forEach(p=>{
-    if (!ex.includes(p.name)){
-      S.strats.push({...p,id:Date.now()+(Math.random()*9999|0),status:'active',positions:[],trades:[],usedMargin:0,createdAt:new Date().toLocaleDateString('en-IN'),prebuilt:true});
-      n++;
-    }
-  });
-  save(); renderS(); renderCmp();
-  alert(n>0?'✓ Added '+n+' pre-built strategies!':'All pre-built strategies already loaded!');
-}
-
-// ═══════════════════════════════════════════════════════
-// STRATEGY UI
-// ═══════════════════════════════════════════════════════
 function showAS(){S.eid=null;S.clr='#00d4aa';document.getElementById('sN').value='';document.getElementById('sC').value=200000;document.getElementById('sDesc').value='';document.getElementById('sOv').classList.add('show');}
 function closeSOv(){document.getElementById('sOv').classList.remove('show');}
 function pc(c,el){S.clr=c;document.querySelectorAll('#cRow div').forEach(e=>e.style.border='3px solid transparent');el.style.border='3px solid #fff';}
-function saveS(){
-  const nm=document.getElementById('sN').value.trim(),cap=parseInt(document.getElementById('sC').value);
-  if(!nm){alert('Enter a name');return;}if(!cap){alert('Enter capital');return;}
-  const obj={id:S.eid||Date.now(),name:nm,index:document.getElementById('sI').value,capital:cap,tp:parseFloat(document.getElementById('sTP').value)||25,sl:parseFloat(document.getElementById('sSL').value)||15,logic:document.getElementById('sLg').value,lots:parseInt(document.getElementById('sLots').value)||1,overnight:document.getElementById('sOn').value,description:document.getElementById('sDesc').value.trim(),color:S.clr,status:'active',positions:[],trades:[],usedMargin:0,createdAt:new Date().toLocaleDateString('en-IN')};
-  if(S.eid){const i=S.strats.findIndex(s=>s.id===S.eid);if(i>=0){const old=S.strats[i];obj.positions=old.positions;obj.trades=old.trades;obj.usedMargin=old.usedMargin||0;S.strats[i]=obj;}}else S.strats.push(obj);
-  save();closeSOv();renderS();renderCmp();
-}
+function saveS(){const nm=document.getElementById('sN').value.trim(),cap=parseInt(document.getElementById('sC').value);if(!nm){alert('Enter a name');return;}if(!cap){alert('Enter capital');return;}const obj={id:S.eid||Date.now(),name:nm,index:document.getElementById('sI').value,capital:cap,tp:parseFloat(document.getElementById('sTP').value)||25,sl:parseFloat(document.getElementById('sSL').value)||15,logic:document.getElementById('sLg').value,lots:parseInt(document.getElementById('sLots').value)||1,overnight:document.getElementById('sOn').value,description:document.getElementById('sDesc').value.trim(),color:S.clr,status:'active',positions:[],trades:[],usedMargin:0,createdAt:new Date().toLocaleDateString('en-IN')};if(S.eid){const i=S.strats.findIndex(s=>s.id===S.eid);if(i>=0){const old=S.strats[i];obj.positions=old.positions;obj.trades=old.trades;obj.usedMargin=old.usedMargin||0;S.strats[i]=obj;}}else S.strats.push(obj);save();closeSOv();renderS();renderCmp();}
 function togS(id){const s=S.strats.find(s=>s.id===id);if(s){s.status=s.status==='active'?'paused':'active';save();renderS();}}
 function delS(id){if(!confirm('Delete this strategy?'))return;S.strats=S.strats.filter(s=>s.id!==id);save();renderS();renderCmp();renderPort();}
+
+function editCapital(id){const st=S.strats.find(s=>s.id===id);if(!st)return;const used=st.usedMargin||0;const val=prompt('Edit capital for "'+st.name+'"\nCurrent: Rs.'+st.capital.toLocaleString('en-IN')+'\nUsed margin: Rs.'+used.toLocaleString('en-IN')+'\n\nEnter new capital (Rs.):',st.capital);if(val===null)return;const newCap=parseInt(String(val).replace(/,/g,''));if(isNaN(newCap)||newCap<1000){alert('Invalid capital. Minimum Rs.1000.');return;}if(newCap<used){alert('Cannot set below used margin (Rs.'+used.toLocaleString('en-IN')+')');return;}st.capital=newCap;save();renderS();renderCmp();renderPort();addSig('info','Capital updated: '+st.name+' to Rs.'+newCap.toLocaleString('en-IN'));}
+
 function sPnl(st){return st.trades.filter(t=>t.status==='closed').reduce((s,t)=>s+(t.netPnl||0),0)+st.positions.filter(p=>p.status==='open').reduce((s,p)=>s+(p.netPnl||0),0);}
 function sDD(st){let pk=0,dd=0,cu=0;st.trades.filter(t=>t.status==='closed').forEach(t=>{cu+=(t.netPnl||0);if(cu>pk)pk=cu;if(pk-cu>dd)dd=pk-cu;});return dd;}
 function sSh(st){const r=st.trades.filter(t=>t.status==='closed').map(t=>t.netPnl||0);if(r.length<2)return 0;const mn=r.reduce((a,b)=>a+b,0)/r.length,std=Math.sqrt(r.reduce((a,b)=>a+(b-mn)**2,0)/r.length);return std?mn/std:0;}
 function sWR(st){const cl=st.trades.filter(t=>t.status==='closed');return cl.length?cl.filter(t=>(t.netPnl||0)>0).length/cl.length*100:0;}
-function renderS(){
-  const el=document.getElementById('sL');
-  if(!S.strats.length){el.innerHTML='<div class="empty"><div class="ei">🧠</div>No strategies yet.<br>Click <b>Load Pre-built</b>!</div>';return;}
-  el.innerHTML=S.strats.map(st=>{
-    const pnl=sPnl(st),pc=pnl>=0?'var(--grn)':'var(--red)',op=st.positions.filter(p=>p.status==='open').length,wr=sWR(st),dd=sDD(st),sr=sSh(st);
-    return`<div class="sc" style="border-left:4px solid ${st.color};">${st.prebuilt?'<span class="pbb">PRE-BUILT</span>':''}${st.overnight==='yes'?'<span class="onb" style="position:absolute;top:10px;right:10px;">OVERNIGHT</span>':''}
-    <div class="sc-h"><div><div class="sc-n">${st.name}</div><div class="sc-m">${st.index} · TP:${st.tp||25}% SL:${st.sl||15}% · ${fm(st.capital)}</div></div>
-    <div class="fr"><span class="bdg ${st.status==='active'?'bda':'bdp'}">${st.status.toUpperCase()}</span><button class="btn bo bxs" onclick="togS(${st.id})">${st.status==='active'?'⏸':'▶'}</button><button class="btn br2 bxs" onclick="delS(${st.id})">✕</button></div></div>
-    ${st.description?`<div class="sc-d">${st.description}</div>`:''}
-    <div class="sc-s">
-      <div class="ss"><div class="sl">Open</div><div class="sv">${op}</div></div>
-      <div class="ss"><div class="sl">Win%</div><div class="sv" style="color:${wr>=50?'var(--grn)':'var(--red)'};">${wr.toFixed(0)}%</div></div>
-      <div class="ss"><div class="sl">Max DD</div><div class="sv" style="color:var(--red);">${dd>0?'-'+fm(dd):'—'}</div></div>
-      <div class="ss"><div class="sl">Sharpe</div><div class="sv" style="color:${sr>=0?'var(--grn)':'var(--red)'};">${sr.toFixed(2)}</div></div>
-      <div class="ss"><div class="sv" style="color:${pc};">${pnl>=0?'+':''}${fm(pnl)}</div><div class="sl">Net P&L</div></div>
-    </div>
-    <div class="fr" style="margin-top:8px;"><button class="btn bgb bsm" style="flex:1;" onclick="setCI('${st.index}');go('chart');">📊 View Chart</button><button class="btn bo bsm" onclick="go('log')">📋 ${st.trades.length} Trades</button></div>
-    </div>`;
-  }).join('');
-}
 
-// ═══════════════════════════════════════════════════════
-// PORTFOLIO
-// ═══════════════════════════════════════════════════════
-function renderPort(){
-  const all=[];let cap=0,mar=0;
-  S.strats.forEach(st=>{cap+=st.capital;mar+=st.usedMargin||0;st.positions.filter(p=>p.status==='open').forEach(p=>all.push({...p,sn:st.name,sc:st.color,sid:st.id}));});
-  const pnl=all.reduce((s,p)=>s+(p.netPnl||0),0);
-  document.getElementById('pCap').textContent=fm(cap);document.getElementById('pMar').textContent=fm(mar);
-  document.getElementById('pAvl').textContent=fm(cap-mar);
-  const pe=document.getElementById('pPnl');pe.textContent=(pnl>=0?'+':'')+fm(pnl);pe.style.color=pnl>=0?'var(--grn)':'var(--red)';
-  const el=document.getElementById('openPos');
-  if(!all.length){el.innerHTML='<div class="empty"><div class="ei">📭</div>No open positions</div>';return;}
-  el.innerHTML=`<table class="ptbl"><thead><tr><th>Strategy</th><th>Instrument</th><th>Action</th><th>Qty</th><th>Entry</th><th>CMP</th><th>Gross P&L</th><th>Fees</th><th>Net P&L</th><th>Reason</th><th></th></tr></thead><tbody>${all.map(p=>`<tr><td><span style="color:${p.sc};font-weight:700;">●</span> ${p.sn}</td><td style="font-weight:700;">${p.instrument}</td><td><span class="tag tb2">${p.action}</span>${p.overnight?'<span class="tag th" style="margin-left:2px;">ON</span>':''}</td><td>${p.qty}(${p.lots}L)</td><td>₹${(p.entryPrice||0).toFixed(2)}</td><td>₹${(p.currentPrice||0).toFixed(2)}</td><td style="color:${(p.pnl||0)>=0?'var(--grn)':'var(--red)'};">${(p.pnl||0)>=0?'+':''}₹${(p.pnl||0).toFixed(0)}</td><td style="color:var(--red);">-₹${(p.fees||0).toFixed(0)}</td><td style="font-weight:700;color:${(p.netPnl||0)>=0?'var(--grn)':'var(--red)'};">${(p.netPnl||0)>=0?'+':''}₹${(p.netPnl||0).toFixed(0)}</td><td style="font-size:10px;color:var(--mut);">${(p.reason||'—').substring(0,20)}</td><td><button class="btn br2 bxs" onclick="mClose(${p.sid},${p.id})">Close</button></td></tr>`).join('')}</tbody></table>`;
-}
+function renderS(){const el=document.getElementById('sL');if(!S.strats.length){el.innerHTML='<div class="empty"><div class="ei">&#129504;</div>No strategies yet.<br>Click <b>Load Pre-built</b>!</div>';return;}el.innerHTML=S.strats.map(st=>{const pnl=sPnl(st),pc=pnl>=0?'var(--grn)':'var(--red)',op=st.positions.filter(p=>p.status==='open').length,wr=sWR(st),dd=sDD(st),sr=sSh(st);return'<div class="sc" style="border-left:4px solid '+st.color+';">'+(st.prebuilt?'<span class="pbb">PRE-BUILT</span>':'')+(st.overnight==='yes'?'<span class="onb" style="position:absolute;top:10px;right:10px;">OVERNIGHT</span>':'')+'<div class="sc-h"><div><div class="sc-n">'+st.name+'</div><div class="sc-m">'+st.index+' TP:'+( st.tp||25)+'% SL:'+(st.sl||15)+'% '+fm(st.capital)+'</div></div><div class="fr"><span class="bdg '+(st.status==='active'?'bda':'bdp')+'">'+st.status.toUpperCase()+'</span><button class="btn bo bxs" onclick="togS('+st.id+')">'+(st.status==='active'?'&#9208;':'&#9654;')+'</button><button class="btn br2 bxs" onclick="delS('+st.id+')">&#10005;</button></div></div>'+(st.description?'<div class="sc-d">'+st.description+'</div>':'')+'<div class="sc-s"><div class="ss"><div class="sl">Open</div><div class="sv">'+op+'</div></div><div class="ss"><div class="sl">Win%</div><div class="sv" style="color:'+(wr>=50?'var(--grn)':'var(--red)')+';">'+wr.toFixed(0)+'%</div></div><div class="ss"><div class="sl">Max DD</div><div class="sv" style="color:var(--red);">'+(dd>0?'-'+fm(dd):'&#8212;')+'</div></div><div class="ss"><div class="sl">Sharpe</div><div class="sv" style="color:'+(sr>=0?'var(--grn)':'var(--red)')+';">'+sr.toFixed(2)+'</div></div><div class="ss"><div class="sv" style="color:'+pc+';">'+(pnl>=0?'+':'')+fm(pnl)+'</div><div class="sl">Net P&amp;L</div></div></div><div class="fr" style="margin-top:8px;"><button class="btn bgb bsm" style="flex:1;" onclick="setCI(\''+st.index+'\');go(\'chart\');">&#128202; View Chart</button><button class="btn bo bsm" onclick="editCapital('+st.id+')">&#128176; Capital</button><button class="btn bo bsm" onclick="go(\'log\')">&#128203; '+st.trades.length+' Trades</button></div></div>';}).join('');}
+
+function renderPort(){const all=[];let cap=0,mar=0;S.strats.forEach(st=>{cap+=st.capital;mar+=st.usedMargin||0;st.positions.filter(p=>p.status==='open').forEach(p=>all.push({...p,sn:st.name,sc:st.color,sid:st.id}));});const pnl=all.reduce((s,p)=>s+(p.netPnl||0),0);document.getElementById('pCap').textContent=fm(cap);document.getElementById('pMar').textContent=fm(mar);document.getElementById('pAvl').textContent=fm(cap-mar);const pe=document.getElementById('pPnl');pe.textContent=(pnl>=0?'+':'')+fm(pnl);pe.style.color=pnl>=0?'var(--grn)':'var(--red)';const el=document.getElementById('openPos');if(!all.length){el.innerHTML='<div class="empty"><div class="ei">&#128205;</div>No open positions</div>';return;}el.innerHTML='<table class="ptbl"><thead><tr><th>Strategy</th><th>Instrument</th><th>Action</th><th>Qty</th><th>Entry</th><th>CMP</th><th>Gross P&amp;L</th><th>Fees</th><th>Net P&amp;L</th><th>Reason</th><th></th></tr></thead><tbody>'+all.map(p=>'<tr><td><span style="color:'+p.sc+';font-weight:700;">&#9679;</span> '+p.sn+'</td><td style="font-weight:700;">'+p.instrument+'</td><td><span class="tag tb2">'+p.action+'</span>'+(p.overnight?'<span class="tag th" style="margin-left:2px;">ON</span>':'')+'</td><td>'+p.qty+'('+p.lots+'L)</td><td>&#8377;'+(p.entryPrice||0).toFixed(2)+'</td><td>&#8377;'+(p.currentPrice||0).toFixed(2)+'</td><td style="color:'+((p.pnl||0)>=0?'var(--grn)':'var(--red)');+';">'+(p.pnl||0>=0?'+':'')+'&#8377;'+(p.pnl||0).toFixed(0)+'</td><td style="color:var(--red);">-&#8377;'+(p.fees||0).toFixed(0)+'</td><td style="font-weight:700;color:'+((p.netPnl||0)>=0?'var(--grn)':'var(--red)')+';">'+(( p.netPnl||0)>=0?'+':'')+'&#8377;'+(p.netPnl||0).toFixed(0)+'</td><td style="font-size:10px;color:var(--mut);">'+(p.reason||'&#8212;').substring(0,20)+'</td><td><button class="btn br2 bxs" onclick="mClose('+p.sid+','+p.id+')">Close</button></td></tr>').join('')+'</tbody></table>';}
 function mClose(sid,tid){const st=S.strats.find(s=>s.id===sid);if(!st)return;const pos=st.positions.find(p=>p.id===tid);if(!pos)return;closeA(st,pos,'Manual close');}
 function closeAll(){if(!confirm('Close ALL open positions?'))return;S.strats.forEach(st=>st.positions.filter(p=>p.status==='open').forEach(pos=>closeA(st,pos,'Close all')));}
 
-// ═══════════════════════════════════════════════════════
-// COMPARE
-// ═══════════════════════════════════════════════════════
-function renderCmp(){
-  const el=document.getElementById('cmpW');
-  if(!S.strats.length){el.innerHTML='<div class="empty"><div class="ei">⚖</div>Add strategies to compare</div>';return;}
-  const mx=Math.max(...S.strats.map(s=>Math.abs(sPnl(s))),1);
-  el.innerHTML=`<div class="card"><table class="ctbl"><thead><tr><th>Strategy</th><th>Capital</th><th>Net P&L</th><th>Return%</th><th>Win Rate</th><th>Max DD</th><th>Sharpe</th><th>Open</th><th>Closed</th><th>Status</th></tr></thead><tbody>${S.strats.map(st=>{
-    const pnl=sPnl(st),pct=((pnl/st.capital)*100).toFixed(2),wr=sWR(st),dd=sDD(st),sr=sSh(st);
-    const op=st.positions.filter(p=>p.status==='open').length,cl=st.trades.filter(t=>t.status==='closed').length;
-    const bp=Math.min(100,Math.abs(pnl)/mx*100);
-    return`<tr><td><span style="color:${st.color};font-size:14px;">●</span> <b>${st.name}</b>${st.prebuilt?'<span class="pbb">PB</span>':''}<br><small style="color:var(--mut);">${st.index}</small></td><td>${fm(st.capital)}</td><td><div style="font-weight:700;color:${pnl>=0?'var(--grn)':'var(--red)'};">${pnl>=0?'+':''}${fm(pnl)}</div><div class="pbw"><div class="pb" style="width:${bp}%;background:${pnl>=0?'var(--grn)':'var(--red)'};"></div></div></td><td style="color:${parseFloat(pct)>=0?'var(--grn)':'var(--red)'};">${pnl>=0?'+':''}${pct}%</td><td style="color:${wr>=50?'var(--grn)':'var(--red)'};">${wr.toFixed(0)}%</td><td style="color:var(--red);">${dd>0?'-'+fm(dd):'—'}</td><td style="color:${sr>=0?'var(--grn)':'var(--red)'};">${sr.toFixed(2)}</td><td>${op}</td><td>${cl}</td><td><span class="bdg ${st.status==='active'?'bda':'bdp'}">${st.status.toUpperCase()}</span></td></tr>`;
-  }).join('')}</tbody></table></div>`;
-}
+function renderCmp(){const el=document.getElementById('cmpW');if(!S.strats.length){el.innerHTML='<div class="empty"><div class="ei">&#9878;</div>Add strategies to compare</div>';return;}const mx=Math.max(...S.strats.map(s=>Math.abs(sPnl(s))),1);el.innerHTML='<div class="card"><table class="ctbl"><thead><tr><th>Strategy</th><th>Capital</th><th>Net P&amp;L</th><th>Return%</th><th>Win Rate</th><th>Max DD</th><th>Sharpe</th><th>Open</th><th>Closed</th><th>Status</th></tr></thead><tbody>'+S.strats.map(st=>{const pnl=sPnl(st),pct=((pnl/st.capital)*100).toFixed(2),wr=sWR(st),dd=sDD(st),sr=sSh(st),op=st.positions.filter(p=>p.status==='open').length,cl=st.trades.filter(t=>t.status==='closed').length,bp=Math.min(100,Math.abs(pnl)/mx*100);return'<tr><td><span style="color:'+st.color+';font-size:14px;">&#9679;</span> <b>'+st.name+'</b>'+(st.prebuilt?'<span class="pbb">PB</span>':'')+'<br><small style="color:var(--mut);">'+st.index+'</small></td><td>'+fm(st.capital)+'</td><td><div style="font-weight:700;color:'+(pnl>=0?'var(--grn)':'var(--red))+';">'+(pnl>=0?'+':'')+fm(pnl)+'</div><div class="pbw"><div class="pb" style="width:'+bp+'%;background:'+(pnl>=0?'var(--grn)':'var(--red)')+';">'+' </div></div></td><td style="color:'+(parseFloat(pct)>=0?'var(--grn)':'var(--red)')+';">'+(pnl>=0?'+':'')+pct+'%</td><td style="color:'+(wr>=50?'var(--grn)':'var(--red)')+';">'+wr.toFixed(0)+'%</td><td style="color:var(--red);">'+(dd>0?'-'+fm(dd):'&#8212;')+'</td><td style="color:'+(sr>=0?'var(--grn)':'var(--red)')+';">'+sr.toFixed(2)+'</td><td>'+op+'</td><td>'+cl+'</td><td><span class="bdg '+(st.status==='active'?'bda':'bdp')+'">'+st.status.toUpperCase()+'</span></td></tr>';}).join('')+'</tbody></table></div>';}
 
-// ═══════════════════════════════════════════════════════
-// TRADE LOG
-// ═══════════════════════════════════════════════════════
-function renderLog(){
-  const all=[];S.strats.forEach(st=>st.trades.forEach(t=>all.push({...t})));all.sort((a,b)=>b.id-a.id);
-  const el=document.getElementById('tLog');
-  if(!all.length){el.innerHTML='<div class="empty"><div class="ei">📋</div>No trades yet</div>';return;}
-  el.innerHTML=all.map(t=>{const tf=(t.fees||0)+(t.sellFees?.total||0);return`<div class="tl"><div class="tlm" onclick="document.getElementById('x${t.id}').classList.toggle('o')"><span class="tag ${t.action==='BUY'?'tb2':'ts'}">${t.action}</span><div><div style="font-weight:700;">${t.instrument}</div><div style="font-size:10px;color:var(--mut);">${t.stratName} · ${t.lots}L · ${t.time}</div></div><div style="font-size:10px;"><div>Entry: ₹${(t.entryPrice||0).toFixed(2)}</div><div>${t.closePrice?'Exit: ₹'+t.closePrice.toFixed(2):'Open'}</div></div><div><div style="font-size:10px;color:var(--mut);">Gross P&L</div><div style="font-weight:700;color:${(t.pnl||0)>=0?'var(--grn)':'var(--red)'};">${(t.pnl||0)>=0?'+':''}₹${(t.pnl||0).toFixed(0)}</div></div><div><div style="font-size:10px;color:var(--red);">Fees: -₹${tf.toFixed(0)}</div><div style="font-weight:700;color:${(t.netPnl||0)>=0?'var(--grn)':'var(--red)'};">Net: ${(t.netPnl||0)>=0?'+':''}₹${(t.netPnl||0).toFixed(0)}</div></div><div><span class="tag ${t.status==='open'?'to':'tc'}">${t.status.toUpperCase()}</span><div style="font-size:9px;color:var(--mut);margin-top:2px;">▼ fees</div></div></div><div class="tle" id="x${t.id}">${feeHTML(t)}</div></div>`;}).join('');
-}
+function renderLog(){const all=[];S.strats.forEach(st=>st.trades.forEach(t=>all.push({...t})));all.sort((a,b)=>b.id-a.id);const el=document.getElementById('tLog');if(!all.length){el.innerHTML='<div class="empty"><div class="ei">&#128203;</div>No trades yet</div>';return;}el.innerHTML=all.map(t=>{const tf=(t.fees||0)+(t.sellFees?.total||0);return'<div class="tl"><div class="tlm" onclick="document.getElementById(\'x'+t.id+'\').classList.toggle(\'o\')"><span class="tag '+(t.action==='BUY'?'tb2':'ts')+'">'+t.action+'</span><div><div style="font-weight:700;">'+t.instrument+'</div><div style="font-size:10px;color:var(--mut);">'+t.stratName+' '+t.lots+'L '+t.time+'</div></div><div style="font-size:10px;"><div>Entry: &#8377;'+(t.entryPrice||0).toFixed(2)+'</div><div>'+(t.closePrice?'Exit: &#8377;'+t.closePrice.toFixed(2):'Open')+'</div></div><div><div style="font-size:10px;color:var(--mut);">Gross P&amp;L</div><div style="font-weight:700;color:'+((t.pnl||0)>=0?'var(--grn)':'var(--red)')+';">'+(( t.pnl||0)>=0?'+':'')+'&#8377;'+(t.pnl||0).toFixed(0)+'</div></div><div><div style="font-size:10px;color:var(--red);">Fees: -&#8377;'+tf.toFixed(0)+'</div><div style="font-weight:700;color:'+((t.netPnl||0)>=0?'var(--grn)':'var(--red)')+';">Net: '+((t.netPnl||0)>=0?'+':'')+'&#8377;'+(t.netPnl||0).toFixed(0)+'</div></div><div><span class="tag '+(t.status==='open'?'to':'tc')+'">'+t.status.toUpperCase()+'</span><div style="font-size:9px;color:var(--mut);margin-top:2px;">&#9660; fees</div></div></div><div class="tle" id="x'+t.id+'">'+feeHTML(t)+'</div></div>';}).join('');}
 function clearLog(){if(!confirm('Clear closed trades?'))return;S.strats.forEach(st=>{st.trades=st.trades.filter(t=>t.status==='open');});save();renderLog();}
 
-// ═══════════════════════════════════════════════════════
-// SETTINGS & NAV
-// ═══════════════════════════════════════════════════════
 function showSet(){document.getElementById('setOv').classList.add('show');document.getElementById('setUrl').value=S.proxy;checkFyersStatus();}
 function closeSet(){document.getElementById('setOv').classList.remove('show');}
 function saveSet(){S.proxy=document.getElementById('setUrl').value.trim();closeSet();init();}
-async function testC(){
-  const r=document.getElementById('cRes');r.textContent='Testing...';r.style.color='var(--mut)';
-  try{const res=await fetch(S.proxy+'/api/status');const j=await res.json();r.textContent=j.status==='ok'?`✓ v${j.version} · Fyers: ${j.fyers?'Connected':'Not connected'}`:'⚠ Unexpected';r.style.color=j.status==='ok'?'var(--grn)':'var(--a2)';}
-  catch(e){r.textContent='✗ Server unreachable';r.style.color='var(--red)';}
-}
-function go(p){
-  document.querySelectorAll('.pg').forEach(e=>e.classList.remove('a'));
-  document.querySelectorAll('.nt').forEach(e=>e.classList.remove('a'));
-  document.getElementById('pg-'+p).classList.add('a');
-  ['chart','chain','strats','port','cmp','log'].forEach((n,i)=>{if(n===p)document.querySelectorAll('.nt')[i].classList.add('a');});
-  if(p==='port')renderPort();
-  if(p==='cmp')renderCmp();
-  if(p==='log')renderLog();
-  if(p==='strats')renderS();
-  if(p==='chain'){
-    if(S.dataSource==='fyers'&&S.fyersConnected)fetchFyersChain(S.chI);
-    else{fillExpNSE();renderChain();}
-  }
-  if(p==='chart')drawChart();
-}
+async function testC(){const r=document.getElementById('cRes');r.textContent='Testing...';r.style.color='var(--mut)';try{const res=await fetch(S.proxy+'/api/status');const j=await res.json();r.textContent=j.status==='ok'?'OK v'+j.version+' Fyers: '+(j.fyers?'Connected':'Not connected'):'Unexpected response';r.style.color=j.status==='ok'?'var(--grn)':'var(--a2)';}catch(e){r.textContent='Server unreachable';r.style.color='var(--red)';}}
+function go(p){document.querySelectorAll('.pg').forEach(e=>e.classList.remove('a'));document.querySelectorAll('.nt').forEach(e=>e.classList.remove('a'));document.getElementById('pg-'+p).classList.add('a');['chart','chain','strats','port','cmp','log'].forEach((n,i)=>{if(n===p)document.querySelectorAll('.nt')[i].classList.add('a');});if(p==='port')renderPort();if(p==='cmp')renderCmp();if(p==='log')renderLog();if(p==='strats')renderS();if(p==='chain'){if(S.dataSource==='fyers'&&S.fyersConnected)fetchFyersChain(S.chI);else{fillExpNSE();renderChain();}}if(p==='chart')drawChart();}
 function save(){localStorage.setItem('nse_v6',JSON.stringify(S.strats));}
 ['sOv','setOv'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');}));
 </script>
