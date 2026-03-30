@@ -417,7 +417,7 @@ function renderChain(){if(S.dataSource==='fyers'&&S.fyersConnected)return;try{co
 
 function setStatus(s){const d=document.getElementById('sDot'),t=document.getElementById('sTxt');if(s==='live'){d.className='dot live';t.textContent='Live';}else if(s==='error'){d.className='dot';d.style.background='var(--red)';t.textContent='Error';}else{d.className='dot warn';t.textContent='Loading';}}
 function fn(n){if(!n||n===0)return'&#8212;';if(n>=10000000)return(n/10000000).toFixed(1)+'Cr';if(n>=100000)return(n/100000).toFixed(1)+'L';if(n>=1000)return(n/1000).toFixed(1)+'K';return String(n);}
-function fm(n){return'&#8377;'+Math.abs(n).toLocaleString('en-IN',{maximumFractionDigits:0});}
+function fm(n){return'₹'+Math.abs(n).toLocaleString('en-IN',{maximumFractionDigits:0});}
 
 function setDS(ds){S.dataSource=ds;localStorage.setItem('ds_v6',ds);updateDSUI();init();}
 function updateDSUI(){document.querySelectorAll('.ds-btn').forEach(b=>b.classList.remove('active','fyers-active'));const isFyers=S.dataSource==='fyers';document.getElementById('ds-'+S.dataSource)?.classList.add(isFyers?'fyers-active':'active');document.getElementById('fyersLoginBtn').style.display=(isFyers&&!S.fyersConnected)?'block':'none';document.getElementById('fyersLogoutBtn').style.display=(isFyers&&S.fyersConnected)?'block':'none';document.getElementById('fyersTime').style.display=(isFyers&&S.fyersConnected)?'block':'none';}
